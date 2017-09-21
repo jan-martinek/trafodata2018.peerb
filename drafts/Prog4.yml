@@ -1,0 +1,585 @@
+name: "Skriptování 4: Zpracování dat a uživatelský vstup"
+goals: |
+    Poslední lekce ukazuje širší kontext Javascriptu a práci s daty. Prohlédneme si nějaké datové struktury, želvu naučíme kreslit grafy a vyzkoušíme si práci s přímým uživatelským vstupem.
+reading: |
+    Závěrečná lekce ukazuje širší kontext práce s Javascriptem. 
+    
+    Kreslení tvarů se želvou a jednoduché geometrické a slovní hříčky jsou jen začátek: Javascript umožňuje tvorbu libovolné aplikace. Principiálně jde stále o podobné úlohy — příjem vstupů, transformace dat funkcemi a zobrazování výsledků. Výhodou Javascriptu je to, že nevyžaduje složité vývojové prostředí, protože si výsledné skripty můžeme spustit přímo v internetovém prohlížeči.
+    
+    Javascript umožňuje vyřešit úlohy, které jsme řešili v jiných lekcích — využijete regulární výrazy a můžete pracovat s tabulkovými daty i složitěji strukturovanými daty (např. vytaženými z databáze).
+  
+    **Někdy je jednodušší použít připravený nástroj, který je efektivní v řešení určité sady problémů** (jako např. tabulkový procesor), **jindy se může hodit flexibilita vlastního řešení**. Občas může být užitečné naprogramovat si vlastní kalkulačku nebo tabulkový procesor — a nebo (častěji) najít na webu otevřenou implementaci a nějak si ji pro vlastní potřebu upravit.
+    
+    V Javascriptu jsou napsány i velké aplikace, které nejspíše často používáte — např. e-mailové klienty (Gmail, Seznam apod.), kancelářské aplikace (např. Google Documents, Google Spreadsheets). 
+    
+    Krom Javascriptu potřebujete pro tvorbu aplikací ještě znalost HTML a stylopisů CSS (ty jsou zařazeny ve výuce jarního kurzu VIKBA07). Pro některé úlohy se obejdete i bez těchto dvou jazyků — např. při tvorbě vizualizací nebo her můžete využít knihovnu [p5.js](https://p5js.org), kterou jsme využívali v tomto kurzu.
+    
+    ### Algoritmizace
+    
+    Konkrétní jazyky však nejsou tou nejdůležitější dovedností. Tou je schopnost sestavit zadání pro počítač — tedy tvorba algoritmů. Čtyři lekce tohoto kurzu jsou v této oblasti jen náznakem: nicméně byste si nyní měli být schopni představit, co taková činnost zahrnuje (od definice algoritmu, po jeho vývoj a vyzkoušení) a jaké výhody přináší užití počítačů (např. možnost opakovaně zkoušet, jestli „to funguje“ a průběžně odchytávat chyby).
+    
+    Pokud vás to zaujalo, můžete pokračovat čtením [článků na Wikipedii](https://en.wikipedia.org/wiki/Algorithm_design) a následně i odkazovaných zdrojů. Většina postupů v tomto kurzu (učení želvy, definice funkcí apod.) odpovídá metodikám „[rozděl a panuj](https://en.wikipedia.org/wiki/Divide_and_conquer_algorithms)“. 
+    
+    Nenechte se odradit občasným matematickým jazykem — většinou stačí přeskočit úvodní kondenzovanou větu či odstavec. Mnoho zdrojů je napsáno přístupně (např. *[The Algorithm Design Manual](http://www.algorist.com)* od Stevena Skieny).
+rubrics:
+    -
+        checklist: Práce s daty.
+        items:
+            - Skript v první úloze je podrobně popsaný.
+            - Požadované sloupce a řádky jsou v tabulce z první úlohy zvýrazněné.
+            - Cyklus `for … in` je v druhé úloze dobře popsaný, včetně postupu, kterým bylo jeho chování odpozorováno.
+            - Objekty ve třetí úloze jsou správně vytvořeny.
+            - Sčítání ve čtvrté úloze je správně implementováno. (Výsledek zapsaný v konzoli obsahuje správné součty.)
+            - Algoritmus tvorby grafu v páté úloze je popsaný.
+            - Graf v páté úloze je správně vytvořený. w2
+            - Popis skriptu v posledním úkolu je správný.
+    -   
+        checklist: Práce s uživatelským vstupem.
+        items:
+            - V aplikaci v šesté úloze je možné měnit pravým klikem barvu štětce.
+            - Skript v sedmé úloze je popsaný a popsaný je též způsob, jak změnit osu zrcadlení.
+            - Animace v osmé úloze splňuje zadání (je odlišná, používá jiné vektorové a kreslící funkce a používá barvy).
+            - Generátor mandal funguje dle zadání a alespoň dvěma věcmi se liší od původního způsobu kreslení (tvary, barvy, zlepšené možnosti interakce, etc.).
+            - Aplikace v desáté úloze a její funkce jsou dobře popsané.
+            - Operace násobení a dělení jsou přidané a funkční. (Jejich fungování hledejte v kódu, nejen ve spuštěné aplikaci.)
+preface:
+---
+bloom: apply
+input: p5js
+comments: 10
+questions: |
+    ### Pole (array) v Javascriptu
+
+    Popište *podrobně* vlastními slovy do pole pro komentář, jak pracuje předvyplněný skript. Vykreslování používá knihovnu [p5.js](https://p5js.org), jejíž dokumentaci najdete [zde](https://p5js.org/reference/) — zde budete potřebovat znát především roli funkce `setup()` a předpis funkce `text()`.
+    
+    **Následně pozměňte kód tak, aby byl zvýrazněný první a poslední sloupec a také první a poslední řádek.** Využijte k tomu podmínky. Formu zvýraznění si můžete zvolit sami: může jít o barvu či řez písma anebo jiné zvýraznění.
+    
+    > **Tip:** Tabulka záměrně nemá vykreslené okraje buněk pro zjednodušení skriptu. Pro práci s barvou (nejen) textu hledejte v dokumentaci funkci `fill()`, pro práci s písmem funkci `textStyle()`.
+    
+    > **Pozn.:** Pro zjištění, zda proměnná existuje a obsahuje nenulovou hodnotu, můžeme použít krátkou konstrukci `if (názevProměnné) { … }`. Toto má ovšem nevýhodu: pokud bude proměnná obsahovat nulu nebo prázdný řetězec, vyhodnotí se podmínkový výraz jako `false` — a to občas nemusíme chtít. Stejně tak je problém, pokud bychom chtěli ověřit existenci prvku ve vícerozměrném poli, např. `arr[1][2]`: když nebude definována ani hodnota `arr[1]`, skončí běh skriptu chybou, protože nemá kde hledat vnořenou hodnotu.
+  
+prefill: |
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+
+    var head = [' ', 1, 2, 3, 4];
+    var row1 = ['Pavel', 3, 4, 7, 6, 20];
+    var row2 = ['Martina', 4, 5, 1, 4, 14];
+    var table = [
+      head, row1, row2,
+      ['Petr', 4, 2, 1, 2, 9],
+    ];
+    table.push(['Celkem', 11, 11, 9, 12, 43]);
+
+    var margin = 50; // table margin
+    var colWidth = 70;
+    var rowHeight = 30;
+
+    function setup() {
+      createCanvas(w, h);
+      drawTable();
+    }
+
+    function drawTable() {
+      var row = 0;
+
+      while (table[row]) {
+        var col = 0;
+        
+        while (table[row][col]) {
+          var cellX = margin + col * colWidth;
+          var cellY = margin + row * rowHeight;
+          
+          fill('black');
+          text(table[row][col], cellX, cellY);
+          
+          col++; 
+        }
+        row++;
+      }
+    }
+---
+bloom: understand
+input: javascript
+questions: |
+    V předcházející úloze jsme procházeli jednotlivými hodnotami pole. Procházet můžeme i vlastnostmi objektu. V následujícím kódu najdete definice dvou objektů, které Vám nejspíše budou povědomé.
+    
+    Popište **na základě pozorování** jak pracuje cyklus `for … in`, který je variací cyklu for, který již známe.
+    
+    K pozorování použijte zapisování hodnot do konzole a popište, jak jste postupovali.
+prefill: |
+    var market = {
+      cetin: 170.20,
+      cetvCme: 54.20,
+      cez: 479.60,
+      ersteGoupBank: 728.50,
+      fortuna: 73.00,
+      komercniBanka: 5193.00,
+      nwr: 0.18,
+      o2Cr: 229.10,
+      pegasNonwovens: 763.60,
+      philipMorrisCr: 11636.00,
+      plgLobkowicz: 204.90,
+      unipetrol: 141.1,
+      vig: 798.80
+    };
+
+    var portfolio = {
+      fortuna: 110,
+      komercniBanka: 160,
+      cez: 330,
+      unipetrol: 20,
+    };
+
+    function calcPortfolioPrice() {
+      var sum = 0;
+      
+      for (var stock in portfolio) {
+        sum += market[stock] * portfolio[stock];
+      }
+      
+      return sum;
+    }    
+
+    console.log('Celkem: ' + calcPortfolioPrice());
+---
+bloom: understand
+input: javascript
+questions: |
+    Vytvořte na začátku skriptu objekty popisující zvířátka tak, aby o nich skript mohl vytvářet věty. (Inspirujte se objekty v předchozí úloze.) Skript vybírá z pole náhodné zvířátko a následně generuje věty z definovaných vlastností.
+    
+    **Příklad:** *„Prasátko je roztomilé a má celkem 4 končetin.“*
+    
+    Pokud chcete, můžete popis zvířátka rozšířit o další vlastnosti.
+prefill: |
+    // zde doplňte definici objektů
+
+
+    // do zbytku kódu již nemusíte zasahovat
+    var animals = [
+      piglet, rabbit, snake 
+    ];
+
+    // generátor celých čísel od 0 do 2
+    var i = Math.round(Math.random()*2);
+    
+    var a = animals[i];
+
+    alert(a.name + ' je ' + a.characteristic + ' a má celkem ' + (a.limbs * 2) + ' končetin.');  
+---
+bloom: apply
+input: javascript
+questions: |
+    Doplňte skript tak, aby proměnná `totals` obsahovala před závěrečným výpisem součty sloupců definovaných v poli. (Zamyslete se, co jsou to v poli „sloupce“.)
+    
+    Skript obsahuje náhodně vygenerované číslo `r` — proto není možné součet určit předem, ale musí být vždy spočteno. Žádnou hodnotu nevkládejte literálem.
+prefill: |
+    var r = Math.round(Math.random()*9);
+    
+    var numbers = [
+      [r, 4, 2, 4, 9],
+      [4, 8, 5, r, 3],
+      [9, 1, r, 4, 2],
+      [4, r, 4, 5, r],
+      [0, 1, 4, 3, 1]
+    ];
+
+    var totals = [0, 0, 0, 0, 0];
+
+    // doplňte sčítání zde
+
+    console.log(r);
+    console.log(totals);
+---
+bloom: apply
+comments: 5
+input: turtle
+vars:
+    chart:
+        - koláčový graf
+        - sloupcový graf
+    array:
+        - "[34, 21, 45]"
+        - "[12, 56, 32]"
+        - "[80, 9, 11]"
+        - "[51, 22, 22, 5]"
+        - "[22, 25, 34, 19]"
+questions: |
+    Nakreslete pomocí želvy **%chart%**, který znázorňuje hodnoty udané v poli `%array%`. Graf *nemusí být podrobný* — není nutné kreslit osy, popisovat hodnoty nebo vybarvovat plochy — stačí, aby 
+    
+    - připomínal daný typ grafu, 
+    - vyplňoval užitečně prostor daný bílým obdélníkem, který želva kreslí na začátku, 
+    - a **správně vyjadřoval zadané číselné hodnoty**.
+    
+    Algoritmus pro kreslení grafu nejprve popište do pole pro komenář. Vykreslování grafu rozdělte popište alespoň dvěma metodami. Přibližný popis řešení byl zmiňován na semináři — pokud si vůbec nevíte rady, zeptejte se ostatních.
+    
+    V předvyplněném kódu vidíte příklad vykreslení bodového grafu pro dlouhou číselnou řadu.
+    
+    > **Tip:** Kreslení bílého obdélníku můžete vypnout zakomentováním řádku 21.
+    >
+    > **Tip:** Želvu si na začátku výhodně umístěte pomocí volání nastavení vlastností `turtle.x` a `turtle.y`.
+prefill: |
+    // nastavení a metodu drawBoundaries() neměňte
+    turtle = new Turtle();
+    turtle.right(180);
+
+    turtle.drawBoundaries = function() {
+      turtle.x = 20; turtle.y = 340;
+      turtle.penDown = true;
+      turtle.penColor = 'white';
+      
+      var boundaries = [320, 430, 320, 430];
+      for (var i = 0; i < boundaries.length; i++) {
+        turtle.forward(boundaries[i]);
+        turtle.right(90);
+      }
+      
+      turtle.penDown = false; 
+      turtle.penColor = 'black';
+    };
+
+    // pokud nechcete čekat na vykreslení okrajů, zakomentujte tento řádek
+    turtle.drawBoundaries();
+
+    // zbytek kódu můžete smazat a nahradit vlastním kódem
+
+    // datová sada
+    var values = [0,2,5,6,7,7,8,9,10,12,14,15,16,16,17,17,18,19,20,21,22,23,24,23,22,21,20,22,23,22,24,26,26,27,29,29,30,30,32,33,34,35,35,36,37,38,39,39,39,40,41,43,43,44,45,46,48,49,5,5,7,9,10,50,50,50,51,52,53,53,57,60,61,62,62,64,65,66,67,67,67,68,69,70,70,70];
+
+    // nastavení pozice želvy (je otočená nahoru)
+    turtle.x = 20;
+    turtle.y = 340;
+
+    // kreslení datové hodnoty
+    turtle.drawDataPoint = function(n, size, gap) {
+      turtle.forward(size * n);
+      turtle.drawTinyCircle();
+      turtle.back(size * n);
+      
+    };
+
+    // posun k dalšímu bodu
+    turtle.moveOn = function() {
+      turtle.right(90);
+      turtle.forward(gap);
+      turtle.left(90);
+    };
+
+    // kreslení grafického symbolu
+    turtle.drawTinyCircle = function() {
+      turtle.penDown = true;
+      for (var i = 0; i < 360/40; i++) {
+        turtle.forward(2);
+        turtle.right(40);
+      }
+      turtle.penDown = false;
+    };
+
+    // kreslení
+    var gap = 5;
+    var size = 3;
+
+    for (var i = 0; i < values.length; i++) {
+      var val = values[i];
+      turtle.drawDataPoint(val, size, gap);
+      turtle.moveOn();
+    }
+---
+bloom: create
+input: p5js
+questions: |
+    ### Kreslení myší
+    
+    Předvyplněný kód obsahuje velmi jednoduchý nástroj na kreslení. Doplňte kód tak, aby bylo možné pomocí kliku pravým tlačítkem měnit barvu „štětce“.
+    
+    Pro zachycení pravého kliknutí se nehodí funkce `draw()`, protože stihne i během krátkého kliknutí proběhnout několikrát (volá se 30x za sekundu). Využijte tedy možnost definovat funkci `mouseClicked()`, která se volá pouze tehdy, když dojde k jednotlivému kliknutí a pomocí podmínky odchyťte kliknutí pravým tlačítkem. Detaily hledejte v dokumentaci [p5.js](https://p5js.org/reference/) (hledejte vlastnosti a metody obsahující `mouse`).
+    
+    > **Tip:** Některé barvy můžete nastavovat pomocí klíčových slov (např. `red`, `blue`, `magenta`), ale můžete využít i další zápisy, na které jsme narazili: hexadecimální zápis RGB (`#FF0000`), decimální zápis RGB (`rgb(255, 0, 0)`) nebo decimální zápis HSL (`hsl(0, 100%, 50%)`). (Všechny příklady v závorkách popisují stejnou červenou barvu.)
+    >
+    > Zajímavé může být přidání průhlednosti pomocí zápisů RGBA nebo HSLA (`rgba(255, 0, 0, 0.5)`, resp. `hsla(0, 100%, 50%, 0.5)`, které umožní míchání barev na plátně. Poměrně jednoduché je pak i vytvoření „kapátka“, kterým můžete barvu nastavit pomocí kliknutí do plátna — stačí využít metodu `get()`.
+prefill: |
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    var brushColor = 'black';
+
+    function setup() {
+      createCanvas(w, h);
+      
+      fill(brushColor);
+      noStroke();
+    }
+
+    function draw() {
+      if (mouseIsPressed) {
+        ellipse(mouseX, mouseY, 20);  
+      }
+    }
+
+    function mouseClicked() {
+      
+    }
+---
+bloom: create
+input: p5js
+comments: 10
+questions: |
+    ### Zrcadlení
+    
+    Kód je velmi podobný jako v příkladu výše — jen kreslí na dvou místech zároveň.
+    
+    Popište, jak kód funguje. Následně změňte osu zrcadlení a popište, jak jste to udělali.
+prefill: |
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+
+    function setup() {
+      createCanvas(w, h);
+      fill('black');
+      noStroke();
+    }
+
+    function draw() {
+      if (mouseIsPressed) {
+        ellipse(mouseX, mouseY, 20);  
+        ellipse(w - mouseX, mouseY, 20);
+      }
+    }
+---
+bloom: apply
+input: p5js
+questions: |
+    ### Vektory
+    
+    Následující kód představuje koncept vektoru — jde o matematický koncept, který dvěma a více čísly (souřadnicemi *x*, *y*, *z*…) označuje velikost a směr. Běžné číslo (*skalár*) má pouze velikost.
+    
+    > **Pozn.:** Při práci se želvou je práce s vektorem schována do dvou různých operací: funkce `left()` a `rigt()` mění směr (interně uchovaný ve vektoru nenulové délky), funkce `forward()` a `back()` jednorázově nastaví velikost vektoru a želvu posunou.
+    
+    My budeme používat pouze dvourozměrné vektory, ale práce s vícerozměným prostorem již není o mnoho složitější. Tu nepříjemnou část (*počítání*) za vás obstará *počítač* a tak může být práce s vektory poměrně zábavná.
+    
+    Vektory jsou v podstatě souřadnice, s nimiž ale můžeme příjemně pracovat: můžeme je sčítat a odčítat, násobit (skalárem i jiným vektorem) a dělit. Výsledky se „spočítají samy“, tak je jednoduché vyzkoušet, jaké výsledky jednotlivé operace přinášejí.
+    
+    ### Vektorové operace
+    
+    Sčítání vektorů je jednoduché — stačí souřadnice sečíst:
+    
+        var v1 = createVector(10, 10);
+        var v2 = createVector(5, -5);
+        var sumVector = createVector(v1.x + v2.x, v1.y + v2.y);
+        
+    Nicméně díky dostupným funkcím je možné poslední řádek zapsat jednodušeji:
+    
+        var sumVector = p5.Vector.add(v1, v2);
+    
+    Objekt `p5.Vector` používáme, když chceme vytvořit nový vektor na základě jiných. Když chceme vektor změnit, můžeme používat jeho vlastní metody:
+      
+        var vector = createVector(10, 10);
+        vector.mult(2); // násobení skalárem — výsledek je dvakrát delší vektor
+        vector.rotate(radians(90)); // otočení o 90 stupňů po směru hodinových ručiček
+        
+    > **Pozn.**: funkce `radians()` převádí stupně na radiány, které metoda `rotate()` vyžaduje.
+    
+    ### Předvyplněný příklad
+    
+    Předvyplněný kód používá dva vektory — ve funkci `setup()` jsou do vektoru `center` vloženy souřadnice středu kreslícího pole a druhý, nazvaný `vector`, je nastaven na hodnotu, kterou jsem si vymyslel. (Dalo by se též říct, že je nastaven na arbitrární hodnotu vhodnou pro předváděcí účely.)
+    
+    Během opakovaně volané funkce `draw()` je kresleno kolečko na souřadnice dané součtem obou vektorů. Kód na řádcích 13—14 by tedy bylo možné přepsat také takto:
+    
+        ellipse(center.x + vector.x, center.y + vector.y, 5);
+        
+    Vektor se po nakreslení kolečka o něco otočí a zvětší (vynásobí číslem, které je větší než 1), viz řádky 16–17. Díky tomu, že se funkce `draw()` opakuje mnohokrát, je i zvětšení o tisícinu aktuální velikosti rychle a snadno patrné.
+    
+    ### Zadání
+    
+    Prozkoumejte daný kód a vytvořte odlišnou animaci na stejném principu:
+    
+    - Použijte nějaké [jiné vektorové funkce](https://p5js.org/reference/#/p5.Vector), které nejsou v předvyplněném kódu užité (klidně přidejte nějaký další vektor). 
+    - Použijte jinou kreslící funkci — namísto kruhu můžete kreslit například obdélníky, trojúhelníky nebo čáry (nebo jiné tvary, které jste želvu učili v předchozích lekcích). 
+    - Použijte barvy, které jsou odvozeny z nějaké dostupné proměnné (např. z některé souřadnice či jejich součtů).
+    
+    > **Pozn.:** [čára](https://p5js.org/reference/#/p5/line) je spojnice dvou bodů, tzn. dvou sad souřadnic, tzn. dvou vektorů.
+    
+    > **Tip:** Výplň nastavíte funkcí `fill()`, barvu čáry nebo obrysu pomocí `stroke()`. Pokud chcete tvar bez výplně nebo obrysové čáry, použijte funkci `noFill()`, resp. `noStroke()`.
+prefill: |
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    var center;
+    var vector;
+
+    function setup() {
+      createCanvas(w, h);
+      center = createVector(w/2, h/2);
+      vector = createVector(30, 30);
+    }
+
+    function draw() {
+      var position = p5.Vector.add(center, vector);
+      ellipse(position.x, position.y, 5);
+      
+      vector.rotate(radians(8.1)); // otáčení vektoru
+      vector.mult(1.001); // násobení vektoru
+    }
+---
+bloom: create
+input: p5js
+questions: |
+    ### Generátor mandal
+
+    Kód je opět velmi podobný tomu, s nímž jsme se potkali výše při kreslení (úlohy 6 a 7). Tentokrát je však pozice myši před samotným kreslením převedená na vektor, který je vztažený ke středu kreslícího plátna.
+   
+    **Vícenásobnou rotací tohoto vektoru** napodobte fungování aplikace [Amaziograph](http://www.amaziograph.com), která umožňuje vícenásobně symetrické kreslení — pro příklad se [podívejte na video](https://youtu.be/oe88o-hQTNc?t=12s). Výsledkem jsou tvary, které mohou připomínat [mandaly](https://en.wikipedia.org/wiki/Mandala).
+    
+    > **Pozn.:** Na semináři se mi nepodařilo najít video sdílené na Facebooku StuNoMe — protože ho [sdílelo naše domovské TIMko](https://www.facebook.com/tim.ffmu/posts/1798772023704276)!
+    
+    Krom rotace upravte některé vlastnosti skriptu, aby byl výsledek vizuálně pestřejší. Pro inspiraci několik příkladů možného odlišení:
+    
+    - Namísto kreslení kolečka můžete kreslit jiné útvary.
+    - Použijte ke kreslení různé barvy (mohou se měnit podle rotace nebo v závislosti na velikosti vektoru).
+    - Použijte část skriptu, který jste vytvořili výše a umožňete přepínání barev pomocí pravého tlačítka myši.
+    - Uložte si bokem staré souřadnice a pak je použijte pro nakreslení spojnice s aktuálním vektorem. (Pozor: proměnné si vydefinujte na začátku skriptu, jinak nebudou uložené hodnoty dostupné při dalším volání funkce `draw()` — pro více informací o googlujte „[javascript scope](https://www.google.cz/search?q=javascript+scope)“ nebo „[javascript viditelnost proměnných](https://www.google.cz/search?q=javascript+viditelnost+prom%C4%9Bnn%C3%BDch)“.)
+    
+    > **Tip:** Vytvořené mandaly neukládejte a přijměte pomíjivost světa. Kód generátoru nicméně uložte, abyste nepřišli o body.
+    >
+    > **Tip.:** Pokud budete při rotaci pracovat se stupni, nezapomeňte hodnotu převést na radiány pomocí funkce `radians()`.
+prefill: |
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    var center;
+
+    function setup() {
+      createCanvas(w, h);
+      center = createVector(w/2, h/2);
+    }
+
+    function draw() {
+      if (mouseIsPressed) {
+        var fromCenter = createVector(
+          center.x - mouseX, 
+          center.y - mouseY
+        );
+
+        ellipse(
+          center.x - fromCenter.x, 
+          center.y - fromCenter.y, 
+          10
+        );  
+      }
+    }
+---
+bloom: apply
+input: p5js
+comments: 10
+questions: |
+    Poslední úkol obsahuje mírně složitější aplikaci — podobně jako hra s králíkem v minulé úloze. Tentokrát se pustíme do větší hloubky a aplikaci si projdeme celou. Pokud pro vás aplikace není srozumitelná na základě svého rozhraní, můžete ji pochopit pomocí čtení jejího kódu.
+    
+    ### Stav a změna
+    
+    V kódu opět vidíte celou aplikaci — její **stav (data)** a **funkce, které stav mění**.
+    
+    - Stav aplikace je definovaný pomocí proměnných, které jsou nastavené na začátku skriptu.
+    - V aplikaci dochází ke změnám, které se odehrávají ve funkcích `selectOperation()`, `keyTyped()` a `mouseClicked()` — všimněte si, že z těchto tří je pouze `selectOperation()` volaná uvnitř funkce `draw()`. Ostatní funkce jsou volané řídící knihovnou p5.js:
+        - funkce `setup()` je volána na začátku běhu skriptu
+        - funkce `draw()` je po průběhu funkce `setup()` volána mnohokrát za sekundu a obstarává překreslování plátna
+        - funkce `keyTyped()` je volána po zmáčknutí klávesy
+        - funkce `mouseClicked()` je volána po kliknutí myší
+    
+    ### Zadání
+    
+    **Popište jak aplikace pracuje a co konkrétně jednotlivé funkce provádějí** (včetně těch, které jsou volány uvnitř funkce `draw()`) do pole pro komentáře.
+    
+    Následně **přidejte další operace**: násobení (`'multiply'`) a dělení (`'divide'`). Způsob, kterým budete operaci vybírat a zobrazovat je na Vás — ale vymyslete svůj vlastní způsob. (Můžete místo výběru myší použít i klávesnici, popř. vymyslet jiné sektory pro výběr myší.)
+    
+    Můžete přidat i způsob, jak zadané číslo smazat.
+prefill: |
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    
+    var total = 0;
+    var num = 0;
+    var operation = null;
+    
+    var started = false;
+
+    function setup() {
+      createCanvas(w, h);
+      textAlign(CENTER);
+    }
+
+    function draw() {
+      if (started === false) {
+        background(200);
+        textSize(70);
+        text('Click to start', w/2, h/2);
+      } else {
+        selectOperation();
+        displayOperation();
+        displayNumbers();
+      }
+    }
+
+    function selectOperation() {
+      if (mouseX < w/2) {
+        operation = 'subtract';
+      } else {
+        operation = 'add';
+      }
+    }
+
+    function displayOperation() {
+      fill('rgba(255, 255, 255, 0.8)');
+      textSize(200);
+
+      if (operation == 'subtract') {
+        background('blue');
+        text('–', w/2, h/2+70);
+      } else if (operation == 'add') {
+        background('red'); 
+        text('+', w/2, h/2+70);
+      }
+    }
+
+    function displayNumbers() {
+      fill('white');
+      
+      textSize(100); 
+      text(total, w/2, h/2 - 80);
+      
+      textSize(60); 
+      text(num, w/2, h/2 + 150);
+    }
+
+    function mouseClicked() {
+      if (started === false) {
+        started = true;
+      } else {
+        if (operation == 'subtract') {
+          total = total - num;
+        } else if (operation == 'add') {
+          total = total + num;
+        }
+        num = 0;
+      }
+    }
+
+    function keyTyped() { 
+      if (/[0-9]+/.test(key)) {
+        num = num * 10 + parseInt(key);  
+      }
+    }
+---
+bloom: understand
+input: javascript
+comments: 5
+questions: |
+    Nebyl by to poslední úkol, aby neobsahoval regulární výrazy. A Vánoce.
+    
+    Popište, jak skript pracuje a co znamená modifikátor `g` u regulárních výrazů. Pokud to bude možné, zkuste to odvodit od vlastního pozorování.
+    
+    Následně si užijte Vánoce.
+prefill: |
+    var lyrics = "Love is in the air / Everywhere I look around  / Love is in the air  / Every sight and every sound  /  / And I don't know if I'm being foolish  / Don't know if I'm being wise  / But it's something that I must believe in  / And it's there when I look in your eyes  /  / Love is in the air  / In the whisper of the trees  / Love is in the air  / In the thunder of the sea  /  / And I don't know if I'm just dreaming  / Don't know if I feel sane  / But it's something that I must believe in  / And it's there when you call out my name  /  / Love is in the air, Love is in the air, oh, oh, oh…";
+
+    var xmasLyrics = lyrics.replace(/[Ll]ove/g, 'Christmas');
+    var geekLyrics = xmasLyrics.replace(/eyes/, 'code');
+    var lineLyrics = geekLyrics.replace(/ \/ /g, "\n");
+
+    alert(lineLyrics);

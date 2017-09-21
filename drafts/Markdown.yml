@@ -1,0 +1,112 @@
+name: "Značkovací jazyky: Markdown"
+goals: |
+    Cílem této lekce je poznat kompletní syntax jazyka *Markdown* a vyzkoušet si ji na několika příkladech.
+reading: |
+    Minule jsme si vyzkoušeli HTML a tentokrát se naučíme nový jazyk, aby pro nás byla tvorba hypertextových dokumentů v HTML jednodušší. Ano, slyšíte správně — další jazyk: půjde o *Markdown*, o němž jeho autor říká následující:
+    
+    > Markdown is a text-to-HTML conversion tool for web writers. Markdown allows you to write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML (or HTML). (…)
+    > 
+    > The overriding design goal for Markdown’s formatting syntax is to make it as readable as possible. The idea is that a Markdown-formatted document should be **publishable as-is, as plain text**, without looking like it’s been marked up with tags or formatting instructions. While Markdown’s syntax has been influenced by several existing text-to-HTML filters, the single biggest source of inspiration for Markdown’s syntax is the format of *plain text email*.
+    
+    ### Povinná četba
+    
+    Četbou pro tuto lekci je především [dokumentace Markdownu](https://daringfireball.net/projects/markdown/): 
+    
+    - to znamená především stránku [Basics](https://daringfireball.net/projects/markdown/basics), která je plná příkladů, 
+    - a stránku [Syntax](https://daringfireball.net/projects/markdown/syntax), kde se dozvíte všechny podrobnosti.
+    
+    ### Další četba a videa
+    
+    Pokud nečemu nerozumíte, zkuste si přečíst podobné informace z jiného zdroje — například ve článku [Short Guide To Start With Markdown](http://blog.wax-o.com/2014/04/tutorial-short-guide-to-start-with-markdown/). 
+    
+    Jako obvykle, internet je obrovský a najdete v něm mnoho dalších [návodů, tutoriálů a referencí](https://www.google.com/search?q=markdown+intro). Obzvláště názorné jsou [videotutoriály na Youtube](https://www.google.com/search?q=markdown+intro+youtube).
+    
+    ### Hodně štěstí
+    
+    S další literaturou se setkáte při plnění úkolů. Syntaxi si projděte pořádně, protože texty psané v Markdownu budeme ve zbytku kurzu využívat intenzivně.
+rubrics: 
+    - 
+        metric: "Jsou odpovědi na vědomostní otázky (tzn. první čtyři) správné?"
+        0: "Odpovědi schází nebo jsou zcela nesprávné."
+        1: "V odpovědích se objevují zásadní chyby."
+        2: "V odpovědích se objevují drobné chyby."
+        3: "Odpovědi jsou zcela správné."
+    - "Pokud jste objevili nějakou chybu, upřesněte, kde se chyby nachází. Pokuste se problematiku osvětlit tak, aby to autorovi/autorce pomohlo."
+    - 
+        metric: "Dohledal/a autor/ka vhodně informace v otázkách číslo 5 a 6?"
+        0: "Odpovědi schází nebo jsou zcela nesprávné."
+        1: "V odpovědích se objevují zásadní faktické chyby."
+        2: "V odpovědích se objevují drobné chyby nebo jsou zpracované ledabyle, pro forma."
+        3: "Odpovědi jsou zcela správné." 
+    -
+        metric: "Je praktický úkol — tedy text v Markdownu a soubor v HTML — proveden správně? (Soustřeďte se především na užití syntaxe Markdown.)"
+        0: "Úkol není zpracován a nebo je zcela chybný."
+        1: "Syntaxe Markdown je využívána nesprávně, nevyznačuje vše, co by bylo vhodné vyznačit, anebo je problematická konverze do HTML (chybí hlavička HTML dokumentu apod.)."
+        2: "V syntaxi Markdown se objevují drobné problémy."
+        3: "Úkol je zpracován bezchybně." 
+    - "Zhodnoťte, zda jsou zvýrazněné pasáže a odkazy v textu knihy v posledním úkolu vhodně vybrané a zvýrazněné správným způsobem. Pokud byste raději zvýraznili jiné pasáže, jaké by to byly?"
+preface: "Při zpracování úkolů vycházejte ze zadané literatury a dohledávejte další informace na internetu."
+---
+bloom: remember
+count: 2
+questions:
+    - Proč byla vymyšlena syntaxe Markdown?
+    - Jakou roli hrají v syntaxi Markdown hranaté závorky? (Popište vlastními slovy a uveďte příklady.)
+    - Jak se v syntaxi Markdown používá hvězdička? (Popište vlastními slovy a uveďte příklady.)
+    - Jak v syntaxi Markdown zapíšete číslovaný seznam? (Popište vlastními slovy a uveďte příklady.)
+    - Jak v syntaxi Markdown zapíšete nečíslovaný seznam? (Popište vlastními slovy a uveďte příklady.)
+    - Jak v syntaxi Markdown zapíšete webový odkaz? Jaké jsou druhy odkazů? (Popište vlastními slovy a uveďte příklady.)
+    - Jak v syntaxi Markdown zapíšete nadpis? (Popište vlastními slovy a uveďte příklady.)
+---
+bloom: apply
+count: 2
+questions:
+    - "Popište vlastními slovy „filozofii“ syntaxe Markdown."
+    - "Co je to „inline html“?"
+    - "Co je to „escaping“ (česky nejčastěji „escapování“) znaků?"
+    - "Proč Markdown umožňuje používání odkazů pomocí reference?"
+    - "Pokud chcete napsat kus kódu, na který se nebudou aplikovat pravidla syntaxe Markdown, jak to uděláte?"
+---
+bloom: analyze
+questions:
+    - "Na syntaxi Markdown spolupracoval Aaron Swartz. Najděte si o něm více informací, a popište v deseti větách projekty, na nichž pracoval. Uveďte odkazy na 3 zdroje, z nichž jste čerpali. (Zde se obejděte bez Wikipedie.)"
+    - "Na syntaxi Markdown spolupracoval Aaron Swartz. Najděte si o něm více informací, a popište jeho osobní život v deseti větách. Uveďte odkazy na 3 zdroje, z nichž jste čerpali. (Zde se obejděte bez Wikipedie.)"
+---
+bloom: analyze
+questions:
+    - "Autorem syntaxe Markdown je John Gruber. Najděte, o koho jde, a popište jej v 10 větách. Uveďte odkazy na 3 zdroje, z nichž jste čerpali. (Zde se obejděte bez Wikipedie.)"
+    - "Díky rozšíření syntaxe Markdown vzniklo poměrně velké množství dialektů. Dohledejte alespoň čtyři dialekty Markdown („markdown dialects“), popište jejich užití a uveďte odkazy na alespoň 4 zdroje, z nichž jste čerpali. (Zde se obejděte bez Wikipedie.)"
+---
+bloom: analyze
+vars:
+    syntax: [Setext, atx, Textile, reStructuredText, Grutatext, EtText]
+questions: "Popište v základech podobnosti a rozdíly syntaxe **%syntax%** vůči Markdownu."
+---
+bloom: create
+input: markdown
+comments: 8
+vars:
+    book:
+        - http://www.gutenberg.org/ebooks/133
+        - http://www.gutenberg.org/ebooks/12
+        - http://www.gutenberg.org/ebooks/528
+        - http://www.gutenberg.org/ebooks/1343
+        - http://www.gutenberg.org/ebooks/5200
+        - http://www.gutenberg.org/ebooks/46
+        - http://www.gutenberg.org/ebooks/175
+        - http://www.gutenberg.org/ebooks/1
+        - http://www.gutenberg.org/ebooks/2
+        - http://www.gutenberg.org/ebooks/3
+questions: |
+    Použijte alespoň 3000 slov z textu knihy dostupné na adrese [%book%](%book%) (vyjděte z verze *Plain Text UTF-8*).
+    
+    - Text sémanticky upravte pomocí syntaxe Markdown. 
+    - V odstavcích textu vhodným způsobem zvýrazněte důležité pasáže. Pasáže si vyberte dle vlastního uvážení.
+    - Vybraný text není hypertextovým dokumentem. Přidejte do něj alespoň pět odkazů na relevantní webové zdroje. Odkazy važte přímo na text knihy, nedoplňujte vlastní text. (Příklad: Do Dickensova románu, který pojednává o životu v chudobě, byste mohli přidat odkaz na relevantní data o životní úrovni v daném období.)
+    
+    Do komentáře vepište jakékoli postřehy a poznámky související s úkolem.
+---
+bloom: create
+input: file
+questions: |
+    Vytvořený kód v syntaxi Markdown **vložte do [nějakého webového generátoru HTML](https://www.google.cz/search?q=markdown+online+convertor)**. Výsledný soubor ve formátu HTML nahrajte zde.

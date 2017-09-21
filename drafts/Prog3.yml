@@ -1,0 +1,656 @@
+name: "Skriptování 3: Detaily javascriptu"
+goals: |
+    Třetí lekce ukazuje jednotlivé detaily a doplňuje lekci druhou. Pokud se vám něco nedařilo, zkuste si projít příklady, zaměřené přímo na danou věc. Pokud se vám dařilo, prověřte si, zda dobře rozumíte problematice.
+reading: |
+    ### Spousta čtení
+    
+    Tato lekce reaguje na seminář a vrací se k základům javascriptu: proto zde najdete jednodušší příklady, které jsou uvozeny dlouhými texty. Díky tomu by mělo být snadnější vyřešit i příklady z předchozí lekce, která je otevřena souběžně s touto.
+    
+    > **Obecné doporučení:** nesnažte se pochopit jen psaný text, ale zkoušejte si průběžně, co vás napadne (v konzoli nebo v místech pro zpracování úkolů). A pokud tomu nebudete rozumět, napište do fóra.
+
+    ### Syntaxe javascriptu
+
+    V tomto kurzu se snažíme syntaxi javascriptu především „odkoukat“ z ukázek kódu, ale zpětně je dobré se podívat, čím jsme si prošli a získané znalosti si potvrdit. Pokud jste si neprošli žádný webový úvodní kurz, jak bylo doporučeno v minulých lekcích, projděte si alespoň následující referenci. 
+    
+    **Kód se skládá z příkazů, které jsou vždy odděleny středníkem.** Běžně příkazy píšeme pro přehlednost na samostatné řádky, ale není to nutné.
+    
+        var result = doSomething();
+        console.log(result);
+    
+    Podstatné kousky kódu jsou:
+    
+    - složené závorky `{` `}`, které vymezují bloky kódu
+    - operátor přiřazení `=`, který vkládá obsah do proměnné
+    - matematické operátory `+` `-` `*` `/` `%`
+    - relační (porovnávací) operátory `==` `!=` `>` `>=` `<` `<=` `===` `!==`
+    - logické operátory `&&` `||`, které umožňují skládání porovnání
+    - klíčová slova jako např. `var` `function` `true` `false` `while` `for` `if` `else` či `new`
+    - parametry funkcí uzavíráme při definici i při volání do závorek `var f = function(parametr)` `f(10)`
+    
+    Krom toho jsou podstatné **přímé zápisy hodnot (literály)**: čísla píšeme přímo (`6`, `3.14`), řetězce uzavíráme do jednoduchých (`'řetězec'`) nebo klasických uvozovek (`"řetězec"`). Regulární výraz je ohraničen speciálním znakem, nejčastěji se používá lomítko: `/^regex$/`.
+    
+    **Názvy proměnných** mohou obsahovat písmena, číslice a podtržítko, ale nesmí začínat číslicí a nesmí být klíčovým slovem. Názvy proměnných tedy mohou být `color`, `turtleSize` nebo `_snowFlakePart6`. Při vytváření proměnných používáme klíčové slovo `var`.
+    
+    Při práci s objekty (uloženými v proměnných) přistupujeme k jejich vlastnostem a metodám pomocí tečky (tedy např. `turtle.forward(50)` nebo `turtle.penDown`).
+    
+    Pro ujištění v detailech si můžete dohledat referenci — jako obvykle se dá najít poměrně hezký [cheatsheet](https://www.cheatography.com/kelt/cheat-sheets/learning-javascript/) anebo můžete využít nějaký český zdroj, např. tento již poměrně zastaralý, ale [velmi stručný přehled](http://www.fi.muni.cz/~xhejtman/P005/jssyntax.html) (sekce *Příkazy*, *Řízení chodu programu* a *Funkce*).
+rubrics:
+    -
+        checklist: Hodnocení celé lekce
+        items:
+            - V prvním příkladu jsou vypsané názvy všech definovaných metod a skript je správně a logicky popsán.
+            - Dům v druhém příkladu je správně vykreslen a kód je logicky strukturovaný (využívá několika funkcí).
+            - Hádanka ve třetím úkolu je správně zpracovaná a na uživatelský vstup reaguje korektně.
+            - Kód ve čtvrtém příkladu je správně naformátován pomocí odsazování.
+            - Řetězec v pátém příkladu je správně sestaven z proměnných.
+            - Oznamovatel svátků v šestém příkladu korektně hlásí počet dní do Vánoc.
+            - Dvaceticípá hvězda je správně vytvořena a v komentáři je popsáno, jak toho autor/ka dosáhl/a.
+            - Hra v osmém příkladu je upravena dle pokynů.
+            - Screenshot v devátém příkladu splňuje zadání a zobrazené skóre je větší než 2000 bodů.
+preface:
+---
+bloom: understand
+comments: 15
+input: turtle
+questions: |
+    ### Jak číst kód?
+    
+    Kód byste neměli číst od začátku do konce — už kvůli tomu, že většinou se od začátku do konce neprovádí.
+    
+    Definice funkcí procházet nemusíte: jejich účel by měl být srozumitelný i bez toho, že si přečtete jejich kód. Nejprve si tedy projděte kód, který není uvnitř funkcí. Tak poznáte základní kostru programu.
+    
+    Např. v minulé lekci jsme se setkali s kódem, který generuje vločku. Ten má následující části:
+      
+    1. definice vlastností želvy
+    2. definice funkce, která kreslí vločku
+    3. definice funkce, která kreslí část vločky, která se opakuje
+    4. volání funkce
+      
+    Nejprve stačí, když si všimnete této struktury a následujete běh kódu:
+    
+    1. Prohlédnete si, jak je na začátku nastavená želva (1). 
+    2. Poté přeskočíte definice funkcí a uvidíte, že na konci je volána želví metoda `snowFlake()` (4). Program jako celek tedy dělá jedinou věc: **zavolá metodu `snowFlake()`**.
+    3. Podíváte se tedy na metody `snowFlake()` (3) a uvidíte tam cyklus, který se opakuje šestkrát a vždy zavolá dvakrát metodu `snowFlakePart()` (s různými parametry).
+    4. Až nakonec se tedy mrknete, co obsahuje metoda `snowFlakePart()` a jak ovlivní její průběh parametr `mirror`.
+    
+    Oproti čtení od začátku do konce tedy mnohem lépe sledujete průběh programu: ale nemusíte číst funkci `snowFlakePart()` dvanáctkrát :-)
+    
+    ### Zadání
+    
+    Projděte následující podobně strukturovaný kód (je převzatý z jedné z úloh z předchozí lekce a zjednodušený). Do pole pro komentář 1) **vypište názvy metod, které jsou v kódu definované** a **následně popište vlastními slovy skript** — nikoli od prvního do posledního řádku, ale dle výše popsané logiky. (Pokud by vás vyděsila složená podmínka se značkami `||`, podívejte se na úkol č. 3.)
+prefill: |
+    turtle = new Turtle();
+    turtle.x = window.innerWidth/2;
+    turtle.y = window.innerHeight/2; 
+    turtle.penDown = true;
+
+    turtle.goCarefully = function() {
+      turtle.forward(10);
+      
+      if (turtle.x < 50 || turtle.y < 50 ||
+          turtle.x > window.innerWidth - 50 ||
+          turtle.y > window.innerHeight - 50) {
+        turtle.turnInShock();
+      }  
+    };
+
+    turtle.turnInShock = function() {
+      turtle.back(20);
+      turtle.right(random(85,270));
+    };
+
+    for (var i = 0; i <= 1000; i++) {
+      turtle.goCarefully();
+    }
+---
+bloom: understand
+input: turtle
+questions: |
+    ### Jak psát kód?
+    
+    Stejně jako není dobré kód sekvenčně číst, není dobré jej sekvenčně psát. Při tvorbě postupu (algoritmu) postupujte podle logických celků, jejichž splnění vede ke splnění úkolu.
+    
+    Například můžete chtít, aby želva nakreslila sluníčko. Sluníčko můžete popsat jako kruh obklopený čarami, které vycházejí ze středu kruhu. Není to úplně přesný popis, ale máte představu, kterou můžete zrealizovat na základě základních funkcí, které želva umí: chodit tam a zpět a zatáčet vpravo a vlevo.
+    
+    Pokud byste šli a začali rovnou psát první příkaz „turtle.forward()“, nejspíše byste nedošli daleko, než by želva začala dělat nesmysly a bylo by těžké zjistit proč. Proto je lepší algoritmus rozdělit postupně do snadno proveditelných částí.
+    
+    ### Nastavení výchozího stavu
+    
+    Nejprve si nastavíte prostředí — v našem případě umístíte želvu tam, kde ji chcete mít. Položíte ji doprostřed a zapnete pero.
+    
+        turtle = new Turtle();
+        turtle.x = window.innerWidth/2;
+        turtle.y = window.innerHeight/2; 
+        turtle.penDown = true;
+        
+    ### Základní algoritmus
+    
+    Na začátku si můžete sluníčko rozdělit na kolečko a paprsky.
+    
+        turtle.drawSun = function() {
+          turtle.drawSunCircle();
+          turtle.drawSunbeams();
+        }
+        
+        turtle.drawSunCircle = function() {
+        }
+        
+        turtle.drawSunbeams = function() {
+        }
+        
+    Kód zatím nic nedělá, ale nehází chyby a stačí už jen doplnit obsah obou funkcí.
+        
+    ### Implementace funkcí
+    
+    #### Kolečko
+    
+    Následně můžete želvě vydefinovat metodu, která nakreslí kolečko.
+    
+        turtle.drawSunCircle = function() {
+          for (var i = 0; i < 360; i++) {
+            turtle.right(1);
+            turtle.forward(1);
+          }
+        };
+    
+    #### Paprsky
+    
+    Při kreslení paprsků můžete vymyslet několik různých způsobů:
+      
+    - můžete odjet do středu kružnice a z něj vyjíždět ven a dělat paprsky (střed si můžete dopočítat nebo odhadnout dle výsledků)
+    - můžete udělat stejný kruh jako naposledy, ale každách pár cyklů můžete vyjet ven a nakreslit paprsek
+    - napadne vás jiné řešení?
+    
+    Už víte, že paprsků budete kreslit několik, tak si můžete vytvořit cyklus, který bude volat funkci, která kreslí jednotlivé paprsky:
+      
+        turtle.drawSunbeams = function() {
+          for (var i = 0; i < 30; i++) {
+            turtle.drawSunbeam();
+          }
+        }
+        
+        turtle.drawSunbeam = function() {
+        }
+    
+    Pořád nevíme, jak bude vypadat paprsek, ale už víme, že jich bude 30 a bude je kreslit funkce `drawSunbeam()` — zbývá ji dodefinovat. 
+  
+    #### Paprsek
+  
+    Víme, že paprsků bude třicet, tak dělíme kruh na třicet částí (`360/30` v cyklu `for`) a každý paprsek želvu otočí ven z kruhu, nakreslí paprsek a vrátí ji zpět na výchozí pozici.
+    
+        turtle.drawSunbeam = function() {
+          // pero je vypnuté
+          turtle.penDown = false;
+          
+          // kus stejného cyklu jako minule
+          for (var i = 0; i < 360/30; i++) {
+            turtle.right(1);
+            turtle.forward(1);
+          }
+          
+          // vzdálení od kruhu
+          turtle.left(90);
+          turtle.forward(10);
+          
+          // kreslení
+          turtle.penDown = true;
+          turtle.forward(40);
+          
+          // návrat
+          turtle.penDown = false;
+          turtle.back(50);
+          turtle.right(90);
+        }
+    
+    ### Shrnutí
+    
+    Všimněte si, že nejsložitější je metoda, která tvoří paprsky — a provádíte ji třicetkrát. Kdybyste stejný postup chtěli projít bez funkcí, byl by kód mnohem složitější.
+    
+    **Toto není jediné správné řešení — jde o jedno z mnoha možných** (na začátku jste mohli sluníčko rozdělit na zcela jiné celky, které by se vykreslily rychleji — ale rychlost nemusí být vždy jediná priorita).
+    
+    Když máte želvu takto navrženou, můžete snadno najít místa, která chcete upravit: například doplnit do kódu příkazy, které mění barvy pera, aby bylo sluníčko barevné, nebo umožňují snadnou změnu počtu paprsků přes proměnnou (předvyplněný kód tyto úpravy již obsahuje).
+    
+    ### Zadání
+    
+    Napište tímto způsobem vlastní kód, který vykreslí panelák nebo jiný dům s mnoha okny a vchodem (nemusíte pracovat s žádnými parametry funkcí). Postup tvorby sepište do komentáře.
+prefill: |
+    turtle = new Turtle();
+    turtle.x = window.innerWidth/2;
+    turtle.y = window.innerHeight/2; 
+    turtle.penDown = true;
+    var beamsCount = 30;
+
+
+    turtle.drawSun = function(beamsCount) {
+      turtle.drawSunCircle();
+      turtle.drawSunbeams(beamsCount);
+    };
+
+    turtle.drawSunCircle = function() {
+      turtle.penColor = "yellow";
+      for (var i = 0; i < 360; i++) {
+        turtle.right(1);
+        turtle.forward(1);
+      }
+    };
+
+    turtle.drawSunbeams = function(count) {
+      turtle.penColor = "red";
+      for (var i = 0; i < count; i++) {
+        turtle.drawSunbeam(count);
+      }
+    };
+
+    turtle.drawSunbeam = function(count) {
+      turtle.penDown = false;
+
+      for (var i = 0; i < 360/count; i++) {
+        turtle.right(1);
+        turtle.forward(1);
+      }
+
+      turtle.left(90);
+      turtle.forward(10);
+      turtle.penDown = true;
+      turtle.forward(40);
+      turtle.penDown = false;
+      turtle.back(50);
+      turtle.right(90);
+    };
+
+    turtle.drawSun(beamsCount);
+---
+bloom: understand
+input: javascript
+questions: |
+    ### Podmínkové výrazy
+    
+    V úkolech jste se již potkali s podmínkovou konstrukcí `if … else`, která umožňuje měnit chování skriptu na základě proměnných.
+    
+    Můžete tak například rozhodnout, zda kód prozradí tajnou zprávu, na základě toho, jak se jmenuje ten, kdo jej spouští (uvedený příklad nicméně není příliš bezpečný):
+        
+        var name = window.prompt('Jak se jmenuješ?');
+      
+        if (name == 'Honza') {
+          window.alert('Tajný kód je „42”.');
+        } else {
+          window.alert('Neřeknu nic!');
+        }
+    
+    Podobně funguje i podmínka v cyklu `while`:
+      
+        var i = 0;
+        while (i < 5) {
+          i = i + 1;
+          window.alert('Počítám, počítám ' + i + '!');
+        }
+
+    U `if` i `for` vždy následuje závorka s *podmínkovým výrazem*, který se vyhodnotí — u `if` jedenkrát, u `while` při každém průběhu cyklu. 
+    
+    - Pokud je výsledek pravdivý (`true`), podmínka i cyklus proběhnou, 
+    - pokud je výraz nepravdivý (`false`), podmínka nasměruje běh skriptu na větev `else` (pokud existuje) a cyklus se ukončí (a skript pokračuje dále).
+    
+    Podmínkové výrazy si můžete vyzkoušet v konzoli: stačí do ní napsat například `5 == 10` a vyskočí `false`. Když napíšete `5 < 10`, vyskočí `true`. 
+    
+    Můžete si hrát i s proměnnými — nejprve vložíte číslo do proměnné `var n = 5;` a následně vytvoříte srovnání `n < 10`: vyskočí `true`.
+    
+    Nejčastěji budete v podmínkových výrazech srovnávat čísla (to se hodí zejména v cyklech) a řetězce (viz příklad výše). Pravdivost můžete ale vyhodnotit i funkcí — například testováním regulárního výrazu:
+      
+        var name = window.prompt('Jak se jmenuješ?');
+        
+        if (/^H/.test(name)) {
+          window.alert('Tvoje jméno začíná na H!');
+        } else {
+          window.alert('Tvoje jméno nezačíná na H :-(');
+        }
+      
+    Nebo vlastní funkcí:
+      
+        turtle.isWritingRightNow = function() {
+          if (turtle.penDown) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+        
+        if (turtle.isWritingRightNow()) {
+          turtle.penDown = false;
+        }
+    
+    ### Logické operátory: spojování podmínek    
+    
+    Pomocí logických operátorů `&&` (logické „a“) a `||` (logické „nebo“) můžete skládat více podmínek za sebou. Následující podmínka se splní pouze pokud jste dítě ve věku 1—10 let a je Štědrý den (měsíce jsou číslované od nuly, proto je prosinec pod číslem `11`):
+      
+        var age = window.prompt('Kolik máš let?');
+        var date = new Date();
+        
+        var isKidAge = age > 1 && age < 10;
+        var isChristmasEve = d.getDate() == 24 && d.getMonth == 11;
+        
+        if (isKidAge && isChristmasEve) {
+          doSomethingMagical();
+        }
+    
+    V příkladu si můžete všimnout, že logické hodnoty si můžete ukládat do vhodně pojmenovaných proměnných.
+    
+    ### Zadání
+    
+    Napište krátký skript, který obsahuje hádanku — slovní nebo číselnou. Klidně využijte nějakou sbírku hádanek na internetu. 
+    
+    Pokud uživatel uhádne správné řešení, skript ho nějak odmění (např. milým slovem nebo potvrzením úspěchu). Pokud to uživatel netrefí, skript zareaguje nějakým jiným způsobem.
+    
+    Pro zisk uživatelského vstupu využijte metodu `window.prompt()`, kterou jste viděli v příkladech výše.
+---
+bloom: apply
+input: turtle
+questions: |
+    ### Odsazování a složené závorky
+  
+    Při psaní programového kódu je důležité udržet si v něm pořádek. Příkazy je dobré psát na samostatné řádky, občas se hodí i rozdělení jednoho příkazu na více řádků (např. u funkcí s mnoha parametry).
+    
+    Ke zpřehlednění delších a složitěji strukturovaných kódů se používá odsazování — například obsah funkce, podmínky nebo cyklu si odsadíte zleva, aby bylo zřetelné, kde začíná a končí. 
+  
+    > **Pozn.:** Ke zpřehlednění kódu se používají též komentáře: nicméně dobrý kód by měl být přehledný i bez komentářů.
+    
+    Javascript se chová podobně jako HTML: mezery (a též tabulátory a nové řádky) si můžete dát téměř kdekoli, aby pro vás byl kód přehledný. Kód bude fungovat stejně dobře bez mezer i s nimi, ale důležité je, aby byl čitelný.
+    
+    Odsazení vypadá takto jednoduše:
+    
+        while (i < 10) {
+          doSomething();
+        }
+        
+    Ale pomáhá především tehdy, když je kód vnořený vícekrát.
+    
+        me.doSomething = function() {
+          if (goodDay) {
+            me.tryToWork();
+          } else {
+            while (true) {
+              me.procrastinate(); 
+            }
+          }
+        }
+    
+    Zde v editoru je nastavené automatické odsazení o dvě mezery. Upravte následující kód tak, aby byl každý příkaz (ukončený středníkem) na samostatném řádku a aby byl kód přehledný.
+    
+    > Pozn.: Existuje mnoho způsobů, jak to dělat. Například otevírací složené závorky se dle některých norem dávají na nový řádek. Pro účely tohoto úkolu následujte libovolná pravidla, podstatné je aby byl výsledek **konzistentní a přehledný**.
+prefill: |
+    turtle = new Turtle(); turtle.x = window.innerWidth/2-50; turtle.y = window.innerHeight/2-50;  turtle.penDown = true; turtle.penColor = 'rgba(255, 255, 255, .2)'; turtle.left(360/3); turtle.snowFlake = function (preview) { for (var i = 0; i < 12; i++) { turtle.snowFlakePart(-1); if (i == 11 && preview) { turtle.penColor = '#FF0000'; } turtle.snowFlakePart(1); turtle.right(360/12); } }; turtle.snowFlakePart = function(mirror) { turtle.forward(20); for (var j = 0; j < 12; j++) { turtle.back(40); turtle.left(mirror*30); turtle.forward(40); } }; turtle.snowFlake(false);
+---
+bloom: apply
+input: javascript
+questions: |
+    ### Spojování řetězců a čísel
+    
+    Podobně jako při práci v tabulkovém procesoru, potřebujete při psaní skriptů pracovat s čísly a texty. Často chcete spočítat nějakou hodnotu a pak ji oznámit ve srozumitelné zprávě.
+    
+    Řetězce se v javascriptu spojují pomocí operátoru `+`. 
+    
+        var text = 'abc' + 'xyz';
+        console.log(text); // vypíše do konzole 'abcxyz'
+        
+    Pokud chceme vypsat čísla, funguje to stejně. Pokud začneme řetězcem, čísla se dále nepřičítají, ale připojují (používá se též slovo „zřetězit“, v angličtině se užívá termín „concatenation“).
+    
+    Pokud chceme spočítat nějaký výsledek z více čísel (např. čísla sečíst, vynásobit atp.), stačí čísla sepnout do závorky. Takto se nejprve provede obsah závorky a vznikne jediné číslo, které se připojí k řetězci. Tedy např.
+    
+        var text = 'abc' + 'xyz' + (24 * 3600);
+        console.log(text); // vypíše do konzole 'abcxyz86400'
+    
+    Většinou nepracujeme přímo s literály, ale spojujeme proměnné. Výsledek pak může vypadat takto:
+      
+        var chars = 'xyz'
+        var seconds = 3600;
+        var text = 'abc' + chars + (24 * seconds);
+        console.log(text); // vypíše do konzole 'abcxyz86400'
+    
+    Zkuste si to níže.
+prefill: |
+    var rows = 6;
+    var columns = 12;
+    var text1 = 'V tabulce je ';
+    var text2 = ' polí.';
+    
+    // vytvořte proměnnou text tak,
+    // aby se po spuštění objevil text
+    // 'V tabulce je 72 polí.'
+    
+    alert(text);
+---
+bloom: apply
+input: javascript
+questions: |
+    ### Oznamovatel svátků
+
+    Kód v tomto úkolu je velmi podobný „generátoru emocí“ z minulé lekce. Cílem tohoto úkolu je zažít si práci s parametry funkcí/metod.
+    
+    ### Parametry
+    
+    Funkce se zapisují se závorkami na konci, v nichž mohou — a nemusí — být parametry. Ve vzorovém kódu vidíte funkci `announce()`, která nemá žádné parametry. V důsledku tak musí vypsat vždycky to samé: „Za mnoho dní budou Velikonoce.“
+    
+    Pokud bychom ji chtěli rozšířit, musíme jí přidat parametr. Jeho název se zapíše do závorky a uvnitř funkce je pak dostupný jako proměnná.
+    
+    Můžeme tak udělat jednoduchou funkci, která do konzole píše výsledky příkladů:
+      
+        var announce = function(result) {
+            console.log('Výsledek je ' + result + '.');
+        };
+        
+        announce(35); // zapíše do konzole "Výsledek je 35."
+    
+    Parametrů můžeme mít více, např.
+    
+        var announce = function(result, emotion) {
+            console.log('Výsledek je ' + result + '. ' + emotion);
+        };
+        
+        announce(0, 'Hurá!'); // zapíše do konzole "Výsledek je 35. Hurá"
+    
+    ### Zadání  
+      
+    Přepracujte funkci v připraveném kódu tak, aby korektně vypisovala počet dní do Vánoc: přidejte parametry v definici funkce, vložte proměnné do textu a předejte proměnné funkci při volání.)
+    
+    (V proměnné `days` máte správné číslo. Čísla budou časem záporná, ale tuto „drobnost“ zanedbejte.)
+prefill: |
+    var announce = function() {
+        var text = 'Za mnoho dní budou Velikonoce.';
+        console.log(text);
+    };
+    
+    var days = Math.ceil((new Date("2016/12/24")-new Date())/86400000);
+    var holiday = "Vánoce";
+    
+    announce();
+---
+bloom: apply
+input: turtle
+comments: 5
+questions: |
+    Tento příklad je podobný úkolu s vločkou z předchozí lekce, ale cyklus je mnohem jednodušší — kreslíme obyčejný šestiúhelník. 
+    
+    Všimněte si několika věcí:
+    
+    - Při čtení je dobré mrknout na konec skriptu: uvidíte proměnnou `partCount` a následné zavolání metody `drawShape()`. 
+    - Předtím jsou definovány proměnné, ale nic se neděje: želva se jen učí kreslit celý tvar (`drawShape()`) a jeho kousky (`drawPart()`).
+    - Všimněte si parametrů `repeat` a `turnSegment` a jejich využití: v našem kódu je to stále stejné číslo — obsah proměnné `partCount`, tedy číslo 6. Obě funkce využívají stejné číslo různě: první k počtu opakování (řádek 10), druhá k rozdělení kruhu na několik částí (řádek 22). Zkuste číslo změnit: dostanete různé mnohoúhelníky.
+    - Metoda `drawPart()` je definovaná velmi jednoduše: želva popojede o něco dopředu a pak zabočí o něco doprava.
+          
+    <pre><code>turtle.forward(30);
+    turtle.right(360/turnSegment);</code></pre>
+    
+    - Poslední část je díky podmínce na řádcích 11–13 červená.
+    - Kdybychom obsah metody zkomplikovali, můžeme vytvářet různé komplikované tvary, které budou stále obsahovat 6 stejných částí. Například můžeme snadno vytvořit hvězdu.
+    - Vyzkoušejte si např. tuto hvězdu (změňte pouze obsah metody `drawPart()`:
+      
+    <pre><code>turtle.forward(30);
+    turtle.right(360/turnSegment);
+    turtle.right(60);
+    turtle.forward(30);
+    turtle.left(60);</code></pre>
+    
+    - **Tip:** Pokud se vám přidané úhly odbočování mezi sebou odečtou, budou generované útvary vždy uzavřené.
+    
+    ### Zadání
+    
+    Vytvořte dvaceticípou hvězdu.
+    
+    Do pole pro komentáře popište, jaké změny jste provedli a proč.
+prefill: |
+    // zde definujeme základní informace o želvě
+    turtle = new Turtle();
+    turtle.x = window.innerWidth/2;
+    turtle.y = window.innerHeight/2; 
+    turtle.penDown = true;
+
+    // definujeme metodu, která kreslí celý tvar
+    turtle.drawShape = function (repeat) {
+      var i = 0;
+      while (i < repeat) {
+        if (i == repeat - 1) {
+          turtle.penColor = '#FF0000';
+        }
+        turtle.drawPart(repeat);
+        i = i + 1;
+      }
+    };
+
+    // definujeme metodu, která kreslí část tvaru
+    turtle.drawPart = function(turnSegment) {
+      turtle.forward(30);
+      turtle.right(360/turnSegment);
+    };
+
+    // až tady definujeme proměnnou partCount
+    // a voláme želvu, aby kreslila
+    var partCount = 6;
+    turtle.drawShape(partCount);
+---
+bloom: create
+input: p5js
+comments: 5
+questions: |
+    ### Želvy a králíci
+    
+    Při práci se želvou jsme používali [knihovnu, kterou vytvořil Yutaka Kachi](http://ycatch.github.io/p5.turtle.js/). Jde o jednu z mnoha dostupných knihoven, které modelují chování želvy, které můžete dávat příkazy.
+    
+    V následujícím příkladu potkáte místo želvy králíka, kterému nedáváte příkazy, ale můžete ho ovládat přímo (šipkami vlevo a vpravo). Jde o jednoduchou hru: králík nesmí narazit do stěny a do své vlastní stopy. Nejspíše jste se s podobným herním principem už setkali.
+    
+    V kódu vidíte skutečně celou hru — hra má definovaný stav (to znamená popis toho, jaká je aktuální situace) a způsob, jak v ní dochází ke změnám (vše se odehrává ve funkci `draw()`, kterou hra opakovaně volá — 30krát za sekundu).
+    
+    V příští lekci se pustíme hlouběji do zkoumání toho, jak hra funguje, ale již teď si můžete kód projít, zkusit jej měnit a sledovat, co se stane.
+    
+    ### Zadání úkolu
+  
+    Projděte si kód a změňte ho tak, 
+    
+    - aby králík zanechával stopu jiné barvy,
+    - aby herní pole mělo růžový okraj,
+    - aby králík začínal vždy uprostřed herního pole,
+    - a aby hra komunikovala česky.
+    
+    Úpravy popište do pole pro komentáře.
+    
+    Následně udělejte screenshot, kde je vidět pěkně zakroucená králíkova stopa s několika zatáčkami a kde máte skóre větší než 2000 bodů. Ten odevzdejte v následující úloze.
+    
+    (Pro dosažení výsledků, které potřebujete pro screenshot, můžete zasahovat do kódu. Nemůžete ale použít nástroje pro úpravu obrázků ani přetažení okénka s náhledem kódu do nové záložky či okna.)
+prefill: |
+    var rabbit, 
+        gameOver, gameOverDisplay, 
+        score, scoreDisplay,
+        w = window.innerWidth,
+        h = window.innerHeight;
+
+    function setup() { // úvodní nastavení/reset
+      rabbit = new Rabbit(
+        100, 100, 'red', 
+        LEFT_ARROW, RIGHT_ARROW
+      );
+      
+      score = 0;
+      gameOver = false;
+      createDisplays();
+      gameOverDisplay.html('');
+      
+      createCanvas(w, h);
+      background(255);
+      stroke('black');
+      rect(0,0,w-1,h-1);
+    }
+
+    function draw() { // překreslení
+      if (gameOver) {
+        gameOverDisplay.html('game over, click to play');
+      } else {
+        rabbit.update();
+        checkGameOver();
+        rabbit.render();
+        
+        score = score + 1;
+        scoreDisplay.html("score: " + score);
+      }
+    }
+
+    function mouseClicked() {
+      setup(); //restart
+    }
+
+    function Rabbit(x, y, color, left, right) {
+      this.x = x;
+      this.y = y;
+      this.color = color;
+      this.speed = 3;
+      this.steering = 1;
+      this.dir = new createVector(1, 0);
+
+      this.update = function() {
+        this.steer();
+        this.move();
+      };
+      
+      this.steer = function(s) {
+        if (keyIsDown(left)) 
+           this.dir.rotate(this.steering * -0.1);
+        if (keyIsDown(right))
+           this.dir.rotate(this.steering * 0.1);
+      };
+      
+      this.move = function() {
+        this.x = this.x + this.speed * this.dir.x;
+        this.y = this.y + this.speed * this.dir.y;
+      };
+      
+      this.render = function() {
+        stroke(this.color);
+        strokeWeight(this.speed);
+        line(
+          this.x, this.y,
+          this.x - this.speed * this.dir.x, 
+          this.y - this.speed * this.dir.y
+        );
+      };
+    }
+
+    function checkGameOver() {
+      // získá barvu pixelu, kde je zrovna želva
+      var bg = get(Math.round(rabbit.x),
+                   Math.round(rabbit.y));
+      // pokud barva není bílá, hra končí
+      if (bg[0]+bg[1]+bg[2] != 3*255) {
+        gameOver = true;
+      }
+    }
+
+    function createDisplays() {
+      if (!scoreDisplay)
+        scoreDisplay = createDiv('')
+          .position(20, 20);
+      if (!gameOverDisplay)
+        gameOverDisplay = createDiv('')
+          .position(w-100, 20);
+    }
+---
+bloom: create
+input: file
+questions: |
+    Zde vložte otisk obrazovky z předchozí úlohy.

@@ -1,0 +1,213 @@
+name: "Databáze: struktura a dotazy"
+goals: |
+    **Databáze jsou v podstatě hromádky tabulek, které umí odpovídat na otázky.** Narozdíl od tabulkového procesoru už nepracujeme s jednotlivými políčky, ale zajímají nás předem strukturované záznamy: jedna tabulka obsahuje informace o lidech, druhá o domech a třetí o obcích — pokud jsou tabulky propojené, můžete si snadno poskládat mnoho zajímavých informací o regionu.
+reading: |
+    Do práce s databází si můžete přenést návyky z lekcí věnovaných tabulkovým procesorům: s databází se pracuje podobně jako s tabulkami. Jen namísto volné tvorby v dvourozměrném poli políček pracujete s předem definovanými entitami, které jsou popsané atributy (např. *student* může být popsán *jménem*, *oborem*, *datem zápisu* a *seznamem absolvovaných kurzů*, škola zase *názvem*, *adresou*, *stupněm* a *seznamem studentů* — a propojit tyto seznamy je v databázi hračka). Definici entity se říká *třída*.
+    
+    Pokud si vybavujete funkci `VLOOKUP` (česky `SVYHLEDAT`), práce s databází bude něco podobného — ale namísto kryptických souřadnic sloupců a řádků budeme používat **hezké názvy atributů** a namísto složitých zanořených funkcí **srozumitelný jazyk [SQL](https://en.wikipedia.org/wiki/SQL)**.
+    
+    ### Příkazy
+    
+    SQL připomíná angličtinu. *„Vytáhni jména studentů z Veselé školky!“* bychom mohli (s trochou cílevědomosti) přeložit jako „*Select names of students from Veselá školka.“*. SQL nejde o mnoho dál:
+        
+        SELECT name FROM student WHERE school_name = 'Veselá školka';
+        
+    Kdybychom měli větší databázi, kde jsou informace o několika školách (jak bylo napsáno výše), musíme mezi sebou propojit tabulky. Příkaz by pak vypadal takto:
+        
+        SELECT name FROM student 
+        LEFT JOIN school ON student.school_id = school.id
+        WHERE school.name = 'Veselá školka Blansko';
+    
+    Kdybychom chtěli získat nejen jména, ale všechny dostupné informace o studentech, stačí uvést hvězdičku:
+    
+        SELECT * FROM student 
+        LEFT JOIN school ON student.school_id = school.id
+        WHERE school.name = 'Veselá školka Blansko';        
+        
+    A kdybychom chtěli několik různých konkrétních údajů, mohli bychom je vypsat oddělené čárkami, tedy např.
+        
+        SELECT name, enrollment_date FROM student 
+        LEFT JOIN school ON student.school_id = school.id
+        WHERE school.name = 'Veselá školka Blansko';     
+        
+    Stejně snadno si můžete vytáhnout počet studentů všech škol v databázi:
+    
+        SELECT COUNT(*) FROM school 
+        LEFT JOIN student ON school.id = student.school_id
+        GROUP BY school.id;
+    
+    ### Datové typy
+    
+    S definicí tříd přichází jedna důležitá věc: tabulkový procesor se z poskytnutých dat snažil určit datový typ (např. číslo poznal a zarovnal jej vpravo), ale mohli jste si jej sami nastavit (možná se vám stalo, že chybně rozpoznal v nějakém číslu s desetinnou čárkou datum). 
+    
+    Při tvorbě databáze musíte datový typ nastavit vždy sami. Dopředu tak určíte, že něco je číslo a něco jiného je text. Většina databázových systémů umožňuje nastavit i typy jako datum, výběr z několika hodnot (`enum`) apod.
+    
+    ### Konvence
+    
+    Při návrhu databáze existují určité konvence, s nimiž se budeme učit zacházet. Pro začátek stačí tyto dvě věci:
+    
+    - názvy entit a atributů udržujeme v angličtině,
+    - pokud názvy musí obsahovat mezeru, vkládáme na její místo podtržítko (`_`),
+    - entity pojmenováváme názvem v jednotném čísle (tabulka se tak jmenuje `student`, nikoli `students`),
+    - každá entita obsahuje číselný atribut `id`, do kterého se ukládá její jedinečný identifikátor,
+    - když vytváříme spojení mezi tabulkami (např. „ve škole jsou zapsáni studenti”, „student má zapsané předměty“), dané atributy pojmenováváme názvem jiné entity s příponou `_id` (tedy například `school_id`, `course_id` atp.).
+    
+    Těšíte se?
+preface: |
+    Tato lekce klade důraz především na průběžné *hraní* s databází. Zkoušejte, co příkazy dělají a dohledávejte si, co znamenají používaná slova — například klíčová slova v příkazech, termíny apod. V některých úkolech jsou přímo doporučeny zdroje, které jsou relevantní pro daný úkol.
+rubrics:
+    -
+        checklist: Jsou faktické úkoly zpracovány správně?
+        items:
+            - První úkol je zpracován správně.
+            - Popis klíčového slova v úkolu č. 5 je zpracován správně.
+            - Popis klíčového slova v úkolu č. 6 je zpracován správně.
+            - Vysvětlení konceptu v úkolu č. 7 je zpracováno správně.
+            - Při vysvětlování konceptů v úkolu č. 7 autor popisuje rozdíly mezi užítými zdroji.
+            - Poslední úkol (č. 10) je zpracován správně.
+    - Popište tři problematická místa v odpovědích na faktické úkoly (pokud je naleznete).
+    -
+        checklist: Hodnocení druhého úkolu (úvaha nad databázovým dotazem).
+        items:
+            - Odpověď obsahuje popis zobrazené tabulky.
+            - Odpověď obsahuje několik příkladů, jak se tabulka mění, když jsou měněny hodnoty atributů v SQL příkazu. w2
+    -
+        checklist: Je *databázové schéma* v příkladech č. 3 a 4 popsáno správně?
+        items:
+            - Soubor v úkolu č. 3 je odevzdán a obsahuje zpracovaný úkol. w0.5
+            - Tabulky v úkolu č. 4 jsou vytvořeny správně.
+            - Entity jsou správně zvoleny.
+            - Atributy jsou správně přiřazeny entitám.
+            - Je popsán účel, ke kterému dané schéma vhodně slouží. w2
+    - Pokud jsou v příkladu č. 3 chyby, popište je. *Pokud jsou entity a atributy definovány nevhodně*, vysvětlete jaký je rozdíl mezi atributy a jejich hodnotami a případné další nejasnosti.
+    -
+        checklist: Hodnocení úkolů č. 8 a 9, v nichž jsou vytvářeny SQL příkazy.
+        items:
+            - První příkaz je vytvořen správně.
+            - Druhý příkaz je vytvořen správně.
+    - "Pokud jsou v příkazech v úlohách č. 8 a 9 vytvořeny chybně, vysvětlete provedené chyby a odkažte se při vysvětlování na dokumentaci."
+---
+bloom: remember
+count: 1
+questions:
+    - "Jaký problém řeší relační databáze?"
+    - "Co znamená zkratka *SQL* a k čemu se SQL používá?"
+    - "V jakém software je možné používat SQL (tzn. přímo zadávat příkazy)?"
+    - "Kdo a kdy navrhl jazyk SQL?"
+    - "Stručně (alespoň 10 vět) popište historii jazyka SQL."
+    - "Zkratka *SQL* má dvě různé formy výslovnosti (*ɛs kjuː ˈɛl* a *siːkwəl*). Zjistěte proč."
+---
+bloom: apply
+vars:
+    select:
+        - "SELECT * FROM country WHERE area <= 400000 AND population > 100000000"
+        - "SELECT * FROM country WHERE population_growth >= 3"
+        - "SELECT * FROM country WHERE area <= 400000 AND population < 10000"
+        - "SELECT * FROM country WHERE area >= 400000 AND code LIKE \"a%\""
+        - "SELECT * FROM country WHERE area >= 400000 AND code LIKE \"%a\""
+        - "SELECT * FROM country WHERE area < 400000 AND code LIKE \"%a\""
+        - "SELECT * FROM country WHERE name LIKE \"%uk%\" AND code LIKE \"%a\""
+        - "SELECT * FROM country WHERE name LIKE \"%uni%\" AND code LIKE \"u%\""
+        - "SELECT * FROM country WHERE name LIKE \"United%\" AND code LIKE \"u%\""
+        - "SELECT * FROM country WHERE name LIKE \"United%\" AND area < 500000"
+        - "SELECT * FROM country WHERE name LIKE \"C%\" AND code LIKE \"C%\""
+questions: |
+    Bez toho, že byste si příliš pročítali materiály, si otevřete [zkušební aplikaci](http://jan-martinek.com/tmp/db/?sqlite=&username=&db=factbook.db&sql=) a vložte do pole pro SQL příkaz tento příkaz: `%select%`. Popište, co obsahuje výsledná tabulka (pokud se objeví chyba, nejspíše jste příkaz zkopírovali špatně — nevíte-li si rady, optejte se na fóru).
+    
+    Zkuste měnit hodnoty v příkazu (čísla, kódy států) a sledujte, jak se tabulka mění poté, co pozměněný příkaz spustíte (pomocí tlačítka *Execute*). Zkušenosti popište.
+---
+bloom: create
+input: file
+comments: 3
+vars:
+    object: ['rum', 'kufr', 'popelnici', 'balíček', 'dráhu', 'tuleně', 'obočí', 'školu', 'pírko', 'lízátko', 'klokana', 'hrobníka', 'víno', 'církev', 'úrodu', 'seriál', 'přehrávač', 'konopí', 'váhu', 'králíka', 'brk', 'diář', 'chemii', 'benzín', 'podlahu', 'lokomotivu', 'strach', 'střep', 'tlak', 'škodu', 'obchod', 'pouto', 'reproduktor', 'rostlinu', 'bombu', 'vlas', 'evakuaci', 'lakomce', 'šrám', 'podchod', 'uhel', 'rovinu', 'ukazovátko', 'hyperbolu', 'zdravotnictví', 'veličinu', 'kryt', 'minutu', 'supernovu', 'nadávku', 'motor', 'zídku', 'křídu', 'kartel', 'hlavu', 'polibek', 'jazyk', 'borůvku', 'šachy', 'film', 'zajíce', 'kru', 'operetu', 'utěrku', 'domov', 'akt', 'moment', 'notifikaci', 'bankéře', 'náramek', 'puchýř', 'otevřenost', 'nemčinu', 'mikinu', 'eufórii', 'srandu', 'beton', 'bezmoc', 'avatara', 'ostrov', 'pouť', 'kuličku', 'opasek', 'lov', 'hřib', 'propisku', 'telepatii', 'zub', 'fotoaparát', 'samopal', 'parabolu', 'rotoped', 'plenu', 'štědrost', 'silnici', 'Vánoce', 'královnu', 'vzpomínku', 'papír', 'přítele', 'skok', 'mámu', 'platinu', 'sníh', 'Velikonoce', 'kondom', 'léčebnu', 'postel', 'bezdomovce', 'frakturu', 'doutník', 'bábovku', 'manažera', 'revoluci', 'jelena', 'šlapadlo', 'porodnici', 'věštce', 'kužel', 'mouku', 'rýmu', 'stůl', 'zlato', 'týden', 'bakaláře', 'motýla', 'sysla', 'dostih', 'vypalovačku', 'posla', 'okurku', 'bublaninu', 'stavbu', 'lesbu', 'poštu', 'zápach', 'zedníka', 'rovnoběžku', 'len', 'košili', 'kaktus', 'manželku', 'revizora', 'lucernu', 'koalu', 'lopuch', 'internet', 'pekáč', 'osu', 'člověka', 'prs', 'alkohol', 'kulturistu', 'metodiku', 'lupu', 'jed', 'četbu', 'vlčici', 'poupě', 'krb', 'sušenku', 'šišku', 'klienta', 'matiku', 'ocas', 'řezníka', 'kolébku', 'kastrol', 'drát', 'radiátor', 'žurnalistiku', 'šátek', 'klan', 'hypermarket', 'klání', 'výhru', 'prášek', 'letadlo', 'virus', 'motorku', 'rým', 'říši', 'kapra', 'palici', 'svátek']
+questions: |
+    V tomto úkolu budete vytváře zjednodušené ER (Entity-Relationship) diagramy. Inspirujte se dvěma příklady — [nákresem [příkladu s akciemi](http://jan-martinek.com/tmp/db/akcie.png) z předchozí výuky a [tímto nákresem prasete](https://www.gliffy.com/go/publish/9413765). 
+    
+    V této lekci je pro nás podstatné zakreslování *entit* (rámečky). Při znázorňování *vztahů* mezi nimi (propojovací čáry) si zatím vystačíme s jednoduchým propojením bez dalších upřesnění (to až příště).
+    
+    > Pokud budete chtít, můžete se podívat na nějaký úvodní článek, který vám pomůže do problematiky lépe proniknout. Googlujte třeba [er diagram databáze úvod](http://www.google.cz/search?q=er+diagramy+%C3%BAvod) (pěkné shrnutí v češtině je [první stránka těchto skript z FI](http://www.fi.muni.cz/~xnovak8/teaching/PB154/pb154-cesky-02.pdf)) nebo v angličtině [intro to er diagrams database](http://www.google.cz/search?q=intro+to+er+diagrams+database). (Soustřeďte se pouze na pasáže o *entitách* a jejich *atributech* — *vztahy* probereme příště a *role* si necháme na jindy.)
+    
+    Pomocí papíru a tužky nebo webového nástroje [Gliffy](https://www.gliffy.com) (registrace zdarma je uživatelsky nepřívětivá, ale zvládnete ji) **vytvořte schéma**, které popisuje **%object%** pomocí alespoň pěti různých tříd entit. 
+    
+    > **Pozn.:** Výše uvedené příklady používají dvě třídy (příklad s akciemi), resp. tři třídy (příklad s prasetem).
+    
+    Uvědomujte si, že jde stejně jako při práci s tabulkovým procesorem o *popis*, který je selektivní — **nikdy nepopíšete vše**. Takže to, jak sestavíte třídy závisí na účelu, který váš *ER model* plní. Účel popisu si předem vymyslete a popište do vstupního pole. 
+    
+    > **Pozn.:** Účelem výše uvedeného příkladu s prasetem by mohl být *popis zvířete, které žije v Tamagotchi nebo jiné počítačové hře*. Kdybychom chtěli popsat prase jako zvíře chované k porážce anebo chtěli popsat Peppu, Porkyho a jiná animovaná prasátka, musely by třídy být vytvořeny jinak.
+            
+    Výsledek na papíru vyfoťte a nahrajte do přílohy. Výsledek vytvořený pomocí Gliffy publikujte veřejně, odkaz zkopírujte do odpovědi a jako soubor uložte otisk obrazovky daného souboru.
+---
+bloom: create
+input: markdown
+questions: |
+    Na základě předchozí úlohy vytvořte jednoduchou tabulku alespoň pěti záznamů ke dvěma vymyšleným třídám. Tabulku zapište pomocí [syntaxe užívané v markdownovém dialektu GFM](https://help.github.com/articles/organizing-information-with-tables/) a pod ni jako seznam sepište [datové typy atributů užívaných v SQLite3](https://www.sqlite.org/datatype3.html), tedy například:
+        
+        # school
+        
+        |id | name          | address                    | grade |
+        |---|---------------|----------------------------|-------|
+        |1  | Veselá školka | Steva Buscemiho 1, Blansko | MŠ    |
+        |2  | ZŠ Smutná     | DiCapriova 453/3, Kuřim    | ZŠ    |
+        |3  | Neutrální VOŠ | Lundgrenova 1, Adamov      | VOŠ   |
+        (…)
+        
+        - id (integer)
+        - name (text)
+        - address (text)
+        - grade (text)
+        
+    > **Tipy:** Sloupce můžete dodržovat, ale nemusíte (syntax to dovoluje). Pro účely této úlohy udržujte hodnoty atributů krátké. Obsah tabulky může popisovat skutečnost, ale můžete si i vymýšlet.
+---
+bloom: apply
+count: 2
+allowRepeat: question
+vars:
+    keyword:
+        - "`FROM`"
+        - "`WHERE`"
+        - "`GROUP BY` (ve spojení s voláním funkce `COUNT(*)`)"
+        - "`ORDER BY`"
+        - "`LIMIT`"
+        - "`AND`"
+        - "`OR`"
+        - "`IN`"
+        - "`ASC`"
+        - "`DESC`"
+questions: "Popište vlastními slovy význam klíčového slova *%keyword%* v kontextu dotazů na databázi (v příkazech `SELECT`). Uveďte vlastní vymyšlený příklad SQL příkazu, který toto klíčové slovo používá (příklad by měl mít základní strukturu a může obsahovat drobné chyby) a popište, na co se daný příklad ptá."
+---
+bloom: remember
+count: 1
+comments: 3
+vars:
+    term: [relační model, objekt, entita, atribut, vztah mezi entitami, záznam, tabulka, hodnota, funkce, dotaz, index, id, identifikátor, cizí klíč, relace, data, řádek, sloupec, operátor, datový typ, podmínka, návrh databáze]
+questions: |
+    Dohledejte si informace ze tří různých zdrojů (z toho alespoň 2 v angličtině) ke konceptu *%term%* v kontextu relačních databází. Na základě zdrojů sepište vlastní základní popis a ilustrujte jej alespoň třemi příklady, pokud je to možné.
+
+    Do komentáře uveďte, jak se mezi sebou užité zdroje liší a jaké informace jste vynechali.
+---
+bloom: apply
+input: sql
+count: 2
+allowRepeat: question
+comments: 2
+vars:
+    goal:
+        - "pouze názvy všech států"
+        - "název státu a velikost území na jednoho obyvatele"
+        - "všechno, co tabulka s informacemi o státech obsahuje"
+        - "všechy státy seřazené podle rychosti populačního růstu"
+        - "všechy státy seřazené podle velikosti území (seřazené od nejvyšší hodnoty sestupně)"
+        - "velikost území Japonska. Následně sestavte druhý dotaz, který vypíše názvy všech států, které mají větší velikost území než Japonsko"
+        - "počet států, jejichž zkratka končí na \"a\""
+        - "počet států, jejichž zkratka začíná na \"a\""
+questions: |
+    Ve [zkušební aplikaci](http://jan-martinek.com/tmp/db/?sqlite=&username=&db=factbook.db&sql=) vytvořte příkaz SELECT, který vypíše %goal%. Příkaz(y) zkopírujte do vstupního pole a okomentujte.
+---
+bloom: apply
+questions:
+    - "Uveďte 5 příkladů software (konkrétní produkt), který využívá relační databáze, ale uživatelé v nich sami nezadávají příkazy."
+    - "V kurzu se budeme soustředit pouze na *relační* databáze. Popište vlastními slovy, co v tomto kontextu znamená slovo „relace“ a pojem „relační databáze“. (Pokud jste na podobnou otázku odpovídali výše, stačí se odkázat na dané řešení.)"
+    - "V kurzu se budeme soustředit pouze o relační databáze. Vyjmenujte a krátce vlastními slovy popište, jaké jiné typy databází existují a k čemu se používají."
+    - "Rozdělte software, v nichž uživatelé používají příkazy SQL, na několik skupin podle nějaké významné vlastnosti a vlastními slovy popište rozdíly mezi těmito skupinami."
+    - "Jaké dialekty jazyka SQL existují? Existují mezi nimi rozdíly podstatné pro člověka, který s SQL teprve začíná? Proč ano/ne?"

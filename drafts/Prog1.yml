@@ -1,0 +1,347 @@
+name: Úvod do skriptování
+goals: |
+    Cílem této lekce je zvládnout základ programování: vytváření sekvencí příkazů — algoritmů.
+reading: |
+    **Úvodem k programování či skriptování byl ve skutečnosti celý dosavadní průběh kurzu**: mnoho konceptů jsme si již vyzkoušeli a zažli. Tabulkové procesory a databáze nám daly přičichnout k funkcím a proměnným, značkovací jazyky, dotazovací jazyk SQL a regulární výrazy zase k různým syntaxím.
+
+    > **Pozn.:** Nelekněte se počtu úkolů v této lekci: některé úkoly jsou rozdělené na dva, jiné jsou velmi jednoduché nebo vyloženě určené pro „hraní si“. Pokud si místy budete připadat „jako ve školce“, beru to jako úspěch :)
+    
+    Při učení budeme používat Javascript — jazyk, který funguje v internetových prohlížečích. Díky tomu si nemusíte nic instalovat, vše si vyzkoušíte přímo v e-elearningu. To, že užíváte Javascript, využijete především při [hledání na Googlu](https://www.google.cz/search?q=is+javascript+awesome). (A ano, každý příkaz je ukončen středníkem. To hledat nemusíte.)
+    
+    Krom javascriptu budeme používat koncept „želví grafiky“, který vychází z programovacího jazyka [Logo](https://en.wikipedia.org/wiki/Logo_(programming_language)), který příští rok oslaví padesátku.
+rubrics:
+    -
+        checklist: Chytání chyb (debuggování).
+        items:
+            - "Úkol č. 1 je splněn: chyba je opravena a popsána."
+            - "Úkol č. 2 je splněn: chybové hlášení je zaznamenáno."
+            - "Screenshot k úkolu č. 2 (chybová konzole) je správný."
+            - "Úkol č. 4 je splněn: skript vypisuje správná hlášení."
+            - "Screenshot k úkolu č. 4 (console.log()) je správný."
+    -
+        checklist: Mnohoúhelníky a hvězdičky.
+        items:
+            - Mnohoúhelník v úkolu č. 7 je správně zpracován.
+            - Hvězdička v úkolu č. 8 je správně zpracována.
+    -
+        checklist: Znalostní úlohy.
+        items:
+            - Úkol č. 9 je správně zodpovězen a obsahuje 3 příklady.
+            - Úkol č. 10 je správně zodpovězen a obsahuje 3 příklady.
+            - Úkol č. 11 je správně zodpovězen a obsahuje popis účelu.
+            - Úkol č. 12 je správně zodpovězen a obsahuje popis účelu.
+    - "Pokud má některá ze znalostních úloh nedostatky, uveďte zde zdroj, z něhož může autor/ka příkladu zjistit správné řešení a okomentujte ho."
+    - 
+        checklist: Písmena v závěrečných úkolech.
+        items:
+            - Písmena jsou jasně rozpoznatelná.
+            - Pokud mají písmena vybraná písmena oblé tvary, jsou i v úkolu vytvarovány jako oblé.
+            - Želva je v závěru vždy na správné pozici (bílá linka se kryje s pravou hranou rámečku).
+    -
+        checklist: Skripty, které vytvářejí písmena v závěrečných úkolech.
+        items:
+            - Při kreslení písmen jsou používány proměnné.
+            - Kód obsahuje vždy několik komentářů, díky kterým je možné poznat, jaké části písmene se týkají příkazy.
+preface: |
+    Úvodů do programování v javascriptu a programování obecně je na [internetu mnoho](http://google.com/search?q=úvod+do+javascriptu). Podstatné je, že pro naši výuku nebudete potřebovat znalost ničeho jiného (HTML si pamatujete, ale zatím ho nebudeme používat). Podstatné bude, abyste si našli a zažili, jak se skripty pracovat a pak nějaké ty termíny a syntaxi.
+    
+    Nejlepším způsobem, jak se skriptování naučit, je experimentování. Když v kódu uděláte syntaktickou chybu, přímo v editoru se vám objeví varování (u čísel řádků se objeví nějaký škaredý symbol, na který můžete najet myší). Hned v prvních několika úlohách se naučíme i lehce pokročilé lovení chyb (debuggování), abyste se neztratili, když dojde k problémům. 
+    
+    Pokud se budete programování věnovat profesionálně, budete si muset nastudovat detaily programovacího jazyka a používaných knihoven (to jsou balíky funkcí, které napsal někdo jiný). Pokud se ale chcete naučit jen základy, můžete začít postupným okoukáváním kousků kódu a skládáním částí příkladů dohromady. Touto cestou půjdeme v našem kurzu.
+    
+    Pokud nebudete vědět, jak si s nečím poradit, obraťte se jako obvykle na kolegy ve fóru.
+    
+    > **Pozn.:** Některé úkoly po vás budou chtít, abyste pracovali s komentáři v kódu. (Možná si vybavíte `<!-- HTML komentáře -->`, to je něco podobného.) 
+    >
+    > Komentáře v Javascriptu jsou dvojího druhu: 
+    >
+    > - jednořádkové komentáře můžete psát vždy za dvě lomítka na konci řádku: `// komentář`
+    > - víceřádkové komentáře můžete psát pomocí lomítek a hvězdiček takto: 
+    >
+    > `/* toto je`  
+    > `víceřádkový komentář */`
+        
+---
+bloom: apply
+input: javascript
+comments: 3
+questions: |
+    V prvních třech úkolech se budeme věnovat chybám. Vychytávání chyb je důležitou součástí programování — díky tomu, že počítačový program můžete spustit mnohokrát, nemusíte se bát dělat chyby. **Zkuste to a když to nevyjde, zkusíte to znovu.** Při psaní i po spuštění můžete objevit chyby — některé trochu očekáváte a jiné vás překvapí.
+
+    Předvyplněný kód ve vstupním poli prvního úkolu obsahuje syntaktickou chybu. Vyhledejte si chybu pomocí Google a opravte ji. Do komentáře popište, jak jste postupovali a z jakého zdroje jste získali potřebné informace.
+prefill: |
+    var number = 0
+---
+bloom: apply
+input: javascript
+comments: 5
+questions: |
+    Předvyplněný kód opět obsahuje chybu. Tato chyba není vidět přímo v editoru, který umí upozornit jen na chyby v syntaxi používaného jazyka (Javascriptu). Tato chyba ale spočívá v tom, že naše elektronická želva nemá určitou dovednost. (Zatím.)
+    
+    **Vyhledejte pomocí Googlu způsob, [jak ve svém prohlížeči spustíte konzoli s chybami Javascriptu](https://www.google.cz/search?q=how+to+open+javascript+error+console+in+my+browser) a otevřete si ji.** Postup vlastními slovy krátce shrňte do komentáře.
+            
+    Spusťte kód a přepište poslední chybové hlášení do pole pro komentář (mělo by se týkat funkce `turtle.dance()`). Následně udělejte screenshot vašeho prohlížece s javascriptovou konzolí, který nahrajte do přílohy v následujícím úkolu.
+    
+    **Pokud se v dalších úkolech setkáte s nefunkčností vašeho kódu a program zdánlivě nic nedělá, hledejte odpověď nejprve ve výpisu chyb a pracujte s chybovým hlášením v případné další diskusi.**
+prefill: |
+    var turtle = {};
+    turtle.dance();
+---
+bloom: apply
+input: file
+questions: |
+    Zde nahrajte screenshot z předchozího úkolu.
+---
+bloom: apply
+input: javascript
+questions: |
+    Krom toho, že se vám v konzoli zobrazují chyby, můžete si do ní vypsat něco i sami. Když v kódu použijete volání `console.log(color)`, do konzole se vypíše obsah proměnné `color`. Vypisování obsahu proměnných často pomůže zjistit, že je něco jinak, než jste si mysleli.
+    
+    Vyzkoušejte si to spuštěním kódu v příkladu. Příkaz můžete použít vícekrát, postupně vypíše všechny požadované hodnoty do konzole.
+    
+    Doplňte kód tak, aby se do konzole vypsal text „A teď mám dost.“ a pořiďte screenshot prohlížeče s konzolí, který nahrajte jej do přílohy v následujícím úkolu.
+    
+    > **Tip:** Vypsat do konzole si můžete nejen čísla a texty, ale i jiné datové typy — jako jsou třeba objekty. Můžete to vyzkoušet i se želvou v následujících příkladech.
+prefill: |
+    var pocetKnedliku = 3; // do proměnné uložím trojku
+    console.log('Nejdřív mám jen ' + pocetKnedliku + ' knedlíky.');
+
+    pocetKnedliku = pocetKnedliku + 11; // přidám si 11 knedlíků
+    console.log('A nakonec mám ' + pocetKnedliku + ' knedlíků.');
+---
+bloom: apply
+input: file
+questions: |
+    Zde nahrajte screenshot z předchozího úkolu.
+---
+bloom: apply
+input: turtle
+questions: |
+    A teď už jdeme programovat.
+    
+    ### Vlastnosti a metody
+    
+    Pro začátek budeme používat objekt želvy `Turtle`, který si uložíme do proměnné `turtle`. Tento objekt má mj. tyto vlastnosti:
+    
+    - `penDown` — pokud je `true`, zanechává za sebou želva čáru, pokud je `false`, želva jen tak pobíhá
+    - `penColor` — obsahuje hexadecimální řetězec, který definuje barvu zanechávané čáry
+    
+    Vlastnosti můžeme upravovat voláním na objektu, např. takto: `turtle.penDown = true;`.
+    
+    Želva má také několik metod (definovaných funkcí), které umožňují jednoduše naprogramovat její chování:
+        
+    - `forward(length)` — „jdi o `length` pixelů dopředu“
+    - `back(length)` — „jdi o `length` pixelů dozadu“
+    - `right(angleInDegrees)` — otoč se o `angleInDegrees` doprava
+    - `left(angleInDegrees)` — otoč se o `angleInDegrees` doleva
+    
+    Metody voláme jménem a do závorky uvádíme parametry — zmíněné metody mají vždy jen jeden parametr, příkladem může být otočka doprava o 90 stupňů: `turtle.right(90);`.
+    
+    ### Parametry
+    
+    Asi tušíte, že `length` může být nějaké číslo. Obrazovka mívá na šířku něco mezi jedním a dvěma tisíci pixelů. Okénko, v němž vidíte želvu, má na výšku 500 pixelů. Pokud tedy řeknete želvě, aby šla 1000 pixelů dopředu, uteče vám mimo obraz.
+    
+    Při otočkách budete potřebovat zadávat úhly (`angleInDegrees`). Důležité číslo je `360` — tolik stupňů je v kruhu. Výhoda počítače je, že nemusíte počítat úhly. Z paměti asi víte, že čtvrtina celého kruhu je `90` stupňů, ale v počítači stačí napsat `360/4`.
+    
+    ### Hurá do toho
+    
+    To je prozatím všechno. Níže vidíte jednoduchý program, který si můžete spustit. Pro spuštění stačí v kódu udělat malou změnu (např. na konec přidejte prázdný řádek) a klikněte na tlačítko „Spustit kód“.
+    
+    > **Pozn.:** Proč želva? Jde o pomůcku, která umožňuje představit si, jak program postupně probíhá v počítači. Krok za krokem si můžete představit, jak želva chodí — a nakreslit si to na papír anebo klidně i odkrokovat. Pokud zvládnete hrubý nástřel a želva chodí přibližně tam, kam chcete, můžete program dále spouštět bez animace — a rychle ladit detaily.
+    
+    ### Schola ludus
+    
+    **Tento úkol nemá žádný měřitelný cíl.** Vyzkoušejte si, jak se mění pohyby želvy, když měníte předepsaný skript. Měňte hodnoty, přidávejte příkazy, nastavujte barvu (zkuste si najít, jak se tvoří RGB řetězce jako třeba `#FF0080`. Zkuste si něco nakreslit.
+    
+    Původní skript si můžete kdykoli vyvolat pomocí tlačítka, které najdete níže.
+prefill: |
+    turtle = new Turtle(); // tady se vyrábí želva
+    turtle.x = 200; // želvu položíme 200 pixelů zleva
+    turtle.y = 100; // a 100 px zhora
+    
+    turtle.penDown = true; // propiska se dotkne papíru
+    turtle.forward(80); // a jedem
+    
+    turtle.penColor = '#FF0000'; // a červeně
+    turtle.penDown = false;
+    turtle.forward(100);
+    
+    turtle.right(160); // a odbočíme
+    turtle.penDown = true;
+    turtle.forward(160);
+    
+    turtle.left(140); // a doleva
+    turtle.forward(50);
+    
+    /* a malá ukázka toho, co nás čeká v budoucnu */
+    turtle.penColor = '#0000FF'; // modrá je dobrá
+    for (var i = 0; i < 100; i++) {
+        if (i%2) turtle.right(70);
+        else turtle.left(80);
+        turtle.forward(6);
+    }
+    turtle.penColor = '#FFFF00'; // žlutá taky
+    for (var i = 0; i < 180; i++) {
+        turtle.right(2);
+        turtle.forward(1);
+    }
+
+    turtle.right(720); // závěrečný taneček
+---
+bloom: apply
+input: turtle
+vars:
+    shape: [trojúhelník, pětiúhelník, šestiúhelník, sedmiúhelník, osmiúhelník, devítiúhelník, desetiúhelník]
+questions: |
+    A teď už jdeme programovat. V předvyplněném kódu želva kreslí čtverec. Upravte kód tak, aby kreslila %shape%.
+prefill: |
+    turtle = new Turtle();
+    turtle.x = 200;
+    turtle.y = 100;
+    turtle.penDown = true;
+
+    /* tip: tato část kódu je zajímavější, 
+    než ta předchozí */
+    turtle.forward(80); turtle.right(360/4);
+    turtle.forward(80); turtle.right(360/4);
+    turtle.forward(80); turtle.right(360/4);
+    turtle.forward(80); turtle.right(360/4);
+
+    turtle.right(720);
+---
+bloom: apply
+input: turtle
+questions: |
+    Zkopírujte si kód z předchozí úlohy a namísto mnohoúhelníku nakreslete hvězdičku o **stejném nebo dvojnásobném** počtu cípů.
+    
+    > **Tip:** Pokud se zaseknete, nakreslete si na papír pěticípou nebo šesticípou hvězdu (způsob se trochu liší). Nejspíš jste to už někdy zkoušeli — některé hvězdy je možné nakreslit pomocí jednoho úhlu, u jiných budete potřebovat dva.
+---
+bloom: remember
+count: 2
+allowRepeat: question
+vars:
+    term:
+        - "**programování**"
+        - "**program**"
+        - "**skriptování**"
+        - "**skript**"
+        - "**javascript**"
+        - "**programovací jazyk**"
+        - "jak snadno vygooglit něco o javascriptu"
+        - "jak snadno vygooglit něco o programování"
+        - "jak snadno vygooglit něco o skriptování"
+        - "**objektově orientované programování**"
+        - "pojem **třída** v kontextu objektově orientovaného programování"
+        - "pojem **metoda** v kontextu objektově orientovaného programování"
+        - "pojem **objekt** v kontextu objektově orientovaného programování"
+        - "pojem **funkce** v kontextu javascriptu"
+        - "pojem **proměnná** v kontextu javascriptu"
+        - "pojem **parametr** v kontextu funkcí v javascriptu"
+        - "pojem **návratová hodnota** v kontextu funkcí v javascriptu"
+        - "pojem **literál** v kontextu javascriptu"
+        - "pojem **operátor** v kontextu javascriptu"
+        - "pojem **syntaxe** v kontextu javascriptu"
+        - "pojem **klíčové slovo** v kontextu javascriptu"
+questions: "Popište *vlastními slovy* %term%. Ilustrujte popis alespoň třemi praktickými příklady a odkažte se při vysvětlení na zdroj, z něhož jste čerpali."
+---
+bloom: remember
+count: 2
+allowRepeat: question
+vars:
+    thing:
+        - "literál"
+        - "název metody"
+        - "řetězec"
+        - "proměnnou"
+        - "definici proměnné"
+        - "volání metody"
+        - "parametr"
+questions: "Najděte v kódu v některé z předchozích úloh **%thing%** a popište vlastními slovy k čemu slouží."    
+---
+bloom: apply
+input: turtle
+count: 3
+allowRepeat: question
+vars:
+    letter: [B (verzálku), C (verzálku), D (verzálku), E (verzálku), F (verzálku), G (verzálku), J (verzálku), K (verzálku), L (verzálku), M (verzálku), N (verzálku), O (verzálku), P (verzálku), Q (verzálku), R (verzálku), S (verzálku), T (verzálku), U (verzálku), V (verzálku), X (verzálku), Y (verzálku), Z (verzálku), a (minusku), b (minusku), c (minusku), d (minusku), e (minusku), f (minusku), g (minusku), j (minusku), k (minusku), l (minusku), m (minusku), n (minusku), o (minusku), p (minusku), q (minusku), r (minusku), s (minusku), t (minusku), u (minusku), v (minusku), x (minusku), y (minusku), z (minusku)]
+questions: |
+    Pomocí želvy nakreslete písmeno **%letter%**. Písmeno můžete nakreslit jednoduše i detailně, v libovolném stylu, ale mělo by být zcela jasně rozpoznatelné. 
+    
+    ### Podmínky
+    
+    Písmeno nakreslete tak, 
+    
+    - **aby se vešlo do vyznačeného rámečku**, přičemž dolní hrana rámečku je [účaří](https://www.google.cz/search?q=%C3%BA%C4%8Da%C5%99%C3%AD) a horní hrana je horní dotažnice (střední dotažnici si můžete umístit dle libosti),
+    - **aby želva skončila v pravém dolním rohu rámečku, otočená nahoru** (jako pomůcka je na konci skriptu příkaz, který vykreslí bílou čáru, která by měla sedět s pravou hranou rámečku).
+    
+    ### Tipy
+    
+    - Postupujte po kouscích: zkuste nakreslit první část písmena, spusťte kód a pokud to bude fungovat správně, pokračujte dál. Když se netrefíte, trochu upravte kód a opakujte postup.
+    - Pokud potřebujete, kreslete si na papír nebo „choďte jako želva“.
+    - Nemusíte začít vlevo dole — propisku můžete vypnout nastavením `turtle.penDown = false;` a odjet se želvou tam, kam potřebujete. Začněte jednodušší částí písmene a pokračujte ke složitějším.
+    - Algoritmus můžete vytvářet od konce — pokud máte hotové celé písmeno, ale nepasuje do rámečku, stačí přidat příkazy před první kreslicí příkazy, aby se želva na začátku přesunula jinam.
+    - Pokud chcete, kreslete písmena barevná.
+    - Přetahy (jako např. u písmen *y* nebo *g*) zakreslete mimo rámeček.
+    - Mrkněte na parametry hodnocení úkolu, abyste věděli, podle čeho budou písmena hodnocena.
+    
+    Pro inspiraci je v předvyplněném kódu nakreslena verzálka **A**. Upravujte pouze část kódu, která kreslí písmeno (viz komentáře).
+prefill: |
+    /**************************
+    Tuto část neměňte      
+    **************************/
+    var h = 170, w = 120, gray = '#AAAAAA', 
+        white = '#FFFFFF', black = '#000000';
+    turtle = new Turtle();
+    turtle.x = window.innerWidth/2-w/2;
+    turtle.y = window.innerHeight/2+h/2;
+    turtle.left(180); 
+
+    turtle.penDown = true;
+    turtle.penColor = gray;
+
+    for (i = 0; i < 2; i++) {
+      turtle.forward(h); turtle.right(90);
+      turtle.forward(w); turtle.right(90);
+    }
+    turtle.penDown = true; 
+    turtle.penColor = black;
+
+
+    /**********************************
+    Následující kód kreslí písmeno.
+    Měňte pouze následující část kódu.
+    ***********************************/
+
+    // některé hodnoty se vám mohou hodit vícekrát, 
+    // proto je dobré je ukládat do proměnných
+
+    var alfa = 19.5; // úhel 19.5 stupňů 
+    // (úhel jsem postupně odkoukal od oka)
+
+
+    var middle = 65; // délka příčky
+
+    // želva je zde na začátku otočená směrem nahoru
+    turtle.right(alfa); // počáteční otočka
+    turtle.forward(180); // levý dřík
+    turtle.right(180-alfa*2); // otočka na vrcholu
+
+    // všimněte si stejného úhlu na ř. 43 a 46
+    turtle.forward(100);// kousek pravého dříku
+    turtle.right(90+alfa); // otočka k příčce
+    turtle.forward(middle); // a jedem tam
+    turtle.back(middle); // a zase zpátky
+    turtle.left(90+alfa); // otočka zpět
+    turtle.forward(80); // druhý kousek dříku
+
+    turtle.left(180-alfa); // závěrečné natočení
+
+
+    /*************************
+    A toto už zase neměňte
+    **************************/
+    turtle.right(360);
+    turtle.penColor = white;
+    turtle.forward(h);
+    turtle.penDown = false;
+    turtle.forward(500);

@@ -1,0 +1,37 @@
+author: Jan Martinek <info@jan-martinek.com>
+name: Transformace dat pomocí počítače
+goals: |
+    Cílem předmětu je porozumění možnostem práce s informacemi v počítači.
+     
+    Počítač často vnímáme jako nástroj pro snadné vkládání, ukládání a čtení informací – ať už jde o texty, hudbu, videa či multimediální a interaktivní obsahy. 
+
+    Předmět Práce s informacemi prostřednictvím počítače se soustředí na v předchozím výčtu chybějící aktivitu: transformaci informací. Studenti se naučí strukturovat vkládané informace, aby s nimi bylo možné provádět další operace, a jak provádět tyto operace – pomocí jednoduchého textového editoru, tabulkového procesoru, databáze nebo v jednoduchých skriptech. Kurz je vyučován hybridní formou – zadané texty čtou a úkoly plní studenti před společným seminářem, na němž je povinná účast.
+methods: |
+    ### O kurzu
+
+    **Kurz VIKBA05 je inspirován idejemi [blended learning](https://cs.wikipedia.org/wiki/Blended_learning), [převrácená třída](http://prevracenatrida.cz) a [peer-assessment](https://en.wikipedia.org/wiki/Peer_assessment).** Díky tomu je možné získat nové praktické dovednosti i v kurzu, který navštěvuje celý ročník bakalářského studia.
+
+    **Lekce sestávají z domácí přípravy, vzájemné zpětné vazby a seminářů.** 
+    
+    - Domácí část je především praktickou aplikací znalostí, které si budete muset dohledávat na internetu. 
+    - Vzájemná zpětná vazba mezi studenty slouží jednak k udílení bodů, ale sama o sobě posiluje vzělávací proces. Tím, že se setkáváte s jinými úkoly a odlišnými řešeními, pronikáte hlouběji do problematiky. Vysvětlit jinému, kde udělal chybu, je obtížnější, než se jí vyhnout. 
+    - Pravidelná páteční setkání jsou určena především k reflexi vzdělávacího procesu, ale budeme se zabývat i problémy, které vznikly v obtížných výukových pasážích.
+    
+    Krom živých setkání v seminářích jsou oficiálními platformami pro komunikaci ISový *e-mail* a [předmětové fórum](https://is.muni.cz/auth/cd/1421/podzim2017/VIKBA05/). Živou výuku doprovází video přenosy a semináře, které budou průběžně oznamovány.
+support: |
+    ### Nevíte, jak dál?
+
+    V případě jakýchkoli potíží se obracejte na své kolegy a [vyučujícího](mailto:208330@mail.muni.cz). 
+
+    **Obsah kurzu a problémy, které se mohou týkat většího množství studentů,** diskutujte zásadně prostřednictvím [předmětového diskusního fóra](https://is.muni.cz/auth/cd/1421/podzim2017/VIKBA05/). Díky tomu můžete získat rychlejší odpověď, a díky veřejné diskusi též pomoci ostatním.
+    
+    **Případné problémy s e-learningem** hlaste prosím přímo do fóra a vyučujícímu ([208330@mail.muni.cz](mailto:208330@mail.muni.cz)).
+    
+    Anonymní zpětnou vazbu můžete vyučujícímu zaslat též pomocí [webového formuláře](https://docs.google.com/forms/d/e/1FAIpQLSezfLuQs_VXzq34Y2FgCwthZVkaANNSLa7i7FGFO_mMiV_jLg/viewform).
+calendar:
+    20170922T1550: Prezenční výuka (U5)
+    20171013T1550: Prezenční výuka (U5)
+    20171103T1550: Prezenční výuka (U5)
+    20171124T1550: Prezenční výuka (U5)
+    20171215T1550: Prezenční výuka (U5)
+    

@@ -1,0 +1,148 @@
+name: Najít, nahradit a regulární výrazy
+goals: |
+    V této lekci bychom měli poznat užitečnost funkce *Najít a nahradit* jak při psaní v běžném jazyce, tak při používání značkovacích jazyků a jiných formálních syntaxí. Významnou součástí lekce jsou základy práce s *regulárními výrazy*, které umožňují pracovat s hledáním a nahrazováním efektivněji a spolehlivěji.
+    
+    > U této lekce vyučující doporučuje začít se zpracováním úkolu až po úvodním semináři.
+reading: |
+    ### Začít zlehka
+    
+    V této lekci je důležité začít zlehka. Níže doporučím několik zdrojů, ale tím nejdůležitějším je v této lekci **hraní si**. Skutečně si s tím musíte nějakou dobu hrát, jako si hrají děti s předměty, které najdou. S tím rozdílem, že děti běžně u pískoviště nenajdou regulární výrazy — **zatím!**
+    
+    Čtením textů ani koukáním na videa se to nenaučíte: **důležité je si to vyzkoušet**. K tomu může posloužit jak doporučený editor Sublime Text, tak různé webové nástroje: asi nejlepší je [Regex101.com](https://regex101.com).
+    
+    > Regex101 se na první pohled tváří složitě, ale vystačíte si se dvěma vstupními poli uprostřed stránky. Ostatní pole vám mohou pomoci, ale nejdůležitější je vizuální zpětná vazba, kterou tento nástroj poskytuje. 
+    >
+    > **Důležitý tip:** Abyste vyhledávali všechny výskyty hledané fráze, zapněte si v poli pro regulární výraz modifikátor (flag) `global`. Danou volbu najdete po kliknutí na vlaječku napravo.
+    
+    ### Zdroje
+    
+    Vzhledem k tomu, že jde o poměrně praktickou a dobře živě předveditelnou látku, doporučuji zejména názorná [videa Daniela Shiffmana](https://www.youtube.com/playlist?list=PLRqwX-V7Uu6YEypLuls7iidwHMdCM6o2w) z jeho právě probíhajícího kurzu. Dají se objevit i videa v češtině, [například od vtipného řečníka Davida Grudla](http://www.youtube.com/watch?v=uzHIXuGzaaY).
+    
+    Pokud už trochu tušíte, o co jde, přečtěte si nějaké texty — v angličtině je jich poměrně dost a nejsou těžké, např. [An Introduction to Regular Expressions](http://www.codeproject.com/Articles/939/An-Introduction-to-Regular-Expressions) (další výsledky z Googlu pro [easy regular expressions](http://www.google.com/search?q=regular+expressions+easy)). V češtině něco [najdete také](http://www.google.com/search?q=regulární+výrazy), ale bývají to o něco  složitější texty.
+    
+    Mezitím si už klidně zkuste vyřešit některé úlohy níže: jednoduchá zadání vás mohou posunout dopředu.
+    
+    ### Hříčky, hry a interaktivní kurzy
+    
+    Teď už byste měli mít základní představu, co to regulární výrazy jsou — my se budeme bavit o tzv. **Perl-Compatible Regular Expressions** (tento název si nemusíte pamatovat, ale občas se vám může hodit při googlování — a možná jste si všimli položky *„pecr“* v nástroji Regex101, to je ono) a o **obdobné funkcionalitě v kancelářských textových procesorech**.
+    
+    Ověřte si své znalosti na [nějaké hře](http://www.google.com/search?q=regexp+game). Doporučuji [Regex Golf](http://regex.alf.nu), který má i hezké nastavení obtížnosti, nebo [hru a výukový kurz v jednom RegexOne](http://regexone.com). Pokud vám nesedne výše uvedený nástroj Regex101, vyzkoušejte libovolný [jiný tester](http://www.google.com/search?q=regex+tester).
+    
+    ### Hrajeme si s dokumenty
+    
+    Nejspíše se vše, co jste doteď přečetli, týkalo regulárních výrazů v nějakém textovém editoru pro editaci kódu. Podobně to funguje v cloudovém textovém procesoru Google Docs.
+    
+    V tradičních kancelářských textových procesorech je to trochu jinak. V textovém procesoru MS Word (příp. jeho svobodné alternativě OO Writer) se obdobné funkcionalitě říká [*wildcards* a *special characters*](http://www.google.com/search?q=using+ms+word+wildcards) (česky [*speciální a zástupné znaky*](http://www.google.com/search?q=ms+word+speciální+a+zástupné+znaky)). Další informace najdete také pokud budete hledat [search and replace in word](http://www.google.com/search?q=search+and+replace+in+word), popř. česky [najít a nahradit ms word](http://www.google.com/search?q=najít+a+nahradit+ms+word).
+    
+    Komplikací je též to, že v různých verzích těchto kancelářských balíků najdete pokročilé hledání a nahrazování textů na různých místech. Je to výzva: ale stojí to za to.
+    
+    ### Shrnutí na jednu A4
+    
+    Při psaní regulárních výrazů si nemusíte vše pamatovat. Najděte si nějaký pěkný [cheatsheet k regulárním výrazům](http://www.google.com/search?q=regex+cheat+sheet) nebo [cheatsheet s wildcards](http://www.google.com/search?q=word+wildcards+cheat+sheet) a klidně si ho vytiskněte.
+    
+    Důležité je naučit se základním principům a umět se vyznat v cheeatsheetu, když jej potřebujete.
+rubrics:
+    - "Jaké chyby udělal/a autor/ka v odpovědích na vědomostní otázky (1-7)? Jaké zdroje mohou poradit, jak pracovat s regulárními výrazy lépe?"
+    -
+        metric: "Jsou odpovědi na vědomostní otázky (tzn. prvních sedm) správné?"
+        0: "Odpovědi schází nebo jsou zcela nesprávné."
+        1: "V odpovědích se objevují zásadní chyby."
+        2: "V odpovědích se objevují drobné chyby."
+        3: "Odpovědi jsou zcela správné."
+    - "Jaké chyby se objevují v praktických úkolech?"
+    -
+        metric: "Jsou všechny soubory ze závěrečných dvou úkolů správně odevzdané?"
+        0: "Soubory schází nebo nejsou upraveny dle zadání."
+        1: "Soubory jsou správně odevzdány, ale zadání je splněno s výraznými chybami."
+        2: "Zadání je splněno s drobnými chybami."
+        3: "Vše je provedeno dle zadání."
+    - "Je motivace pro výběr dokumentu v předposledním úkolu přesvědčivá?"
+preface: |
+    U této lekce je podstatné pracovat správně se soubory: sledujte zadání, kde je napsáno, jaké formáty (HTML, Markdown, Word či jeho alternativy) máte užít a jak s nimi pracovat. Některé úkoly vyžadují, abyste soubor uložili vícekrát a přiložili průběžné verze v ZIPu — dejte si na to pozor.
+    
+    Pokud něčemu nerozumíte a nemůžete to dohledat pomocí Google, zkuste se obrátit na kolegy v diskusním fóru v ISu. Pomůže to nejspíše nejen vám.   
+---
+bloom: remember
+count: 2
+questions:
+    - "K čemu se používají regulární výrazy?"
+    - "Co jsou to speciální znaky v aplikacích MS Word a OO Writer?"
+    - "Co jsou to zástupné znaky v aplikacích MS Word a OO Writer?"
+    - "Popište běžné klávesové zkratky pro funkce *Najít* a *Najít a nahradit* v programech ve vašem operačním systému (uveďte, jaký operační systém používáte)."
+    - "Kde najdete funkci *Najít a nahradit* ve verzi MS Word či OO Writer, kterou používáte? (Pokud je nepoužíváte, využijte OO Writer.) Uveďte, o jakou verzi jde."
+    - "Jaké klávesové zkratky pro hledání a nahrazování můžete využít v programu *Adobe Brackets*?"
+    - "Co označuje v rámci řetězce v poli *Nahradit* výraz `\\1`? V jakých programech je možné tento výraz využít?"
+    - "Co označuje v rámci řetězce v poli *Nahradit* výraz `$2`? V jakých programech je možné tento výraz využít?"
+---
+bloom: apply
+questions:
+    - "Zadejte několik příkladů frází, které můžete zadat do Googlu, abyste se dozvěděli více o regulárních výrazech a jejich použití. Jeden z odkazovaných článků si vyberte a krátce shrňte jeho obsah a jeho přínos pro vás."
+    - "Kdo poprvé představil koncept regulárních výrazů? Stručně popište, o koho šlo."
+---
+bloom: apply
+count: 2
+allowRepeat: question
+vars:
+    regexp: ["^p", "?", "^t", "[-]", "^?", "<", "^#", ">", "^$", "()", "^^", "[!]", "^%", "{;}", "^v", "@", "^n", "*", "^+", "^=", "^e", "^d", "^f", "^g", "^l", "^m", "^~", "^s", "^-", "^b", "^w", "^a"]
+questions: |
+    Jaký význam má mezi zástupnými a speciálními znaky v MS Word/OO Writer `%regexp%`? Popište *vlastními slovy* a napište konkrétní příklad užití — co byste díky tomuto zástupnému znaku mohli v praxi najít v nějakém textu, se kterým se běžně setkáváte.
+---
+bloom: apply
+count: 2
+allowRepeat: question
+vars:
+    regexp:
+        - "[0-9]{3} [0-9]{3} [0-9]{3}"
+        - "čp\\. {0-9}+"
+        - "[0-9]{3} [0-9]{2}"
+        - "[a-z]+@[a-z]+\\.[a-z]+"
+        - "(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?"
+        - "<[a-z0-9]+>.+</[a-z0-9]+>"
+        - "\\*\\*[^*]+\\*\\*"
+        - "\\[.+\\]\\(.+\\)"
+        - "\\n#+ .+"
+        - ".+"
+        - "..."
+        - "[^a]+"
+questions: |
+    Popište, jaký řetězec vyhovuje regulárnímu výrazu `%regexp%`. Napište konkrétní příklad. Jaký by mohl být význam takového řetězce?
+    
+    Vytvořte podobný výraz pomocí zástupných znaků ve MS Wordu či OO Writeru.
+---
+bloom: create
+input: file
+comments: 10
+questions: |
+    Najděte na serveru [Ulož.to](http://uloz.to) nějaký pro vás zajímavý dokument uložený ve formátu MS Word (koncovka .doc nebo .docx), který obsahuje alespoň 3000 slov.
+    
+    Tento dokument upravte v MS Wordu/OO Writeru pomocí funkce Najít a nahradit za užití zástupných a speciálních znaků tak, aby vyhovoval typografickým pravidlům. Nehleďte při tom na styl dokumentu — zvolené písmo, jeho stupeň apod. ponechte tak, jak je. Soustřeďte se na členění textu — tzn. správné odstavce, sémanticky značené titulky, pevné mezery, správně umístěná interpunkce, české uvozovky, pomlčky a spojovníky atp.
+    
+    **Jiným způsobem do dokumentu vůbec nezasahujte.**
+    
+    Do vstupního pole vložte a krátce charakterizujte hledané výrazy, které jste použili pro dotažení dokumentu do typograficky slušné podoby (**alespoň pět**). Zároveň uveďte odkaz na soubor a popište, **proč je právě pro vás tento dokument zajímavý** a jak jste jej na serveru Ulož.to našli.
+    
+    **Původní verzi i upravený dokument** uložte a vložte zde oba v archivu ZIP.
+    
+    (Pokud je dokument větší, než je povolený limit, můžete z něj vymazat obrázky a podobný náročný obsah.)
+---
+bloom: create
+input: file
+comments: 16
+vars:
+    wikipage: ["Knihovnictví", "Informační věda", "Informační systém", "Legislativa", "Jackson Pollock", "Surrealismus", "Salvador Dalí", "Medaile Za hrdinství", "Česko", "Slovensko", "Rusíni", "Brooklynský most", "Myanmar", "Bangladéš", "Fair trade", "Sedmá generace", "Panda velká", "Medvědovití", "Čínská lidová republika", "Filozofická fakulta Masarykovy univerzity", "Filosofie", "Věda"]
+questions: |
+    Stáhněte zdrojový kód stránky *„%wikipage%“* na české Wikipedii. 
+    
+    Vyřízněte z něj obsah elementu `div` s atributem `id="content"`. Pokud je velmi dlouhý, nezkracujte jej — při zpracování úlohy Vám delší text spíše pomůže. Tento kód si zkopírujte do samostatného souboru v editoru *Sublime Text* (nebo ekvivalentním textovém editoru).
+    
+    Za **pomocí funkce Najít a nahradit** z textu odstraňte různé funkční prvky (odkazy pro editování textu apod.) a převeďte tento HTML kód do čisté syntaxe Markdown (výsledek by neměl obsahovat **vůbec žádný HTML kód**). Pokud některé značky či atributy HTML není možné převést do HTML, hromadně je nakonec odstraňte.
+    
+    **Jiným způsobem do kódu vůbec nezasahujte.**
+    
+    > **Příkladem** může být odstranění odkazů pro editaci: regulárním výrazem `<a href[^>]+>editovat</a>` můžete v kódu jednoduše identifikovat všechny tyto prvky.
+    >
+    > Při nahrazování kódu jiným kódem (například při práci s odkazy) je nejdůležitější dobře porozumět tomu, jak vymezovat a zachytávat skupiny („capture groups”) v regulárním výrazu. Používají se k tomu závorky (`()`) a v poli „nahradit“ identifikátory začínající dolarem (`$`): více byste měli najít v odkázaných zdrojích, ale nebojte se své strasti sdílet v diskusním fóru.
+    
+    Do komentáře vložte a krátce popište **řetězce z polí „Find“ a „Replace“** (alespoň pět dvojic). Během práce soubor po každé náhradě uložte a odevzdejte tyto průběžné verze i výsledek v archivu ZIP (měli byste tedy odevzdat alespoň 6 verzí kódu).
+    
+    > **Poznámka**: Při psaní v Markdownu je běžné používání kombinace Markdownu a HTML — syntax Markdownu to dovoluje — stačí HTML kód oddělit prázdným řádkem od zbytku textu. Příjemně jednoduché psaní je tak v případě nutnosti možné doplnit plnohodnotným HTML kódem. V této úloze „ohoblujeme“ tyto komplexní části (tabulky, některé atributy atp.), protože naším primárním cílem je naučit se dobře používat regulární výrazy.    
