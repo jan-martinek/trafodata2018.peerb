@@ -1,4 +1,4 @@
-name: Značkovací jazyky: HTML
+name: "Značkovací jazyky: HTML"
 goals: |
     Cílem této lekce je poznat základy HTML a vše si osahat. Nejprve si přečtěte úvod a následně se vrhněte na úkoly: nejvíce se naučíte tím, že si to vyzkoušíte.
 reading: |
@@ -48,7 +48,7 @@ reading: |
     
     Dalším způsobem, jak se HTML snadno naučit, je vyzkoušet si krátký e-learningový kurz na serverech jako je [Coursera](http://coursera.com) nebo [Khan Academy](http://khanacademy.org). V dalších lekcích se s těmito servery ještě setkáte.
     
-    > **POZOR: V tomto kurzu je možné používat pouze zdroje, které popisují standard HTML 5**. Pro úplnost dodávám dva zdroje, kterým se v rámci tohoto kurzu vyhněte: [jakpsatweb.cz](http://jakpsatweb.cz), [tvorba-webu.cz](http://www.tvorba-webu.cz). Pokud je někde vyžadováno uvedení zdroje, tyto weby nejsou uznatelné.
+    > **POZOR: V tomto kurzu je možné používat pouze zdroje, které popisují standard HTML 5**. Pro úplnost dodávám dva zdroje, kterým se v rámci tohoto kurzu **vyhněte**: [jakpsatweb.cz](http://jakpsatweb.cz), [tvorba-webu.cz](http://www.tvorba-webu.cz). Pokud je někde vyžadováno uvedení zdroje, tyto weby nejsou uznatelné.
     
     
     ### Editor
@@ -57,6 +57,7 @@ reading: |
     
     Proto si nainstalujte textový editor [Sublime Text](https://www.sublimetext.com) (pro vyzkoušení je možné jej používat zdarma po neomezenou dobu).
     
+    
     ### A píšeme
     
     Jakmile budete mít nainstalovaný editor, můžete se podívat na tento [článek o psaní stránek v HTML](https://developer.mozilla.org/en-US/Learn/HTML/Write_a_simple_page_in_HTML), který hezky vysvětluje, co obnáší psaní HTML stránky. 
@@ -64,26 +65,17 @@ reading: |
     Pokud v této fázi narazíte na problémy, obraťte se s prosbou o radu do předmětového fóra. **Je dovoleno — a doporučováno — si vzájemně pomáhat a radit se.** Dejte si na úkolu dobře záležet — na znalosti HTML podstatně závisí úspěch v závěrečném testu.
 preface: "Při zpracování úkolů vycházejte ze zadané literatury a dohledávejte další informace na internetu."
 rubrics:
-    - 
-        metric: "Jsou odpovědi vědomostní otázky (tzn. první čtyři) správné?"
-        0: "Odpovědi schází nebo jsou zcela nesprávné."
-        1: "V odpovědích se objevují zásadní chyby."
-        2: "V odpovědích se objevují drobné chyby."
-        3: "Odpovědi jsou zcela správné."
     - "Pokud se v odpovědích objevují chyby, upřesněte, kde je autor/ka dělá. Pokuste se to vysvětlit tak, aby to pomohlo v pochopení problematiky."
-    - 
-        metric: "Jsou praktické úkoly provedeny správně? Jsou prvky HTML v kódu užity správně?"
-        0: "Odpovědi schází nebo jsou zcela nesprávné."
-        1: "V odpovědích se objevují zásadní chyby."
-        2: "V odpovědích se objevují drobné chyby."
-        3: "Odpovědi jsou zcela správné."
-    - "Zhodnoťte, zda jsou zvýrazněné pasáže v textu knihy v posledním úkolu vybrané vhodně a zvýrazněné správným způsobem. Pokud byste raději zvýraznili jiné pasáže, jaké by to byly?"
 ---
 bloom: remember
 count: 1
 vars:
     element: ['p', 'h1', 'h2', 'h6', 'ol', 'ul', 'li', 'title', 'br', 'head']
 questions: "Jaká je sémantika prvku `%element%` v HTML dokumentu? Kde se takto vyznačený prvek v dokumentu objevuje?"
+rubrics:
+    -   checklist: ""
+        items:
+            - Otázka je správně zodpovězena.
 ---
 count: 2
 bloom: remember
@@ -92,6 +84,10 @@ questions:
     - "Je pravda, že HTML je značkovací jazyk? Co to znamená? K čemu slouží jazyk HTML?"
     - "Jak interpretuje prohlížeč mezery, tabulátory, nové řádky a jiné neviditelné znaky (white-space characters) v kódu stránky?"
     - "Jaký je rozdíl mezi termíny *HTML značky* a *HTML tagy*?"
+rubrics:
+    -   checklist: ""
+        items:
+            - Otázka je správně zodpovězena.
 ---
 count: 1
 bloom: understand
@@ -99,6 +95,10 @@ questions:
     - "Co umožňuje užívání HTML? (Popište, co umožňuje jak v rámci jedné stránky, tak mezi stránkami.)"
     - "K čemu slouží atributy `src` a `alt` u obrázku?"
     - "Popište rozdíl mezi seznamem značeným `<ol> … </ol>` a seznamem uzavřeným ve značkách `<ul> … </ul>`. Pro jaké seznamy je vhodný první a druhý typ seznamu?"
+rubrics:
+    -   checklist: ""
+        items:
+            - Otázka je správně zodpovězena.
 ---
 count: 2
 bloom: apply
@@ -113,14 +113,18 @@ questions:
         stránky. Dejte si skutečně pozor na to, aby šlo o návod pro *HTML 5*.
         
         <big><big><strong>Technology and The Evolution of Storytelling</strong></big></big><br><strong style="line-height: 1.6em;">It is such an exciting time to be a filmmaker.</strong>
-    - |    
+    - |
         Vytvořte v HTML číslovaný nákupní seznam. Jako jeho položky použijte jablko, máslo, 
         jogurt a dvě vymyšlené položky dle vlastní fantazie (v libovolném pořadí). Zapište kód do odpovědi.
-    - |    
+    - |
         Najděte chybu v následujícím kódu a popište ji.
         `<strong>Nad všecko věren buď <em>sobě samému.</strong></em>`
-    - |    
+    - |
         Najděte v kódu stránky na adrese [novinky.cz](http://novinky.cz) nečíslovaný seznam a jeho kód zkopírujte do odpovědi.
+rubrics:
+    -   checklist: ""
+        items:
+            - Úkol je správně splněný dle pokynů.
 ---
 count: 1
 bloom: create
@@ -142,5 +146,13 @@ questions: |
         
         Využijte *alespoň* prvků odstavce a nadpisů a korektně vytvořte hlavičku dokumentu (prvek `head`). 
         V textu následně zvýrazněte důležité pasáže vhodným způsobem (pasáže vyberte dle 
-        vlastního uvážení). Do vstupního pole vepište jakékoli postřehy a poznámky související s úkolem. 
+        vlastního uvážení). 
+        Do vstupního pole vepište jakékoli postřehy a poznámky související s úkolem. 
         **HTML soubor vložte jako přílohu k úkolu.**
+rubrics:
+    -   checklist: ""
+        items:
+            - HTML prvky jsou v kódu užity správně.
+            - Zvýrazněné pasáže jsou vybrány systematicky. (Je patrné, jaký princip vedl autora či autorku ke zvýraznění konkrétních pasáží.)
+            - Pasáže jsou zvýrazněny pomocí správných HTML prvků.
+    - "Zhodnoťte, zda jsou zvýrazněné pasáže v textu knihy v posledním úkolu vybrané vhodně — zkuste odhadnout, co bylo záměrem autora či autorky. Pokud byste raději zvýraznili jiné pasáže, jaké by to byly?"
