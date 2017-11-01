@@ -1,0 +1,178 @@
+  ### Objekt `window`
+  
+  Podobně jako při práci se želvou můžeme při našem skriptování pracovat s oknem prohlížeče, tedy objektem `window`. Možná jste si všimli volání metody `window.alert()` a `window.prompt()`, které říkají *„Okno prohlížeče, otevři [modální okno](https://cs.wikipedia.org/wiki/Modáln%C3%AD_okno) se zprávou!“*, resp. *„Otevři modální okno s dotazem!“*.
+
+---
+
+ - checklist: Psaní slova.
+    items:
+      - Skript je funkční a vypisuje slovo, které obsahuje alespoň pět různých znaků (**A** a **i** se nepočítají).
+      - Metody obsahují parametr `size`, který je správně aplikován na všechna volání kreslicích metod. 
+      - Metody jsou správně pojmenované.
+      - Slovo je vypsáno správným voláním metod, které vypisují písmena, mezi nimiž je volána funkce, která vkládá mezi písmena drobnou mezeru.
+---
+
+bloom: apply
+input: file
+questions: |
+  ### Spouštění vlastní funkce v konzoli
+
+  Vložte do javascriptové konzole následující funkci, která umožňuje dohledat úkol, jehož součástí je konkrétní písmeno (a potvrďte vložení Enterem):
+    
+      function getLinks(letter) {
+        var links = [];
+        var letters = 'a2497b2517B2539C2497c2514d2497D2498D2501D2502D2503d2504D2512D2539d2543e2483e2491E2493E2506E2518E2521E2528f2489f2510F2514F2528F2533f2534G2500g2508g2511j2493J2494j2504J2516J2522j2530K2484K2485k2491K2496K2498k2510K2511K2513K2530K2543l2483l2485l2487L2501l2503l2513L2525L2532m2485M2487m2489M2496m2506M2508m2509m2532M2535o2484O2489o2493O2504o2515O2541P2488p2498p2506P2514P2515P2516Q2483Q2494Q2500q2502Q2517r2482R2499R2509r2515R2523R2525r2531S2482s2487s2490S2491s2500s2509S2517S2522S2528t2494T2496T2505t2516t2519t2531T2533t2533t2534T2535u2522u2532V2490x2510X2526y2482y2484Y2490Y2499y2530y2534y2535y2539Z2488Z2499Z2501z2503z2511Z2513z2523Z2525z2531Z2541z2543';
+        
+        var regex = new RegExp(letter + '([0-9]+)', 'g');
+        var matches = letters.match(regex);
+        for (var i = matches.length - 1; i >= 0; i--) {
+          var link = 'http://kisk.peerblender.com/solution/' + matches[i].substr(1,4);
+          links.push(link);    
+        }
+        
+        return links;
+      }
+  
+  A následně tuto funkci zavolejte přímo v konzoli — napište `getLinks('a')` a stiskněte Enter (můžete použít i jinou hodnotu parametru, která vrací neprázdný výsledek). Pořiďte screenshot a ten nahrejte do přílohy.
+  
+  > **Tip:** Takto můžete v konzoli spouštět libovolnou funkci (například hříčku z následujícího příkladu) nebo si vypsat nějakou hodnotu, kterou již skript obsahuje.
+rubrics:
+  - checklist: ''
+    items:
+      - Screenshot zobrazuje úspěšné volání funkce v konzoli.
+
+
+---
+bloom: create
+input: turtle
+questions: |
+  ### Metody: jak naučit želvu nové věci
+  
+  Na základě závěrečných úkolů z předchozí lekce **naučte želvu psát písmena a slova**: vezměte kód pro jednotlivá písmena a vytvořte z něj jednotlivé metody, ty pak postupně zavolejte.
+  
+  Využijte **všechny tři znaky**, které jste vytvořili v předchozí lekci, a vymyslete slovo (nebo dvě) skládající se z alespoň pěti *různých* znaků. Písmena, která potřebujete doplnit, dohledejte v úkolech od ostatních: můžete si pomoci funkcí `getLinks(char)`, s níž jste pracovali v prvním úkolu a která vrací odkazy na úkoly ostatních studujících, které obsahují patřičná písmena.
+  
+  ### Podmínky
+  
+  > **Tip:** Následující podmínky můžete nyní přeskočit a mrknout se na kód (a výslednou grafiku) a trochu si s ním pohrát, protože se dají odkoukat z kódu samotného. Nicméně předtím, než budete chtít vyrobit finální výsledek, projděte si je.)
+  
+  - Metody pojmenujte vždy `writeUpperX` pro verzálky a `writeLowerX` pro minusky (X zaměňte za dané písmeno). 
+  - Do řádkového komentáře v kódu vložte adresu zdrojového úkolu, z něhož jste písmena převzali.
+  - **Všechny metody tvořte s parametrem `size`, kterým vždy vynásobte parametry metod `forward()` a `back()` (viz vzorový kód).** Díky tomu budete moci výstup zvětšit či zmenšit dle potřeby.
+  - Mezi písmena vkládejte drobnou mezeru pomocí metody `nextChar()`, případnou mezeru pomocí `insertSpace()`.
+  - Pokud kód písmene obsahuje přebytečné horizontální mezery nebo jiné problémy, můžete kód upravit, aby byl výsledek co nejlepší.
+  - Pro inspiraci želva už v předvyplněném kódu umí psát verzálku **A** a minusku **i**. Mrkněte na výstup. (Tato písmena můžete použít, ale nepočítají se do minima pěti různých znaků.)
+  - Nastavte nakonec proměnnou `s` tak, aby slovo velikostně pasovalo do rámečku (měl by mít šířku 470 pixelů; pokud máte menší okno prohlížeče a náhled se vám zobrazuje pod kódem, zkontrolujte výsledek ve větším okně).
+  - Kód je uspořádaný: **nejprve jsou definovány metody, následně jsou volány ve správném pořadí**. Vyzkoušejte si nejprve drobné změny ve vzorovém kódu, ať víte, která část dělá co.
+  - Výsledek **nemusí** obsahovat háčky a čárky (není to nijak hodnoceno), ale pokud je budete chtít využít, nadefinujte si pro ně speciální metody.
+  - Pro kontrolu obsahuje kód opět závěrečnou bílou čáru — ta by měla být svislá.
+  
+  ### Výstupní stav
+  
+  Všimněte si, že díky tomu, že měla želva v předchozí lekci jasně definovaný výstupní stav (musí skončit vpravo dole a být natočená nahoru), můžeme nyní mezi písmena snadno vložit jednoduché mezery pomocí metody `nextChar()`. Díky tomu jsou předvídatelné i případné nutné opravy (např. odstranění zbytečného horizontálního „dojezdu“ želvy).
+  
+  > **Pozn.:** Skutečná typografie není takto jednoduchá — mezery mezi páry písmen jsou odlišné a není je možné řešit paušálně. Nicméně na konci této lekce bude s trochou štěstí možné z jednotlivých úkolů vytáhnout funkce potřebné pro plnohodnotný život želvy druhu *Trachemys grafitta elegans*. A to není málo.
+prefill: |
+  /**************************
+  Tuto část neměňte      
+  **************************/
+  var h = 170, w = 120, gray = '#AAAAAA', 
+    white = '#FFFFFF', black = '#000000';
+  turtle = new Turtle();
+  turtle.x = 20;
+  turtle.y = window.innerHeight/2+h/2;
+  turtle.left(180); 
+
+  turtle.penDown = true; 
+  turtle.color = black;
+
+  turtle.nextChar = function(size) {
+    turtle.penDown = false;
+    turtle.right(90);
+    turtle.forward(size*10);
+    turtle.left(90);
+    turtle.penDown = true;
+  };
+
+  turtle.insertSpace = function(size) {
+    for (var i = 0; i < 7; i++) {
+    turtle.nextChar(size);
+    }
+  };
+
+  /**********************************
+  Následující kód kreslí písmeno.
+  Měňte pouze následující část kódu.
+  ***********************************/
+
+  // nejprve vydefinujeme metody
+  // tzn. naučíme želvu nové věci
+  
+  // převzato z úkolu: vzor
+  turtle.writeUpperA = function(size) {
+    var alfa = 19.5; 
+    var middle = size*65;
+    // dřík1
+    turtle.right(alfa); turtle.forward(size*180);
+    turtle.right(180-alfa*2);
+    // dřík2.1
+    turtle.forward(size*100);
+    // příčka
+    turtle.right(90+alfa); 
+    turtle.forward(middle); turtle.back(middle); 
+    turtle.left(90+alfa);
+    // dřík2.2
+    turtle.forward(size*80);
+    turtle.left(180-alfa);
+  };
+
+  // převzato z úkolu: vzor
+  turtle.writeLowerI = function(size) {
+    var stemHeight = 0.5;
+    var gap = 0.1;
+    // dřík
+    turtle.penDown = true;
+    turtle.forward(size*h*stemHeight);
+    // mezera
+    turtle.penDown = false;
+    turtle.forward(size*h*gap);
+    turtle.right(90);
+    // tečka
+    turtle.penDown = true;
+    for (var i = 0; i < 10; i++) {
+    turtle.forward(1);
+    turtle.left(360/10);
+    }
+    // návrat dolů
+    turtle.penDown = false;
+    turtle.left(90);
+    turtle.back(size*h*(stemHeight+gap));
+  };
+
+  // tady vypíšeme slovo
+  var s = 0.7; // velikost písmen
+  turtle.writeUpperA(s);
+  turtle.nextChar(s);
+  turtle.writeLowerI(s);
+  turtle.nextChar(s);
+  turtle.writeUpperA(s);
+  turtle.insertSpace(s);
+  turtle.writeLowerI(s);
+  turtle.nextChar(s);
+  turtle.writeUpperA(s);
+
+  /*************************
+  A toto už zase neměňte
+  **************************/
+  turtle.finale = function() {
+    turtle.penDown = false;
+    turtle.right(90);
+    turtle.forward(20);
+    turtle.left(90);
+    turtle.penDown = true;
+    turtle.color = white;
+    turtle.forward(h);
+    turtle.penDown = false;
+    turtle.forward(500);
+  };
+  turtle.finale();

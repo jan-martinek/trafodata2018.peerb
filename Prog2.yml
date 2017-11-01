@@ -1,0 +1,379 @@
+name: "Skriptování 2: Funkce a opakování"
+goals: |
+  Ve druhé lekci skriptování si zjednodušíme práci při tvobě algoritmů (naučíme se tvořit funkce) a při opakovaném vykonávání příkazů.
+reading: |
+  Jako obvykle, když se vám nedaří, [zkuste to vygooglit](https://www.google.com/search?q=get+better+at+googling). Pokud se v konzoli objeví chyba javascriptu, ve většině případů najdete na internetu velmi dobrou a podrobnou odpověď. Spolehlivým serverem je [Stack Overflow](http://stackoverflow.com), jehož výskytem ve výsledcích hledání si můžete být téměř jistí. Je důležité učit se správně hledat — jaká slova přinesou rychlé řešení, jak naznačit vyhledávači, že hledáte postup anebo popis konkrétního [API](https://cs.wikipedia.org/wiki/API).
+  
+  Pokud byste se u něčeho zasekli, vyzkoušejte si klidně nějaký javascriptový [tutoriál](http://google.com/search?q=javascript+syntax+tutorial) — během půlhodiny vás posune dopředu. V úkolech se však postupně potkáte se všemi potřebnými syntaktickými konstrukcemi, které jsme postupně prošli i na semináři, takže by vás nemělo čekat mnoho překvapení.
+  
+  Stejně jako v minulé lekci: experimentujte, zkoušejte to, spouštějte nedodělané skripty a sledujte, co želva dělá. Ono se to poddá.
+rubrics:
+  - "Pokud jste objevili nějakou chybu, upřesněte, kde se chyby nachází. Pokuste se problematiku osvětlit tak, aby to autorovi/autorce pomohlo."
+preface:
+---
+bloom: create
+input: javascript
+questions: |
+  ### Generátor emocí
+
+  Doteď se naše skripty vykonávaly bez možnosti ovlivnění — nyní přichází ke slovu interakce s uživatelem. Skripty mohou přijímat vstup v různých formách — může to být klikání, pohyb myši, psaní apod.
+
+  Inspirujte se hříčkou a **vytvořte svou vlastní variantu, která vzbuzuje stejnou nebo jinou emoci** a využívá přitom alespoň dva vstupy od uživatele. Principem by mělo zůstat to, že kód vyžaduje nějaká slova (nebo jiný textový vstup), která pak využije k nějakému vtípku.
+  
+  Do kódu vložte komentáře, které vysvětlují, co jednotlivé části (řádky) kódu dělají. (Popište klíčová slova, prováděné operace, popisy funkcí apod.)
+prefill: |
+  var angerGenerator = function(name) {
+    return name + " smrdí!";
+  };
+  
+  var surname = window.prompt("Napiš svoje příjmení:");
+  var shout = angerGenerator(surname);
+  
+  window.alert(shout);
+rubrics:
+  - checklist: ''
+    items:
+      - Hříčka je smysluplná a funkční.
+      - Hříčka pracuje se dvěma uživatelskými vstupy, které jsou použity ve výstupu.
+      - Kód hříčky obsahuje komentáře, které správně popisují jednotlivé části kódu.
+---
+bloom: create
+input: turtle
+questions: |
+  ### Vločky a opakování
+
+  V následujícím kódu budeme kreslit krásnější vločku. Podobně jako při stříhání papírových vloček nemusíme kreslit každou část vločky samostatně. Namísto skládání papíru a nůžek však použijeme funkci `repeat(fn, n)`, která v sobě skrývá opakování — stačí jí předat název funkce a počet opakování (viz příklad).
+
+  Funkce jsou pojmenované kousky kódu, kterým můžeme předat parametry — nejprve je vydefinujeme (napíšeme, co dělají) a pak je zavoláme (třeba i několikrát). Projděte si [kousek třetí kapitoly](https://eloquentjavascript.net/03_functions.html) knihy Eloquent Javascript (po titulek „Nested scope“), kde jsou základy práce s funkcemi stručně vysvětleny.
+
+  Prakticky je to vidět nejlépe — funkce, která se opakuje, je připravená v příkladu: prohlédněte si kód ve funkci `snowflake(preview)` a pracujte pouze s obsahem funkce `snowflakePart(mirror)`, která kreslí **zrcadlovou polovinu** jednoho z „cípů“ vločky. Z tohoto kousku je pak vykreslená celá vločka. Aby bylo možné generovat zrcadlovou část, je potřebné všechny otáčky (`right` či `left`) vynásobit proměnnou `mirror` (z otočky doprava o 30 stupňů se tak stane otočka doprava o -30 stupňů, tzn. vlastně otočka doleva).
+
+  > **Pozn.:** Při skriptování můžete běžně používat i jiný způsob, jak vytvořit opakování — v Javascriptu například cykly `while`, `do … while` a `for`. Pokud chcete, můžete tento způsob použít i v úkolech, ale podmínkou je, že vysvětlíte hodnotícím, jak pracuje (pomocí komentářů, nikoli pouhým odkazem). Obecně by ale mělo stačit užití funkce `repeat()`.
+  
+
+  ### Zadání
+  
+  Vytvořte vlastní design vločky pomocí funkce `snowflakePart(mirror)`, který je výrazně bohatší a odlišný od připraveného vzoru. Jedinou podmínkou je, že na konci musí želva stát na místě, kde začínala, a dívat se stejným směrem. (Při zpracování úkolu si nicméně zkuste, jak to dopadne, když tuto podmínku nesplníte: výsledky jsou často velmi pěkné. Nejspíš to zakusíte i omylem.)
+prefill: |
+  var turtle, run, size = toy.measure();
+  var highlight = true; // zvýraznit 1 dílek
+
+  var snowflakePart = function(mirror) {
+    turtle.forward(50);
+    
+    // výčnělek
+    turtle.right(mirror*60);
+    turtle.forward(30);
+    turtle.back(30);
+    turtle.left(mirror*60);
+    
+    turtle.forward(30); // špička
+    turtle.back(30 + 50); // návrat zpět
+  };
+
+
+  /**************************************
+   *                                    *
+   * úpravy ve zbytku kódu nejsou nutné *
+   *                                    *
+   **************************************/
+  
+  p.setup = function() {
+    p.createCanvas(size.w, size.h);
+    p.angleMode(p.DEGREES);
+    
+    turtle = new Turtle(p);
+
+    turtle.snowflake = function() {
+      var drawPart = function(i) {
+        turtle.color = 'white';
+        snowflakePart(-1);
+        if (i === 0 && highlight) {
+          turtle.color = 'red';
+        }
+        snowflakePart(1);
+        turtle.right(360/6);
+      };
+
+      repeat(drawPart, 6);
+    };
+
+    turtle.snowflake();
+    turtle.right(720);
+
+    run = turtle.getRun();
+  };
+
+  p.draw = function() {
+    p.background(100, 100, 200);
+    run.animate(5);
+  };
+
+  function repeat(fn, n) {
+    var a = Array.apply(null, Array(n)).map(
+      function (_, i) {return i;}
+    ).forEach(fn);
+  }
+rubrics:
+  - checklist: ''
+    items:
+      - Skript v úloze s vločkou je upravený a funkční.
+      - Vločka má výrazně bohatší a odlišný design oproti původnímu vzoru.
+      - Želva se vrací uvnitř funkce `snowflakePart(mirror)` vždy zpět tam, odkud vyjela.
+      - Zvýrazňování části vločky je vypnuté.
+---
+bloom: create
+input: turtle
+questions: |
+  ### Želví tanec
+
+  Nyní se ujměte tvorby opakování sami. Naučte želvu tancovat — co je to „želví tanec“, je plně na vás.
+  
+  Při tvorbě využijte alespoň tři různá opakování a celý tanec klidně rozdělte do více kroků (funkcí). Připravený kód tentokrát pouze přichystá želvu a postaví ji na střed, zbytek je na vás.
+  
+  ### Tipy
+  
+  - Nechte želvu po dobu tance kreslit, vzniknou zajímavé obrazce.
+  - Zkuste pracovat s barvami. Pomocí zápisu HSL (např. `hsl(360, 100%, 50%)`) můžete vygenerovat snadno různé barvy (můžete se inspirovat předposledním příkladem, kde je taková přiřazení součástí předvyplněného kódu).
+  - Zkuste využít funkce `p.random(x, y)`, která vrací celá čísla v rozsahu *<x; y>*.
+  - Opakování může obsahovat další opakování — jen opatrně, tisíc opakování uvnitř jiného tisíc opakování znamená, že se vnitřní opakování spustí milionkrát. To nemusí být problém, ale může.
+  - Nedělejte tanec nekonečný, nevykreslí se. Nebojte se ale opakování se stovkami až tisíci iterací — pokud nejsou vnitřně složité, neměl by to být problém.
+prefill: |
+  var turtle, run, size = toy.measure();
+  
+  var dance = function() {
+
+    // mrkněte na příklad náhodného tance
+    // a pak tyto řádky smažte
+    randomDance();    
+
+  };
+
+
+  /**************************************
+   *                                    *
+   * úpravy ve zbytku kódu nejsou nutné *
+   *                                    *
+   **************************************/
+  
+  p.setup = function() {
+    p.createCanvas(size.w, size.h);
+    p.angleMode(p.DEGREES);
+    
+    turtle = new Turtle(p);
+    run = turtle.getRun();
+    
+    dance();
+  };
+
+  p.draw = function() {
+    p.background(200);
+    run.animate(5);
+  };
+
+  function repeat(fn, n) {
+    var a = Array.apply(null, Array(n)).map(
+      function (_, i) {return i;}
+    ).forEach(fn);
+  }
+
+  var randomDance = function() {
+    var step = function() {
+      var hue = Math.floor(p.random(0, 360));
+      turtle.color = 'hsl(' + hue + ', 100%, 50%)';
+      turtle.forward(p.random(10, 50));
+      turtle.right(p.random(0, 180));
+      turtle.left(p.random(0, 180));
+    };
+
+    repeat(step, 100);
+  };
+rubrics:
+  - checklist: ''
+    items:
+      - Želví tanec je zpracovaný a skript je možné spustit.
+      - Želví tanec využívá alespoň tří různých opakování.
+---
+bloom: apply
+questions:
+  - "Jaký je rozdíl mezi operátory `=`, `==` a `===`?"
+  - "Jak se v javascriptu zapisují operátory *relační* a operátor *přiřazení*?"
+  - "Najděte problém v *podmínkovém výrazu (uvnitř kulatých závorek)*: `if (jeHezky = true) { … }`."
+  - "Popište, co je to v kontextu javascriptu *operátor přiřazení*."
+  - "Popište, co jsou v kontextu javascriptu *relační operátory*."
+rubrics:
+    - checklist: ''
+      items:
+          - Popis je fakticky správný.
+          - Je uveden zdroj, z něhož autor/ka čerpal/a.
+---
+bloom: create
+input: turtle
+questions: |
+  ## Podmínkové konstrukce
+  
+  Ve skriptech můžeme používat tzv. podmínkové konstrukce, jejichž obdobu možná znáte z tabulkových procesorů. Nejznámější z nich je `if-else`: pokud je něco platné, udělej toto, a pokud ne, udělej něco jiného. V javascriptu to vypadá takto:
+    
+      if (něco) {
+        // udělej tohle
+      } else {
+        // udělej támhleto
+      }
+  
+  Ve vzorovém kódu vidíte želvu, která jde po kouscích dopředu a když se blíží k okraji, odbočí doprava. (Jde o želvu s pudem sebezáchovy.) Skript si prostudujte. (Nejdříve si projděte jeho strukturu: tzn. definované a volané funkce. Následně si projděte, co dané funkce dělají.)
+
+  
+  ### Pozice želvy
+  
+  Naší želvy se můžeme podobně zeptat, kde se nachází: pomocí metod `turtle.getX()` a `turtle.getY()` najdeme souřadnice, na nichž se nachází. (V našich úkolech je okno vždy stejně velké jako plocha, po které želva běhá. Proto je snadné zjistit, kde se želva nachází, porovnáním velikosti okna a souřadnic želvy).
+  
+  Souřadnice začínají vlevo nahoře — obě metody tedy u želvy, která stojí v levém horním rohu vrátí hodnotu `0`. Čím více doprava želva jde, tím větší číslo vrací `turtle.getX()`, stejně tak pokud se pohybuje směrem dolů, zvětšuje se hodnota vracená metodou `turtle.getY()`. Je to podobné jako souřadnice v grafu, ale osa *y* je obrácená (souvisí to s tím, že staré počítač pracovaly jen se znaky  — a proto se počítala čísla řádků a písmen v textu).
+  
+  V každém skriptu se želvou je na začátku příkaz `size = toy.measure();`. Ten do proměnné `size` uloží rozměry prostoru, v němž pak kreslíme na „plátno”. Díky tomu víme, že *pravý dolní roh* je v proměnné `size`, která má dvě vlastnosti: `w` obsahuje šířku a `h` obsahuje výšku plátna. To znamená, že je potřeba ujít zleva `size.w` pixelů, abychom se dostali z levého na pravý okraj plátna. (Tohle bude jasnější, až uvidíte následující příklad.)
+  
+  
+  ### Zadání
+  
+  **Vytvořte jiný skript, který pracuje s podmínkami a využívá celé plochy, po které želva může chodit.**
+  
+
+  ### Inspirace
+  
+  - Můžete kreslit obrazce, které vyplní celou plochu (můžete se snažit celoou plochu „vydláždit“ nebo zabarvit).
+  - Můžete želvu nechat chodit a podle toho, kde se nachází, ji nechat dělat nějakou věc (např. v levé částí kreslí kolečka, v pravé čtverečky — tohle chování můžete uložit do funkce a opakovaně ho spouštět).
+  - Můžete kreslit různými barvami podle toho, kde se želva nachází — ze souřadnic určete nějakou barevnou hodnotu a dosaďte ji například do barevné definice [RGB](https://www.google.cz/search?q=css+rgb) či [HSL](https://www.google.cz/search?q=css+hsl). Abyste nepřesáhli určitou hodnotu, využijte operátoru *modulo* (`%`), tedy operátor vracející zbytek dělení. (Příklady užití HSL i modula najdete v další úloze, klidně nahlédněte dopředu.)
+prefill: |
+  var turtle, run, size = toy.measure();
+
+  var carefullyForward = function() {
+    // popojdi o 10
+    turtle.forward(10);
+    
+    // levý okraj je blízko
+    if (turtle.getX() < 50) {
+      turnInShock();
+    }
+    // horní okraj je blízko
+    if (turtle.getY() < 50) {
+      turnInShock();
+    }
+    // pravý okraj je blízko
+    if (turtle.getX() > size.w - 50) {
+      turnInShock();
+    }
+    // dolní okraj je blízko
+    if (turtle.getY() > size.h - 50) {
+      turnInShock();
+    }  
+  };
+
+  var turnInShock = function() {
+    // v úleku odběhni
+    turtle.back(20);
+    // otoč se doprava o pořádný úhel
+    turtle.right(p.random(85,270));
+  };
+
+   /**************************************
+   *                                    *
+   * úpravy ve zbytku kódu nejsou nutné *
+   *                                    *
+   **************************************/
+  
+  p.setup = function() {
+    p.createCanvas(size.w, size.h);
+    p.angleMode(p.DEGREES);
+    
+    turtle = new Turtle(p);
+    run = turtle.getRun();
+
+    repeat(carefullyForward, 1000);
+  };
+
+  p.draw = function() {
+    p.background(200);
+    run.animate(5);
+  };
+
+  function repeat(fn, n) {
+    var a = Array.apply(null, Array(n)).map(
+      function (_, i) {return i;}
+    ).forEach(fn);
+  }
+rubrics:
+  - checklist: ''
+    items:
+      - Skript je výrazně upravený oproti původnímu příkladu.
+      - Upravený skript je funkční a želva využívá nějakým způsobem celou plochu náhledového okna.
+      - Upravený skript obsahuje podmínku, která mění chování želvy v závislosti na její poloze.
+---
+bloom: create
+input: turtle
+questions: |
+  ### Rekurze
+  
+  Poslední úkol se týká *rekurze*, což je situace, kdy funkce volá sebe samotnou. Možná znáte *fraktály*, tedy obrazce, které jsou podobné sobě samotným. Fraktály je možné popsat pomocí rekurzivních funkcí.
+  
+  V příkladu níže vidíte funkci `forwardRightAndAgain()`, která želvě říká *"jeď dopředu o nějakou vzdálenost, pak zaboč a udělej to znovu s trochu větší vzdáleností"*. Výsledek je poměrně epický — zvláště, když v průběhu měníme barvu propisky v závislosti na délce chůze.
+
+  ### Dobrá a špatná zpráva
+  
+  - Rekurzivní funkce mají úžasnou vlastnost: velmi jednoduchá funkce, která sebe samu mnohokrát zavolá, může vytvořit velmi komplexní výsledky.
+  - Rekurzivní funkce mají také jednu zásadní negativní vlastnost: i jednoduché funkce, které volají sebe samotné, mohou snadno zahltit sebevýkonnější počítač. Proto je důležité dobře stanovit podmínku, kdy volání skončí.
+  
+  > **Pozn.:** Popsaný kód obsahuje podmínku, že když by želva měla jet o více než 500 pixelů dopředu, vykašle se na to. Kdyby tam tato podmínka nebyla, želva by se snažila jet o 501, 502, 503… 1324… 1204971… pixelů atd. — což by jednak nebylo vidět a krom toho by to zahltilo počítač, který by celé počínání zatrhl předtím, než se dostane k jeho vykreslování. 
+  > 
+  > (Můj prohlížeč vykreslí třicet tisíc rekurzivních volání níže uvedené funkce poměrně snadno, ale někde u 40000 už odmítne zpracování, protože skript přesáhne povolené množství rekurzivních volání.)
+  
+  Vytvořte svou vlastní rekurzivní funkci a dobře ji nazvěte, aby bylo zřejmé, co dělá. Snažte se udělat funkci, která je výrazně odlišná od té, která je využita v příkladu. Výsledek popište do komentáře (přímo v kódu).
+
+  > **Tip:** Při takto dlouhé iteraci určitě využijete možnost vykreslit celý výsledek okamžitě namísto animace – nahraďte volání `run.animate()` za volání `run.print()` a výsledek se vytiskne okamžitě. 
+  >
+  > Společně s voláním `p.background()` můžete takové vykreslování přesunout přímo do funkce `p.setup()` — statický obrázek vykreslíte jednou a stačí to.
+prefill: |
+  var turtle, run, size = toy.measure();
+
+  var forwardRightAndAgain = function(length) {
+    var angle = 67;
+    
+    // nastavení barvy
+    var hue = Math.round(length%360);
+    turtle.color = 'hsl('+hue+', 100%, 50%)';
+
+    // pohyb
+    turtle.forward(length);
+    turtle.right(angle);
+
+    // rekurze se volá jen pokud 
+    // je délka menší než 500 pixelů
+    if (length < 500) {
+      forwardRightAndAgain(length+1);
+    }
+  };  
+
+  p.setup = function() {
+    p.createCanvas(size.w, size.h);
+    p.angleMode(p.DEGREES);
+    
+    turtle = new Turtle(p);
+    run = turtle.getRun();
+    
+    forwardRightAndAgain(1);
+  };
+
+  p.draw = function() {
+    p.background(200);
+    run.animate(10);
+  };
+
+  function repeat(fn, n) {
+    var iterator = Array.apply(null, Array(n)).map(
+      function (_, i) {return i;}
+    ).forEach(fn);
+  }
+rubrics:
+  - checklist: ''
+    items:
+      - Upravený skript je funkční a obsahuje funkci, která rekurzivně volá sebe samotnou.
+      - Vykreslený výsledek je výrazně odlišný od původního příkladu v zadání.
+      - Upravený skript je podrobně okomentovaný a je jasné, co která část provádí.
