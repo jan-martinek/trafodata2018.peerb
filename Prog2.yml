@@ -127,9 +127,9 @@ input: turtle
 questions: |
   ### Želví tanec
 
-  Nyní se ujměte tvorby opakování sami. Naučte želvu tancovat — co je to „želví tanec“, je plně na vás.
-  
-  Při tvorbě využijte alespoň tři různá opakování a celý tanec klidně rozdělte do více kroků (funkcí). Připravený kód tentokrát pouze přichystá želvu a postaví ji na střed, zbytek je na vás.
+  Nyní se ujměte tvorby opakování sami. Naučte želvu tancovat — co je to „želví tanec“, je plně na vás: vytvořte definici funkce `dance()` dle svých představ. **Při tvorbě využijte alespoň tři různá opakování** a celý tanec klidně rozdělte do více kroků (funkcí).
+
+  Pro inspiraci je uvnitř připravené funkce `dance()` volána funkce `randomDance()` — můžete si prohlédnout, jak se v této funkci pracuje s barvou (`turtle.color` a zápis ve formátu [HSL](https://en.wikipedia.org/wiki/HSL_and_HSV)) a jak díky volání funkce `repeat()` dochází k mnohonásobnému zopakování předepsaného kroku `step()`. Až si kód prostudujete, můžete volání `randomDance()` smazat anebo nějak zakomponovat do vlastního želvího tance.
   
   ### Tipy
   
