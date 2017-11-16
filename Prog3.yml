@@ -894,7 +894,7 @@ prefill: |
    *                                    *
    **************************************/
 
-  var animals = ['piglet', 'rabbit', 'tiger', 'snake'];
+  var animals = [piglet, rabbit, tiger, snake];
 
   // generátor celých čísel od 0 do 3
   var num = Math.ceil(Math.random() * 4) - 1;
