@@ -824,6 +824,7 @@ prefill: |
 ---
 bloom: understand
 input: javascript
+comments: 5
 questions: |
   V předcházející úloze jsme procházeli jednotlivými hodnotami pole. Procházet můžeme i vlastnostmi objektu.
   
@@ -833,7 +834,7 @@ questions: |
 rubrics:
   - checklist: ''
     items:
-      - Cyklus `for … in` je v druhé úloze správně popsaný (včetně postupu, kterým bylo jeho chování odpozorováno).
+      - Cyklus `for … in` je správně popsaný (včetně postupu, kterým bylo jeho chování odpozorováno).
       - Kód obsahuje několik volání `console.log()`, která zachycují stav skriptu.
 prefill: |
   var marketPrices = {
