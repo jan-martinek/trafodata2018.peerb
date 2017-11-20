@@ -97,10 +97,10 @@ vars:
     - "^...?$"
     - "^[^a]+"
 prefill: |
-  var regex = /%regexp%/g;
   var strings = ["", "", ""];
 
   strings.forEach(function(string, index) { 
+    var regex = /%regexp%/g;
     var status = regex.test(string) ? 'vyhovuje' : 'nevyhovuje';
     console.log(index, status);
   });
@@ -117,6 +117,10 @@ rubrics:
 ---
 bloom: remember
 questions: "Co označuje v rámci řetězce v poli *Nahradit* výraz `$1`?"
+rubrics:
+  - checklist: ''
+    items:
+      - Otázka je správně zodpovězená.
 ---
 bloom: create
 input: file
