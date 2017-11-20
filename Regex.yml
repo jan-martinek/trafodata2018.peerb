@@ -1,0 +1,212 @@
+name: Najít, nahradit a regulární výrazy
+goals: |
+  V této lekci prozkoumáme užitečnost funkce *Najít a nahradit* při psaní v běžném jazyce a při užití značkovacích jazyků a jiných formálních syntaxí. Zásadní součástí lekce jsou základy práce s *regulárními výrazy*, které umožňují pracovat s hledáním a nahrazováním efektivněji a spolehlivěji.
+reading: |
+  ### Začít zlehka
+  
+  V této lekci je důležité začít zlehka. Níže doporučím několik zdrojů, ale tím nejdůležitějším je v této lekci opět **hraní si**. Přímá zkušenost je nenahraditelná — obdobně jako pro děti, které si hrají s předměty, které najdou na pískovišti (s tím rozdílem, že tam běžně nenajdou regulární výrazy — *zatím*).
+
+  > ### Poznámka: Co klasické dokumenty?
+  > 
+  > Oproti předchozím letům se tato lekce věnuje pouze běžným regulárním výrazům — vynechány jsou textové procesory, které pracují s jejich různými obdobami. Některé se blíží více, jiné méně: např. v textovém procesoru MS Word se obdobné funkcionalitě říká [*wildcards* a *special characters*](http://www.google.com/search?q=using+ms+word+wildcards) (česky [*speciální a zástupné znaky*](http://www.google.com/search?q=ms+word+speciální+a+zástupné+znaky)). V LibreOffice Writer a Google Documents se naopak blížíme syntaxi `pcre` regulárních výrazů, kterou budeme používat.
+  > 
+  > Komplikací je též to, že v různých verzích těchto kancelářských balíků najdete pokročilé hledání a nahrazování textů na různých místech a použitelné speciální a zástupné znaky se mohou lišit. I tak stojí za to vědět, že i zde je možné využít znalost pokročilého nahrazení textu — jen si musíte nastudovat, jaké značky je možné používat a jak pracuje nahrazování.
+  >
+  > Další informace najdete hledáním [search and replace in word](http://www.google.com/search?q=search+and+replace+in+word), popř. česky [najít a nahradit ms word](http://www.google.com/search?q=najít+a+nahradit+ms+word). 
+rubrics:
+  - "Pokud jste objevili nějakou chybu mimo poslední tři úkoly, upřesněte, kde se chyby nachází. Pokuste se problematiku osvětlit tak, aby to autorovi/autorce pomohlo."
+preface: |
+  U této lekce je podstatné pracovat správně se soubory: sledujte zadání, kde je napsáno, jaké formáty máte odevzdat a jak s nimi pracovat. Jedna z úloh vyžaduje, abyste soubor uložili vícekrát a přiložili průběžné verze v ZIPu — dejte si na to pozor.
+  
+  Pokud něčemu nerozumíte a nedaří se vám to dohledat pomocí Google, zkuste se obrátit na kolegy v diskusním fóru v ISu. Pomůže to nejspíše nejen vám. 
+---
+bloom: understand
+comments: 10
+input: file
+questions: |
+  Začneme průchodem lekcemi [výukového kurzu a hry v jednom RegexOne](http://regexone.com). Projděte si prvních 15 lekcí a **soustřeďte se při tom na texty, které představují jednotlivé koncepty**. Cvičení se často dají vyřešit bez využití probíraných konceptů, ale ty vám později budou chybět.
+
+  **Po průchodu kurzem nahrejte níže screenshot z RegexOne s nápisem „You've finished the tutorial!“** Do pole pro komentáře popište, která z lekcí pro vás byla nejobtížnější a kterou považujete za nejpřínosnější (uveďte příklad uplatnění ve vaší běžné praxi v práci či při studiu).
+
+  #### Další materiály
+  
+  Krom praktického cvičení se může hodit další materiál. Vzhledem k tomu, že jde o poměrně praktickou a dobře živě předveditelnou látku, doporučuji zejména názorná [videa Daniela Shiffmana](https://www.youtube.com/playlist?list=PLRqwX-V7Uu6YEypLuls7iidwHMdCM6o2w). Dají se objevit i videa v češtině, [například od vtipného řečníka Davida Grudla](http://www.youtube.com/watch?v=uzHIXuGzaaY) — ten během prvních pár minut shrnuje všechny základní věci, ale nejsou tak dobře ilustrované.
+
+  <iframe width="560" height="315" style="margin-bottom: 1rem;" src="https://www.youtube.com/embed/7DG3kCDx53c" frameborder="0" allowfullscreen></iframe>
+
+  Pokud se učíte vizuálně, může vám pomoci nástroj [Regulex](https://jex.im/regulex/), který shluky písmen překládá do přehlednější schematické podoby. Výsledek může vypadat třeba takto ([nebo třeba takto](https://jex.im/regulex/#!flags=&re=%3C%5Ba-z0-9%5D%2B%3E%5B%5E%3C%5D%2B%3C%2F%5Ba-z0-9%5D%2B%3E)):
+
+  <iframe frameborder="0" width="600" height="169" style="margin-bottom: 1rem;" src="https://jex.im/regulex/#!embed=true&flags=&re=ve(lr%7Crl)%5Byi%5Dba"></iframe>
+  
+  Pokud už trochu tušíte, o co jde, přečtěte si nějaký úvodní obecný text pro začátečníky — v angličtině je jich poměrně dost a nejsou těžké, např. [An Introduction to Regular Expressions](http://www.codeproject.com/Articles/939/An-Introduction-to-Regular-Expressions) (další výsledky z Googlu pro [intro regular expressions](http://www.google.com/search?q=regular+expressions+intro)). V češtině něco [najdete také](http://www.google.com/search?q=regulární+výrazy), ale bývají to o něco složitější texty.
+
+
+  #### Jak si vyzkoušet, jak to funguje
+
+  Pracovat s reguláry můžete v editoru Sublime Text, kde stačí [zapnout hledání pomocí regulárních výrazů](http://docs.sublimetext.info/en/latest/search_and_replace/search_and_replace_overview.html). Pro přehlednější tvorbu výrazu můžete využít různé webové nástroje, které zvýrazňují jak části výrazu, tak nalezené shody: asi nejlepší z nich je [Regex101](https://regex101.com).
+
+  <iframe frameborder="0" width="600" height="600" style="margin-bottom: 1rem;" src="https://regex101.com/r/X128py/3"></iframe>
+  
+  > Regex101 se na první pohled tváří složitě, ale vystačíte si se dvěma vstupními poli uprostřed stránky. Ostatní pole vám mohou pomoci, ale nejdůležitější je vizuální zpětná vazba, kterou tento nástroj poskytuje. 
+  >
+  > **Důležitý tip:** Abyste vyhledávali všechny výskyty hledané fráze v nástroji [Regex101](https://regex101.com), zapněte si v poli pro regulární výraz modifikátor (flag) `global`. Danou volbu najdete po kliknutí na vlaječku napravo.
+  >
+  > Pokud vám Regex101 nesedne, vyzkoušejte libovolný [jiný tester](http://www.google.com/search?q=regex+tester).
+
+
+  ### Hříčky, hry a interaktivní kurzy
+  
+  Po patnácti lekcích a nějakém čtení byste měli mít základní představu, co to regulární výrazy jsou — my se budeme bavit o tzv. **Perl-Compatible Regular Expressions** (tento název si nemusíte pamatovat, ale občas se vám může hodit při googlování — a možná jste si všimli položky *„pcre“* v nástroji Regex101, to je ono).
+  
+  Své znalosti si můžete ověřit na [nějaké hře](http://www.google.com/search?q=regexp+game). Doporučuji [Regex Golf](http://regex.alf.nu), který má i hezké nastavení obtížnosti.
+
+  > **Pozn.:** Při psaní regulárních výrazů si nemusíte vše pamatovat. Důležité je naučit se základním principům a umět se vyznat v [cheatsheetu](http://www.google.com/search?q=regex+cheat+sheet), když jej potřebujete. (Dobrý cheatsheet poznáte klidně si ho vytiskněte).
+rubrics:
+  - checklist: ''
+    items:
+      - Je uvedeno, která lekce byla nejobtížnější a proč.
+      - Je uvedeno a ilustrováno praktickým příkladem, která lekce byla nejpřínosnější.
+      - Screenshot je odevzdán dle zadání.
+---
+bloom: remember
+questions:
+  - "Zadejte několik příkladů frází, které můžete zadat do Googlu, abyste se dozvěděli více o regulárních výrazech a jejich použití. Jeden z odkazovaných článků si vyberte a krátce shrňte jeho obsah a jeho přínos pro vás."
+  - "Kdo poprvé představil koncept regulárních výrazů? Stručně jej popište."
+  - "Popište běžné klávesové zkratky pro funkce *Najít* a *Najít a nahradit* v programech ve vašem operačním systému (uveďte, jaký operační systém používáte)."
+  - "Jaké klávesové zkratky pro hledání a nahrazování můžete využít v programu *Sublime Text*?"
+rubrics:
+  - checklist: ''
+    items:
+      - Odpověď je správná.
+---
+bloom: apply
+count: 2
+allowRepeat: question
+input: javascript
+vars:
+  regexp:
+    - "[0-9]{3} [0-9]{3} [0-9]{3}"
+    - "čp\\. [0-9]+"
+    - "[0-9]{3} [0-9]{2}"
+    - "[a-z]+@[a-z]+\\.[a-z]+"
+    - "(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?"
+    - "<[a-z0-9]+>[^<]+<\\/[a-z0-9]+>"
+    - "\\*\\*[^*]+\\*\\*"
+    - "\\[.+\\]\\(.+\\)"
+    - "\\n#+ .+"
+    - "^...?$"
+    - "^[^a]+"
+prefill: |
+  var regex = /%regexp%/g;
+  var strings = ["", "", ""];
+
+  strings.forEach(function(string, index) { 
+    var status = regex.test(string) ? 'vyhovuje' : 'nevyhovuje';
+    console.log(index, status);
+  });
+questions: |
+  Vymyslete tři řetězce, které vyhovují regulárnímu výrazu `%regexp%`. Doplňte jej do javascriptového kódu.
+
+  Do komentáře popište vlastními slovy strukturu regulárního výrazu a popište možný význam řetězců, které mu odpovídají.
+rubrics:
+  - checklist: ''
+    items:
+      - Jsou uvedeny tři řetězce, které vyhovují regulárnímu výrazu v zadání (potvrzuje to spuštění skriptu).
+      - V komentáři je popsána struktura výrazu vlastními slovy.
+      - Je popsán možný význam řetězců, které je možné výrazem identifikovat.
+---
+bloom: remember
+questions: "Co označuje v rámci řetězce v poli *Nahradit* výraz `$1`?"
+---
+bloom: create
+input: file
+comments: 16
+vars:
+  wikipage: ["Knihovnictví", "Informační věda", "Informační systém", "Zákonodárná moc", "Jackson Pollock", "Surrealismus", "Salvador Dalí", "Státní vyznamenání České republiky", "Česko", "Slovensko", "Rusíni", "Brooklynský most", "Myanmar", "Bangladéš", "Fair trade", "Sedmá generace", "Panda velká", "Medvědovití", "Čínská lidová republika", "Filozofická fakulta Masarykovy univerzity", "Filosofie", "Věda"]
+questions: |
+  Stáhněte zdrojový kód stránky *„%wikipage%“* na české Wikipedii. 
+  
+  Vyřízněte z něj obsah elementu `div` s atributem `id="content"`. Pokud je velmi dlouhý, nezkracujte jej — při zpracování úlohy vám delší text spíše pomůže. Tento kód si zkopírujte do samostatného souboru v editoru *Sublime Text* (úkol můžete zpracovávat i přímo v Regex101, jen to přidá trochu práce při ukládání).
+
+  > **Tip:** Z textu můžete odstranit seznam referencí. Kód můžete na formátovat pomocí [nějakého nástroje](https://www.google.cz/search?q=format+html+online), aby se vám s ním lépe pracovalo.
+  
+  **Za pomocí funkce Najít a nahradit** z textu odstraňte různé funkční prvky (odkazy pro editování textu apod.) a převeďte tento HTML kód do čisté syntaxe Markdown (výsledek by neměl obsahovat **vůbec žádný HTML kód**). Pokud některé značky či atributy HTML není možné převést do Markdownu, hromadně je odstraňte.
+  
+  **Jiným způsobem do kódu vůbec nezasahujte.**
+  
+  > **Příkladem** může být odstranění odkazů pro editaci: regulárním výrazem `<a href[^>]+>editovat</a>` můžete v kódu jednoduše identifikovat všechny tyto prvky.
+  >
+  > Při nahrazování kódu jiným kódem (například při práci s odkazy) je nejdůležitější dobře porozumět tomu, jak vymezovat a zachytávat skupiny („capture groups”) v regulárním výrazu. Používají se k tomu závorky (`()`) a v poli „nahradit“ identifikátory začínající dolarem (`$`): více byste měli najít v odkázaných zdrojích, ale nebojte se své strasti sdílet v diskusním fóru.
+  
+  Do komentáře vložte a krátce popište **řetězce z polí „Find“ a „Replace“**, které vedly od HTML kódu k výslednému zápisu v Markdownu. Během práce soubor po každé náhradě uložte a odevzdejte tyto průběžné verze i výsledek v archivu ZIP (měli byste odevzdat alespoň 6 verzí kódu).
+  
+  > **Poznámka**: Při psaní v Markdownu je běžné používání kombinace Markdownu a HTML — syntax Markdownu to dovoluje — stačí HTML kód oddělit prázdným řádkem od zbytku textu. Příjemně jednoduché psaní je tak v případě nutnosti možné doplnit plnohodnotným HTML kódem. V této úloze „ohoblujeme“ tyto komplexní části (tabulky, některé atributy atp.), protože naším primárním cílem je naučit se dobře používat regulární výrazy.
+rubrics:
+  - checklist: ''
+    items:
+      - Je odevzdáno alespoň šest verzí kódu, který je postupně konvertován z HTML do Markdownu.
+      - V komentáři jsou uvedeny použité regulární výrazy, které odpovídají úpravám v jednotlivých verzích souborů.
+      - Výsledkem je čistý Markdown, který však obsahuje veškerý obsah, který bylo možné zachovat z původní stránky (tedy bez tabulek, atributů prvků atp.).
+---
+bloom: apply
+vars:
+  q:
+    - Pomocí regulárního výrazu najděte *chyby v psaní interpunkčních čárek ve větách* v souboru `kisk-books.txt`. V nalezených shodách identifikujte několik typů výsledků (ne všechny budou chybně napsané čárky) a popište je.
+    - Pomocí regulárního výrazu vyhledejte všechny e-mailové adresy v souboru `kisk-books.txt`. Následně sestavte regulární výraz, který vybere pouze adresy autorů z akademických institucí (alespoň tří).
+    - Najděte pomocí regulárního výrazu v souboru `kisk-books.txt` všechny webové adresy. Následně použijte pro hledání výraz `\S{50}\S+` a popište, zda nově nalezené řetězce nějak mění váš přístup k hledání v datovém souboru.
+    - Nalezněte pomocí regulárního výrazu v souboru `kisk-books.txt` všechna jména lidí (ve tvaru *jméno příjmení*).
+    - Nalezněte pomocí regulárního výrazu zmínky o zmiňovaných stoletích v souboru `kisk-books.txt`. Jaká století jsou zmiňována nejčastěji (seřaďte si v editoru výsledky hledání a pro rychlý přehled využijte čísla řádků).
+    - Vytvořte regulární výraz, který nalezne v souboru `kisk-books.txt` co nejvíce ženských příjmení (v češtině). Z výsledků si vytáhněte unikátní shody a zjistěte, jaké procento z nich jsou skutečná jména — upravte regulární výraz tak, aby jeho úspěšnost byla aspoň 60 %.
+questions: |
+  V [datovém souboru](https://is.muni.cz/auth/el/1421/podzim2017/VIKBA05/um/data.zip) najdete tři soubory: 
+  
+  - `crime-and-punishment.xhtml` obsahuje plný text knihy Zločin a trest v anglickém jazyce ve formátu XHTML
+  - `kisk-books.txt` obsahuje texty všech PDF z [eknihy.knihovna.cz](http://eknihy.knihovna.cz), které je možné převést do čistého textu
+  - `prestupky-brno.csv` obsahuje záznamy o cca 170 tisících přestupků na území Brna od 1. ledna 2016 do 14. května 2017
+
+  Při zpracování následujících tří úkolů vždy
+
+  1. sestavte funkční regulární výraz, 
+  2. podívejte se na výsledky,
+  3. a zamyslete se nad tím, jak regulární výraz upravit, aby byl přesnější.
+
+  Do vstupního pole popište první funkční variantu i upravený výraz, nalezené výsledky a případné další poznámky, které vyžaduje zadání.
+
+  > **Tip:** Pokud zadání vyžaduje seřazené nebo unikátní výsledky, využijte [funkcí editoru Sublime Text](https://forum.sublimetext.com/t/is-there-a-way-to-sort-and-or-remove-duplicate-lines/3102). Pokud budete pracovat s rozlišením verzálek a minusek, dejte si pozor, zda máte zapnuté jejich rozlišování v použitém nástroji.
+
+  #### Úkol
+
+  %q%
+rubrics:
+  - checklist: ''
+    items:
+      - "Jsou uvedeny dva výrazy, pomocí nichž je možné dohledat správné výsledky."
+      - "Úkol je splněn kompletně a zcela bez chyb."
+  - "Pokud se ve vyplněném úkolu objevují problémy, popište je."
+---
+bloom: apply
+questions:
+  - Vytáhněte pomocí regulárního výrazu z datového souboru `prestupky-brno.csv` všechny citované zákony.
+  - Vytáhněte pomocí regulárního výrazu z datového souboru `prestupky-brno.csv` všechny citované vyhlášky.
+  - Vytáhněte pomocí regulárního výrazu z datového souboru `prestupky-brno.csv` všechny citované paragrafy zákonů.
+  - Vytáhněte pomocí regulárního výrazu z datového souboru `prestupky-brno.csv` informace o tom, kam jsou předávány přestupky.
+  - Vytáhněte pomocí regulárního výrazu z datového souboru `prestupky-brno.csv` léta narození pachatelů přestupků. Pomocí libovolného nástroje vykreslete graf množství přestupků dle roku narození pachatelů (histogram). Graf odevzdejte ve formě odkazu na soubor (můžete jej nahrát např. do ISu pomocí [funkce Můj web](https://is.muni.cz/auth/muj_web/)).
+rubrics:
+  - checklist: ''
+    items:
+      - "Jsou uvedeny dva výrazy, pomocí nichž je možné dohledat správné výsledky."
+      - "Úkol je splněn kompletně a zcela bez chyb."
+  - "Pokud se ve vyplněném úkolu objevují problémy, popište je."
+---
+bloom: apply
+questions:
+  - Zjistěte pomocí regulárních výrazů, kolikrát se v textu `crime-and-punishment.xhtml` objevují slova blízká slovům `punishment` a `crime`. Sestavte výrazy tak, aby nepasovaly na **žádná** slova, která k daným slovům nemají blízko (např. *crimson*).
+  - Vytvořte regulární výraz, který nalezne v textu knihy `crime-and-punishment.xhtml` všechny citace z jiných textů (na úrovni HTML, je potřebné vybrat *celý prvek*, který citaci obsahuje).
+  - Najděte pomocí regulárního výrazu v textu `crime-and-punishment.xhtml` všechny přímé řeči. Vysvětlete nepoměr při hledání pouze úvodních či závěrečných uvozovek (pomocí dalšího hledání pomocí regulárního výrazu).
+  - Najděte pomocí regulárního výrazu v textu `crime-and-punishment.xhtml` všechna jména osob. Pokuste se vyvarovat falešným shodám (např. slovům na začátcích vět). Unikátních výsledků by mělo být méně než 500.
+rubrics:
+  - checklist: ''
+    items:
+      - "Jsou uvedeny dva výrazy, pomocí nichž je možné dohledat správné výsledky."
+      - "Úkol je splněn kompletně a zcela bez chyb."
+  - "Pokud se ve vyplněném úkolu objevují problémy, popište je."
