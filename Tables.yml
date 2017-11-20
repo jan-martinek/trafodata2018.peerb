@@ -1,0 +1,169 @@
+name: Práce s tabulkovými daty
+goals: |
+  Po práci s textem a skripty nyní přejdeme k práci se **strukturovanými daty v tabulkách**. Budeme pracovat se *seznamem záznamů*. Budeme jej navrhovat, hledat v nich, řadit je a filtrovat. K práci s takovými daty si osvojíme tabulkové procesory. 
+  
+  Během studia a následně v praxi budete pracovat např. s otevřenými daty, korporátními daty, odpovědmi na dotazníky, výzkumnými daty a tato data budou často reprezentována právě v tabulkách.
+reading: |
+  Nejprve se podívejte na TEDx video o tom, jak lidé s tabulkami pracují: [What Archimedes has to say about spreadsheets](https://www.youtube.com/watch?v=yda2cm7D_cQ) (Felienne Hermans, TEDx Delft). Pokud byste nevěděli, co je Pythagorejská trojice, [mrkněte na Wikipedii](https://cs.wikipedia.org/wiki/Pythagorejsk%C3%A1_trojice).
+  
+  ### Tabulkové procesory
+  
+  Tabulkových procesorů je mnoho — od klasického MS Excelu přes LibreOffice Calc až po cloudová řešení jako jsou Google Tabulky. (Mimochodem, jako studenti FF MU možnost zdarma používat několik různých komerčně dostupných balíků.) V tomto kurzu budeme pracovat s posledním zmíněným nástrojem od Google — pokud jste jej zatím nevyužívali, [krátce se s ním seznamte](https://www.google.com/intl/cs/sheets/about/).
+
+  Tabulkový procesor umožňuje pracovat s větším množstvím záznamů najednou. Je velmi orientovaný na uživatele a vše se realizuje pomocí grafického uživatelského rozhraní.
+  
+  Pro teoretický úvod si z odborného článku [Spreadsheet Engineering](https://is.muni.cz/auth/el/1421/podzim2015/VIKBA05/um/Spreadsheet-Engineering.pdf) si přečtěte kapitolky: 
+  
+  - *Introduction* (cca 2 strany)
+  - *Spreadsheets: A History of Success?* (cca 3 strany)
+  - a pro zvídavé kapitolu *Spreadsheet Analysis*
+  
+  Původně jsem chtěl z článku vyjmout tyto první 3 kapitoly, ale nechávám k dispozici celý článek, pokud chcete, tak se můžete podívat, jak odborný článek vypadá. (Článek je velmi zajímavý, ale od 3. kapitoly začíná být dost složitý.)
+rubrics:
+  - Pokud jste objevili nějakou chybu, upřesněte, kde se chyby nachází. Pokuste se problematiku osvětlit tak, aby to autorovi/autorce pomohlo.
+preface: Dejte si pozor na správné užívání pojmů.
+---
+bloom: understand
+vars:
+  q:
+  - "Definujte *vlastními slovy* co nejpřesněji pojem *objekt* a vysvětlete, jak se k němu vztahují pojmy *entita* a *atribut*."
+  - "Definujte *vlastními slovy* co nejpřesněji pojem *entita* a vysvětlete, jak se k němu vztahují pojmy *objekt* a *atribut*."
+  - "Definujte *vlastními slovy* co nejpřesněji pojem *atribut* a vysvětlete, jak se k němu vztahují pojmy *objekt* a *entita*."
+questions: |
+  ### Návrh seznamu
+  
+  Seznamte se s pojmy: řádek a sloupec tabulky, hodnota, entita, objekt, atribut, seznam, záznam a filtrování. Dobrým zdrojem může být třeba [tato stránka od Miroslava Lorence](http://lorenc.info/3MA381/seznamy.htm) (sekci Formulář můžete přeskočit). Zkuste se podívat i po jiných zdrojích informací (tradičně použivejte [Google](http://google.com/?q=spreasheet+basics) a [Wikipedii](https://en.wikipedia.org/wiki/Table_(information))).
+
+  %q%
+---
+bloom: remember
+allowRepeat: question
+count: 2
+vars:
+  term:
+    - "buňka (cell)"
+    - "řádek (row)"
+    - "sloupec (column)"
+    - "záhlaví (hlavička)"
+    - "záznam (record)"
+    - "seznam (list)"
+    - "list (sheet)"
+    - "sešit (workbook)"
+questions: |
+  Popište pojem *%term%* v kontextu práce s tabulkovými daty. Jedná se o elementární pojmy, proto se snažte o přesnou a jasnou definici.
+rubrics:
+  - checklist: ''
+    items:
+      - Pojem je popsán správně.
+---
+bloom: apply
+input: code
+questions:
+  - "Jak byste zapsali data do tabulky pomocí jazyka HTML? Uveďte vzorek kódu 2 řádky, 2 sloupce."
+  - "Jak byste zapsali data do tabulky pomocí jazyka Markdown (dialekt [Multimarkdown](https://github.com/fletcher/MultiMarkdown/wiki/MultiMarkdown-Syntax-Guide))? Uveďte vzorek kódu 2 řádky, 2 sloupce."
+  - "Vytvořte seznam textových řetězců, které začínají na malá i VELKÁ písmena, číslice i ostatní znaky (např. `#@$%` atp.). Seřaďte je pomocí Google Tabulek od nejmenšího po největší. Popište, jak je procesor seřadil (zda jsou čísla před písmeny a podobně)."
+rubrics:
+  - checklist: ''
+    items:
+      - Úloha je beze zbytku splněna dle zadání.
+---
+bloom: analyze
+questions:
+  - "Jaké znáte tabulkové procesory?"
+  - "Najděte na internetu oficiální stránku uživatelské podpory tabulkového procesoru, který běžně používáte. Název procesoru a odkaz vložte do odpovědi."
+rubrics:
+  - checklist: ''
+    items:
+      - Odpověď je správná.
+      - V odpovědi nejsou chybně použité pojmy.
+---
+bloom: apply
+count: 2
+allowRepeat: question
+vars:
+  entita:
+    - kniha
+    - počítač
+    - student
+    - vyučovací předmět
+    - počítačový program
+    - databáze knih
+    - sociální síť
+    - knihovna
+    - zoologická zahrada
+    - muzeum
+    - univerzita
+questions: |
+  ### Konzistence dat
+  
+  Pro práci s tabulkou je důležité ji udržovat konzistentní a bez chyb (to již znáte z videa). Dohledejte si, co jsou to datové typy (text, celé číslo, reálné číslo, logická hodnota, datum a čas a další) — [Wikipedie napoví](https://cs.wikipedia.org/wiki/Datov%C3%BD_typ). Dohledejte si také jak se používají tyto funkce: kopírování, formátování (nástroj štětec), vložení bez formátování (pouze hodnoty).
+
+  Vymyslete k entitě „%entita%“ po třech třech atributech různých datových typů: celé číslo, reálné číslo, text, datum/čas a logickou pravdu či nepravdu (tedy celkem 15 atributů).
+rubrics:
+  - checklist: ''
+    items:
+      - Entita je vhodně popsána atributy, které mají požadované datové typy.
+---
+bloom: create
+input: file
+comments: 10
+questions: |
+  Vytvořte tabulku, která bude mít alespoň 5 řádků (+ hlavička) a 10 sloupců. Tabulka bude popisovat alespoň 5 objektů, které mají podobné vlastnosti. V každém sloupci bude jeden atribut. Až budete mít tabulku vytvořenou, zamyslete se, jaký typ hodnot mají jednotlivé atributy. Data v tabulce mohou být reálná nebo smyšlená. Soustřeďte se na konzistenci dat.
+  
+  > Příklad: Tabulka automobilů, ve sloupcích např. výrobce (text), model (text), SPZ (šestimístný kód), barva (text, popř. kód barvy), počet míst k sezení (celé číslo), objem válců (celé číslo), rok výroby (čtyřmístné číslo).
+
+  Výsledek odevzdejte a popis tabulky vepište do pole pro komentáře.
+rubrics:
+  - checklist: ''
+    items:
+      - Tabulka je správně vytvořena.
+      - Data v tabulce jsou konzistentní.
+      - Data v tabulce jsou správně popsána.
+---   
+bloom: create
+input: file
+comments: 10
+vars:
+  country:
+    - českých
+    - amerických (USA)
+    - britských (Velká Británie)
+    - francouzských
+    - německých
+    - japonských
+  genre:
+    - komedií
+    - akčních filmů
+    - animovaných filmů
+  yearfrom: [1993, 1994, 1995, 1996, 1997, 1998]
+  yearto: [2011, 2012, 2013, 2014, 2015, 2016]
+questions: |
+  Na zájmovém webu [ČSFD.cz](http://www.csfd.cz/zebricky/specificky-vyber/) vyhledejte žebříček %country% %genre% od roku %yearfrom% do %yearto%. Tabulku prvních 20 filmů si zkopírujte do tabulkového procesoru (bez formátování). Následně filmy seřaďte podle počtu hodnocení sestupně.
+
+  Pokud je v žebříčku méně než 20 filmů, vložte do tabulkového procesoru všechny nalezené a napište do listu poznámku pro opravujícího.
+rubrics:
+  - checklist: ''
+    items:
+      - Data jsou vložena v tabulce.
+      - Data jsou správně vložena do tabulky (bez formátování).
+      - Data jsou správně seřazena dle počtu hodnocení.
+---
+bloom: create
+input: file
+comments: 10
+vars:
+  name1: ['křestní jméno', 'příjmení']
+  name2: ['křestní jméno', 'příjmení']
+questions: |
+  ### Filtry
+  
+  V tabulkovém procesoru si vyzkoušejte používání filtrů a podmíněného formátování. O filtrování jste si už přečetli v článku od Miroslava Lorence a znalosti si můžete doplnit např na [stránkách Pavla Lasáka](http://office.lasakovi.com/excel/data/seradit-a-filtrovat-excel/). Na stejném místě najdete i informace o podmíněném formátování.
+
+  Ze [sdíleného souboru](https://goo.gl/9D2Rk1) si zkopírujte data do vašeho tabulkového procesoru. Odstraňte z něj duplicity, vyfiltrujte záznamy, které začínají na stejné písmeno jako vaše %name1% a ostatní vymažte. Ve druhém sloupci zvýrazněte vaší oblíbenou barvou záznamy, které začínají na písmeno jako vaše %name2%. (Pokud takové záznamy v seznamu nejsou, tak si vyberte jiné písmeno a napište to do komentáře.) Ve třetím sloupci zvýrazněte kladné záznamy zelenou výplní a záporné červenou výplní.
+rubrics:
+  - checklist: ''
+    items:
+      - Data jsou odevzdána ve správné podoě.
+      - Z dat jsou odstraněny duplicity.
+      - Pro výběr zobrazených záznamů a jejich řazení jsou užity filtry.
+      - Kladné a záporné záznamy jsou zvýrazněny pomocí podmíněného formátování.
