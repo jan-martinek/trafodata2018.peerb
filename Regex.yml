@@ -71,7 +71,7 @@ rubrics:
 bloom: remember
 questions:
   - "Zadejte několik příkladů frází, které můžete zadat do Googlu, abyste se dozvěděli více o regulárních výrazech a jejich použití. Jeden z odkazovaných článků si vyberte a krátce shrňte jeho obsah a jeho přínos pro vás."
-  - "Kdo poprvé představil koncept regulárních výrazů? Stručně jej popište."
+  - "Kdo poprvé představil koncept regulárních výrazů? Stručně danou osobu popište."
   - "Popište běžné klávesové zkratky pro funkce *Najít* a *Najít a nahradit* v programech ve vašem operačním systému (uveďte, jaký operační systém používáte)."
   - "Jaké klávesové zkratky pro hledání a nahrazování můžete využít v programu *Sublime Text*?"
 rubrics:
