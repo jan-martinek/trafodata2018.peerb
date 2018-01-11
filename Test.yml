@@ -1,0 +1,215 @@
+name: Závěrečný test
+goals: |
+  Zadání závěrečného testu. Test trvá 90 minut.
+  
+  **Jde o tzv. open-book test:** Během práce na testu můžete využívat přístup k internetu či jakékoli jiné informační zdroje. Jediná nepovolená aktivita během testu je komunikace s dalšími osobami v jakékoli formě.
+  
+  Důraz je kladen na schopnost aplikace zvládnuté látky. V testu naleznete 10 úkolů, které jsou hodnoceny po dvou bodech (0 = nesplněno, 1 = nesplněno, ale je zřejmé pochopení principů, 2 = splněno). Více k hodnocení kurzu najdete na [stránce předmětu](https://is.muni.cz/predmet/phil/podzim2017/VIKBA05).
+reading:
+rubrics:
+  - Lekce není určena k peer-assessmentu.
+preface: |
+  Zpracujte zadané úlohy za následujících podmínek: 
+
+  - vždy odpovídejte vlastními slovy,
+  - u každého úkolu dohledejte alespoň jeden důvěryhodný internetový zdroj, který obsahuje podklady pro zpracování dané úlohy (může jít o dokumentaci, článek, dotaz ze StackOverflow, heslo na Wikipedii atp.) a *nepochází* od autora z KISKu,
+  - u každého zdroje uveďte, proč jej považujete za důvěryhodný,
+  - pokud při odpovídání využijete více zdrojů, uveďte všechny.
+
+  Test průběžně ukládejte.
+---
+bloom: understand
+count: 2
+questions:
+  - "<span class='label'>typografie</span> K čemu slouží typografická pravidla?"
+  - "<span class='label'>typografie</span> Co je to nepravá kurziva a proč se používá?"
+  - "<span class='label'>typografie</span> Uveďte několik příkladů (alespoň 3), jak se liší typografická pravidla v různých jazycích."
+  - "<span class='label'>typografie</span> Jaké jsou užívány uvozovky v České republice a v sousedních zemích?"
+  - "<span class='label'>typografie</span> Co je to kerning? Odpověď doprovoďte alespoň třemi praktickými příklady chybného kerningu."
+  - "<span class='label'>typografie</span> Co je to střední výška písma? Proč je podstatná?"
+  - "<span class='label'>html</span> Co umožňuje užívání HTML? Popište, co umožňuje jak v rámci jedné stránky, tak v rámci celé webové prezentace či internetu."
+  - "<span class='label'>html</span> K čemu slouží atributy `src` a `alt` u obrázku v HTML?"
+  - "<span class='label'>html</span> Jaký je rozdíl mezi seznamem značeným `<ol> … </ol>` a seznamem uzavřeným ve značkách `<ul> … </ul>` v HTML? Pro jaké seznamy je vhodný první a druhý typ?"
+  - "<span class='label'>regulární výrazy</span> K čemu se používají regulární výrazy?"
+  - "<span class='label'>regulární výrazy</span> Co jsou to zástupné znaky v aplikacích MS Word a OpenOffice Writer?"
+  - "<span class='label'>regulární výrazy</span> Vypište běžné klávesové zkratky pro funkce *Najít* a *Najít a nahradit* v alespoň třech programech ve vašem operačním systému (uveďte, jaký operační systém používáte)."
+---
+bloom: create
+input: markdown
+comments: 5
+vars:
+  doc:
+    - "[Antiplagiátorská politka](http://kisk.phil.muni.cz/dulezite-dokumenty/studium/antiplag_politika_kisk.pdf)"
+    - "[Nejčastější stylistické nedostatky v závěrečných pracích](http://kisk.phil.muni.cz/dulezite-dokumenty/studium/nejcastejsi_stylisticke_nedostatky_v_zaverecnych__pracich-1.doc) (vynechte oddíly 1 a 2)"
+    - "[Nejčastější stylistické nedostatky v závěrečných pracích](http://kisk.phil.muni.cz/dulezite-dokumenty/studium/nejcastejsi_stylisticke_nedostatky_v_zaverecnych__pracich-1.doc) (vynechte oddíl 3)"
+    - "[Pokyny k vypracování seminárních prací](http://kisk.phil.muni.cz/dulezite-dokumenty/studium/pokyny_k_vypracovani_seminarnich_praci_0.doc)"
+    - "[Typografické zásady pro psaní odborných prací](Typografické zásady pro psaní odborných prací) (vynechte oddíly *Konce řádků…* — *Pomlčka*)"
+    - "[Typografické zásady pro psaní odborných prací](Typografické zásady pro psaní odborných prací) (vynechte oddíly *Mezera* — *Závorky* )"
+  formats:
+    - {format: 'html', description: 'coby validní HTML (ověřte validátorem HTML5)'}
+    - {format: 'markdown', description: 'do formátu Markdown'}
+questions: |
+  <span class="label">%format%</span> Na webu KISKu jsou publikovány [dokumenty důležité pro studenty](http://kisk.phil.muni.cz/cs/povinnosti) ve formátech PDF a DOC. Zpracujte dokument %doc% %format%. 
+ 
+  Při zpracování dbejte na sémanticky správné využívání typografických a syntaktických prostředků. Cílem není vytvoření vizuálně podobného dokumentu, ale správné využití dostupných konvencí. Do poznámky můžete uvést, zda bylo nutné řešit nějaké problémy nebo zda něco není řešitelné (s přihlédnutím k rozsahu znalostí vyučovaných v kurzu). 
+---
+bloom: apply    
+input: javascript  
+comments: 3
+vars:
+  regex:
+    - "jakákoli e-mailová adresa"
+    - "jakékoli české telefonní číslo (zapsané různými způsoby)"
+    - "jakékoli PSČ (zapsané s mezerou i bez ní)"
+    - "jakékoli jméno a příjmení (dejte pozor na znaky s diakritikou)"
+    - "jakékoli desetinné číslo (včetně různých oddělovačů tisíců a desetinných značek)"
+    - "jakýkoli odkaz zapsaný pomocí markdownu"
+questions: |
+  <span class="label">regulární výrazy</span> Vytvořte vlastní regulární výraz, kterým můžete poměrně spolehlivě zkontrolovat, zda je obsahem řetězce *%regex%*. Doplňte pak alespoň tři vzorové řetězce do pole `strings`, s nimiž bude ověření v závěru skriptu hlásit vždy jen **OK**.
+
+  V regulárním výrazu ponechte úvodní `^` a závěrečné `$` a vysvětlete, jakou zde plní roli.
+prefill: |
+  var strings = ["", ""];
+  
+  var regex = /^ ... $/;
+  
+  strings.forEach(function(string) {
+    if (regex.test(string)) console.log("OK");
+    else console.log("Problém");    
+  });
+---
+bloom: understand
+vars:
+  function: [SUMIF, COUNTIF, SUMPRODUCT, VLOOKUP, FIND, TRIM, INDEX, FLOOR, CEILING, MATCH]
+questions:
+  - questions:
+      - "<span class='label'>tabulky</span> Definujte *vlastními slovy* v kontextu tabulkových procesorů co nejpřesněji pojem *entita* a vysvětlete, jak se k němu vztahují pojmy *objekt* a *atribut*."
+      - "<span class='label'>tabulky</span> Co znamenají symboly dolaru (`$`) v zápisu buňky ve vzorci? Např. `=A1 + $D$1`. Jak byste tuto možnost využili?"
+      - "<span class='label'>tabulky</span> Jaký je rozdíl mezi vzorcem (formula) a funkcí (function)?"
+  - questions: "<span class='label'>tabulky</span> Popište vlastními slovy funkci `%function%` v kontextu tabulkových procesorů. Jaké má parametry a k čemu byste ji použili?"
+---
+bloom: create
+input: file
+comments: 10
+questions: |
+  <span class='label'>tabulky</span> Ze [sdíleného spreadsheetu](https://docs.google.com/spreadsheets/d/1qA5gqGbgH70H5zD4lmRbOdAfr0cyoEICK7IX5DukSR8/edit#gid=0) si stáhněte či zkopírujte list „Výsledky předmětu“. Do sloupců `P` a `Q` vypočítejte celkové hodnocení a přiřaďte studentům výsledné hodnocení dle tabulky pomocí funkce `LOOKUP` (jako první parametr použijte výsledné hodnocení). U hodnocení známkou F nastavte červené pozadí pomocí podmíněného formátování.
+  
+  Poté pomocí funkce najděte 1) **nejlepší bodový výsledek** a v dalším poli **jméno a příjmení** studenta či studentky s tímto výsledkem. (**Tip:** Pro spojení jména a příjmení můžete využít prázdný sloupec `R`, to vám pomůže i s následným využitím funkce `VLOOKUP`.)
+  
+  Výsledek odevzdejte ve formátu XLSX v příloze tohoto úkolu.
+---
+bloom: understand
+vars:
+  term:
+    - "pojem *záznam*"
+    - "pojem *tabulka*"
+    - "pojem *hodnota*"
+    - "pojem *dotaz*"
+    - "pojem *identifikátor*"
+    - "pojem *data*"
+    - "pojem *řádek*"
+    - "pojem *sloupec*"
+    - "pojem *datový typ*"
+questions: "<span class='label'>databáze</span> Popište vlastními slovy %term% v kontextu relačních databází. Ilustrujte popis alespoň třemi příklady."
+---
+bloom: create
+vars:
+  object: ["zoo", "kaštan", "návštěva", "mandarinka", "sedačka", "spínač", "úvaha", "topol", "lupínek", "dítě", "hůl", "tanec", "bříza", "píšťala", "peklo", "špek", "ječmen", "les", "pero", "opona", "parapet", "raketa", "šachy", "brzda", "tkaničky", "kolečko", "kozel", "slabina", "klient", "dům", "stodola", "mrakodrap", "kontejner", "osa", "ampérmetr", "posel", "režisér", "jelen"]
+questions: |
+  <span class='label'>databáze</span> Pomocí papíru a tužky **vytvořte schéma**, které popisuje objekt **„%object%“** pomocí alespoň tří různých entit, každou s alespoň třemi atributy (do závorky můžete uvést příklad hodnoty atributu). To, jak sestavíte třídy entit, závisí na účelu, který váš *ER model* plní. **Účel sestaveného schématu si proto předem vymyslete a popište do vstupního pole.**
+    
+  Schéma podepište a odevzdejte na konci testu.
+---
+count: 1
+questions:
+  - bloom: remember
+    vars:
+      term:
+        - "pojem **metoda** v kontextu objektově orientovaného programování"
+        - "pojem **objekt** v kontextu objektově orientovaného programování"
+        - "pojem **funkce** v kontextu javascriptu"
+        - "pojem **proměnná** v kontextu javascriptu"
+        - "pojem **parametr** v kontextu funkcí v javascriptu"
+        - "pojem **návratová hodnota** v kontextu funkcí v javascriptu"
+        - "pojem **literál** v kontextu javascriptu"
+        - "pojem **operátor** v kontextu javascriptu"
+        - "pojem **syntaxe** v kontextu javascriptu"
+        - "pojem **klíčové slovo** v kontextu javascriptu"
+    questions: |
+      <span class="label">javascript</span> Popište %term%. Ilustrujte popis alespoň třemi praktickými příklady.
+  - bloom: apply
+    vars:
+      thing:
+        - "literál"
+        - "název metody"
+        - "řetězec"
+        - "proměnnou"
+        - "definici proměnné"
+        - "volání metody"
+        - "parametr"
+    questions: |
+      <span class="label">javascript</span> Najděte v kódu **%thing%** a popište do komentáře vlastními slovy k čemu nejspíše slouží metoda, která byla (se zjednodušením) převzata z kódu Peer Blenderu, a jak pracují její jednotlivé pasáže.
+    input: javascript
+    prefill: |
+      var Solution = function() { /* … */ };
+
+      function save(form, values, courseInfo, userInfo, app) {
+        var solution = new Solution();
+        solution.unit = courseInfo.unit;
+        solution.assignment = courseInfo.assignment;
+        solution.user = userInfo;
+        solution.submitted_at = new Date();
+        solution.edited_at = new Date();
+        
+        if (values.attachment.exists()) {
+          solution.attachment = solution.saveFile(
+            values.attachment, 
+            courseInfo.course.id,
+            courseInfo.unit.id,
+            userInfo.id
+          ); 
+        }
+        
+        solution.persist(solution);
+        app.redirect("this");
+      }
+
+      /* místo pro komentář */
+---
+bloom: apply
+input: javascript
+comments: 5
+questions:
+  - questions: |
+      <span class="label">javascript</span> Popište vlastními slovy fungování následujícího skriptu (můžete využít komentáře v kódu) a zjistěte vypsáním do konzole, jaká je na konci skriptu (po vypsání „Konec“) hodnota proměnných `auto.ujetaVzdalenost` a `auto.spotrebovanyBenzin`. Tyto hodnoty interpretujte v poli pro komentář.
+    prefill: |
+      var auto = {
+        ujetaVzdalenost: 0, // kilometry
+        spotrebovanyBenzin: 0, // litry
+        spotreba: 7, // litry na 100 kilometrů
+      };
+
+      while (auto.ujetaVzdalenost < 100) {
+        auto.ujetaVzdalenost = auto.ujetaVzdalenost + 1;
+        auto.spotrebovanyBenzin = auto.spotrebovanyBenzin + auto.spotreba / 100;
+      }
+
+      console.log("Konec.");
+  - questions: |
+      <span class="label">javascript</span> Popište vlastními slovy fungování následujícího skriptu (můžete využít komentáře v kódu) a zjistěte vypsáním do konzole, jaká je na konci skriptu (po vypsání „Konec“) hodnota proměnných `author.bookCount` a `author.lifespan`. Tyto hodnoty interpretujte v poli pro komentář.
+    prefill: |
+      var author = {
+        name: "J. D. Salinger",
+        born: new Date(1919, 1, 1),
+        deceased: new Date(2010, 1, 27),
+        books: [ 
+          "The Catcher in the Rye (1951)", "Nine Stories (1953)", "Franny and Zooey (1961)",
+          "Raise High the Roof Beam, Carpenters and Seymour: An Introduction (1963)",
+          "Three Early Stories (2014)"
+        ],
+      };
+
+      author.bookCount = author.books.length;
+      author.lifespan = (author.deceased - author.born)/1000/60/60/24/365;
+
+      console.log("Konec.");
