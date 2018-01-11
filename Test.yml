@@ -43,13 +43,13 @@ vars:
     - "[Nejčastější stylistické nedostatky v závěrečných pracích](http://kisk.phil.muni.cz/dulezite-dokumenty/studium/nejcastejsi_stylisticke_nedostatky_v_zaverecnych__pracich-1.doc) (vynechte oddíly 1 a 2)"
     - "[Nejčastější stylistické nedostatky v závěrečných pracích](http://kisk.phil.muni.cz/dulezite-dokumenty/studium/nejcastejsi_stylisticke_nedostatky_v_zaverecnych__pracich-1.doc) (vynechte oddíl 3)"
     - "[Pokyny k vypracování seminárních prací](http://kisk.phil.muni.cz/dulezite-dokumenty/studium/pokyny_k_vypracovani_seminarnich_praci_0.doc)"
-    - "[Typografické zásady pro psaní odborných prací](Typografické zásady pro psaní odborných prací) (vynechte oddíly *Konce řádků…* — *Pomlčka*)"
-    - "[Typografické zásady pro psaní odborných prací](Typografické zásady pro psaní odborných prací) (vynechte oddíly *Mezera* — *Závorky* )"
+    - "[Typografické zásady pro psaní odborných prací](http://kisk.phil.muni.cz/dulezite-dokumenty/studium/typograficke_zasady_pro_psani_odborneho_textu-1.doc) (vynechte oddíly *Konce řádků…* — *Pomlčka*)"
+    - "[Typografické zásady pro psaní odborných prací](http://kisk.phil.muni.cz/dulezite-dokumenty/studium/typograficke_zasady_pro_psani_odborneho_textu-1.doc) (vynechte oddíly *Mezera* — *Závorky*)"
   formats:
     - {format: 'html', description: 'coby validní HTML (ověřte validátorem HTML5)'}
     - {format: 'markdown', description: 'do formátu Markdown'}
 questions: |
-  <span class="label">%format%</span> Na webu KISKu jsou publikovány [dokumenty důležité pro studenty](http://kisk.phil.muni.cz/cs/povinnosti) ve formátech PDF a DOC. Zpracujte dokument %doc% %format%. 
+  <span class="label">%format%</span> Na webu KISKu jsou publikovány [dokumenty důležité pro studenty](http://kisk.phil.muni.cz/cs/povinnosti) ve formátech PDF a DOC. Zpracujte dokument %doc% %description%. 
  
   Při zpracování dbejte na sémanticky správné využívání typografických a syntaktických prostředků. Cílem není vytvoření vizuálně podobného dokumentu, ale správné využití dostupných konvencí. Do poznámky můžete uvést, zda bylo nutné řešit nějaké problémy nebo zda něco není řešitelné (s přihlédnutím k rozsahu znalostí vyučovaných v kurzu). 
 ---
