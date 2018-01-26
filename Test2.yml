@@ -27,7 +27,6 @@ questions:
   - "<span class='label'>html</span> K čemu slouží atributy `src` a `alt` u obrázku v HTML?"
   - "<span class='label'>html</span> Jaký je rozdíl mezi seznamem značeným `<ol> … </ol>` a seznamem uzavřeným ve značkách `<ul> … </ul>` v HTML? Pro jaké seznamy je vhodný první a druhý typ?"
   - "<span class='label'>najít a nahradit</span> K čemu se používají regulární výrazy?"
-  - "<span class='label'>najít a nahradit</span> Co jsou to zástupné znaky v aplikacích MS Word a OpenOffice Writer?"
   - "<span class='label'>najít a nahradit</span> Vypište běžné klávesové zkratky pro funkce *Najít* a *Najít a nahradit* v alespoň třech programech ve vašem operačním systému (uveďte, jaký operační systém používáte)."
 ---
 bloom: create
