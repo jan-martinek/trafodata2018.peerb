@@ -1,0 +1,17 @@
+goals: >
+  Úvodní lekce přináší drobné tipy a triky, které vám pomohou při práci s
+  počítačem. Díky tomu byste v průběhu kurzu i v praxi měli uspořit čas a získat
+  větší pohodlí při práci s programy a systémy, které již používáte.
+
+
+  Zároveň se seznámíte s e-learningovým prostředím <a
+  href="http://peerblender.com">Peer Blender</a>, které budeme v tomto kurzu
+  využívat.
+rubrics:
+  - 'Zhodnoťte, která z odpovědí vám přinesla nejvíce nových poznatků.'
+title: Tipy a triky
+outline:
+  - reading.md
+  - pics.yml
+  - count: 5
+    filename: tips.yml
