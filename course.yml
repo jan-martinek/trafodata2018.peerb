@@ -28,6 +28,8 @@ support: |
     **Případné problémy s e-learningem** hlaste prosím přímo do fóra a vyučujícímu ([208330@mail.muni.cz](mailto:208330@mail.muni.cz)).
     
     Anonymní zpětnou vazbu můžete vyučujícímu zaslat též pomocí [webového formuláře](https://docs.google.com/forms/d/e/1FAIpQLSezfLuQs_VXzq34Y2FgCwthZVkaANNSLa7i7FGFO_mMiV_jLg/viewform). 
+units:
+    - Tips
 menu:
     -   val: Diskusní fórum
         link: https://is.muni.cz/auth/cd/1421/podzim2018/VIKBA05/
