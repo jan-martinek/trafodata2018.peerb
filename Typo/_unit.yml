@@ -1,0 +1,14 @@
+goals: >
+  Cílem této lekce je naučit se rozeznávat způsob, kterým je pomocí
+  typografických pravidel do textu vnášen význam a aplikovat tyto znalosti v
+  praxi.
+rubrics:
+  - >-
+    Co by se v praktickém úkolu dalo zlepšit? (Odpovězte i v případě, že jste
+    zaškrtli všechna zaškrtávací pole.)
+title: Typografie
+outline:
+  - reading.md
+  - teorie.yml
+  - teorie2.yml
+  - uprava.yml

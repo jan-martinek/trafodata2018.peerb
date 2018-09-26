@@ -1,0 +1,21 @@
+bloom: remember
+count: 2
+questions:
+  - 'Co je to čtverčík, od čeho je odvozen a k čemu se používá?'
+  - Co je to kurziva a jak se používá?
+  - Co jsou to kapitálky a jak s nimi pracujeme?
+  - Co jsou to minusky?
+  - Co jsou to verzálky?
+  - Jaký je rozdíl mezi *písmem* a *fontem*?
+  - Kdy používáme polotučný řez písma a k čemu?
+  - Kdy používáme tučné písmo a k čemu?
+  - >-
+    Jak se liší spojovník a pomlčka? Jak napíšete oba znaky na klávesnici ve
+    vašem operačním systému?
+  - Co jsou to aposiopese a výpustky?
+  - Jak a proč se užívá zavěšená interpunkce?
+rubrics:
+  - checklist: ''
+    items:
+      - Odpověď je zodpovězena správně.
+      - Odpověď neobsahuje žádné nesprávně použité pojmy.

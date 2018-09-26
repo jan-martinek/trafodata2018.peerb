@@ -1,0 +1,34 @@
+bloom: create
+input: file
+comments: 5
+questions: >
+  Najděte na *svém oblíbeném webu* článek o více než 1000 slovech (v češtině
+  nebo slovenštině), který obsahuje několik typografických chyb, a uveďte jej do
+  co nejlepšího souladu s typografickými pravidly. Využijte přitom pouze běžný
+  kancelářský textový procesor (Microsoft Word, Google Docs, OpenOffice Writer a
+  ekvivalentní, nikoli Poznámkový blok a jiné plaintextové editory).
+          
+  Výsledek přiložte coby soubor ve formátu DOC nebo ODT (pole pro přikládané
+  soubory najdete níže) a export do PDF (oba soubory zazipujte). 
+
+
+  > **Tip:** Nevkládejte do souboru obrázky, aby nepřesáhl maximální velikost.
+
+
+  V komentáři pojmenujte chyby v původním textu a popište, jaká typografická
+  pravidla jste museli zanedbat kvůli omezením použitého softwaru.
+rubrics:
+  - checklist: ''
+    items:
+      - Vybraný text je dostatečně dlouhý.
+      - >-
+        Původní text obsahuje několik typografických chyb, které jsou popsány v
+        komentáři.
+      - Chyby jsou opraveny správně.
+      - Typografická pravidla jsou aplikována správně.
+      - >-
+        Jsou uvedena omezení užitého softwaru, která měla vliv na podobu
+        výsledného dokumentu.
+  - >-
+    Ohodnoťte, jak si autor/ka úkolu uvědomuje omezení daná užitým softwarem.
+    (Popište několika větami.)

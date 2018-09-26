@@ -1,0 +1,15 @@
+bloom: understand
+questions:
+  - Co je to nepravá kurziva a proč ji někdo používá?
+  - Jsou typografická pravidla univerzální po celém světě?
+  - >-
+    Jsou typografická pravidla univerzální alespoň tam, kde se používá latinkové
+    písmo?
+  - Podle čeho se říká běžným uvozovkám v českém kontextu „99 66“?
+  - Co je to kerning?
+  - Co je to střední výška písma? Proč je podstatná? (toto není v literatuře)
+rubrics:
+  - checklist: ''
+    items:
+      - Odpověď je zodpovězena správně.
+      - Odpověď neobsahuje žádné nesprávně použité pojmy.
