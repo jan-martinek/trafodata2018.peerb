@@ -1,0 +1,45 @@
+count: 1
+bloom: create
+input: file
+comments: 5
+vars:
+  book:
+    - 'http://www.gutenberg.org/ebooks/1342'
+    - 'http://www.gutenberg.org/ebooks/11'
+    - 'http://www.gutenberg.org/ebooks/1232'
+    - 'http://www.gutenberg.org/ebooks/76'
+    - 'http://www.gutenberg.org/ebooks/5200'
+    - 'http://www.gutenberg.org/ebooks/84'
+    - 'http://www.gutenberg.org/ebooks/174'
+    - 'http://www.gutenberg.org/ebooks/23'
+questions: >
+  Použijte celý text nebo alespoň 1000 slov z textu knihy dostupné na adrese
+  [%book%](%book%) 
+
+  (vyjděte z verze *Plain Text UTF-8*) a vytvořte z ní validní a relativně
+  smysluplný HTML dokument.
+
+
+  Využijte *alespoň* prvků odstavce a nadpisů a korektně vytvořte hlavičku
+  dokumentu (prvek `head`). 
+
+  V textu následně zvýrazněte důležité pasáže vhodným způsobem (pasáže vyberte
+  dle 
+
+  vlastního uvážení). 
+
+  Do vstupního pole vepište jakékoli postřehy a poznámky související s úkolem. 
+
+  **HTML soubor vložte jako přílohu k úkolu.**
+rubrics:
+  - checklist: ''
+    items:
+      - HTML prvky jsou v kódu užity správně.
+      - >-
+        Zvýrazněné pasáže jsou vybrány systematicky. (Je patrné, jaký princip
+        vedl autora či autorku ke zvýraznění konkrétních pasáží.)
+      - Pasáže jsou zvýrazněny pomocí správných HTML prvků.
+  - >-
+    Zhodnoťte, zda jsou zvýrazněné pasáže v textu knihy v posledním úkolu
+    vybrané vhodně — zkuste odhadnout, co bylo záměrem autora či autorky. Pokud
+    byste raději zvýraznili jiné pasáže, jaké by to byly?

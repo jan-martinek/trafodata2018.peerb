@@ -1,0 +1,21 @@
+bloom: remember
+count: 1
+vars:
+  element:
+    - p
+    - h1
+    - h2
+    - h6
+    - ol
+    - ul
+    - li
+    - title
+    - br
+    - head
+questions: >-
+  Jaká je sémantika prvku `%element%` v HTML dokumentu? Kde se takto vyznačený
+  prvek v dokumentu objevuje?
+rubrics:
+  - checklist: ''
+    items:
+      - Otázka je správně zodpovězena.

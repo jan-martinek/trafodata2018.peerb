@@ -1,0 +1,15 @@
+count: 1
+bloom: understand
+questions:
+  - >-
+    Co umožňuje užívání HTML? (Popište, co umožňuje jak v rámci jedné stránky,
+    tak mezi stránkami.)
+  - K čemu slouží atributy `src` a `alt` u obrázku?
+  - >-
+    Popište rozdíl mezi seznamem značeným `<ol> … </ol>` a seznamem uzavřeným ve
+    značkách `<ul> … </ul>`. Pro jaké seznamy je vhodný první a druhý typ
+    seznamu?
+rubrics:
+  - checklist: ''
+    items:
+      - Otázka je správně zodpovězena.

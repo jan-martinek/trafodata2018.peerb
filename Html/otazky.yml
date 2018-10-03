@@ -1,0 +1,15 @@
+count: 2
+bloom: remember
+questions:
+  - Co znamená zkratka HTML?
+  - >-
+    Je pravda, že HTML je značkovací jazyk? Co to znamená? K čemu slouží jazyk
+    HTML?
+  - >-
+    Jak interpretuje prohlížeč mezery, tabulátory, nové řádky a jiné neviditelné
+    znaky (white-space characters) v kódu stránky?
+  - Jaký je rozdíl mezi termíny *HTML značky* a *HTML tagy*?
+rubrics:
+  - checklist: ''
+    items:
+      - Otázka je správně zodpovězena.

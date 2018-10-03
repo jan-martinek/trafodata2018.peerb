@@ -1,0 +1,16 @@
+title: 'Značkovací jazyky: HTML'
+goals: >
+  Cílem této lekce je poznat základy HTML a vše si osahat. Nejprve si přečtěte
+  úvod a následně se vrhněte na úkoly: nejvíce se naučíte tím, že si to
+  vyzkoušíte.
+rubrics:
+  - >-
+    Pokud se v odpovědích objevují chyby, upřesněte, kde je autor/ka dělá.
+    Pokuste se to vysvětlit tak, aby to pomohlo v pochopení problematiky.
+outline:
+  - reading.md
+  - prvky.yml
+  - otazky.yml
+  - praxe.yml
+  - validator.yml
+  - tvorba-html.yml
