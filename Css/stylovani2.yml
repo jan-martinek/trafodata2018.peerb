@@ -1,0 +1,53 @@
+bloom: create
+questions: |
+  ## A jdeme na to 
+
+  Při kódování dodržte těchto několik pravidel:
+
+  - HTML kód z předchozího úkolu uložte do souboru a [stylopis uložte
+  samostatně](http://matthewjamestaylor.com/blog/adding-css-to-html-with-link-embed-inline-and-import)
+  do souboru `style.css`. Odkaz na tento soubor je již obsažený v hlavičce HTML, takže v samotném
+  HTML nedělejte žádné změny.
+
+  - Při kódování využijte alespoň tyto CSS vlastnosti: `color`, `text-align`,
+  `justify`, `text-decoration`, `text-transform`, `line-height`,
+  `font-family`, `font-size`, `font-style`, `font-weight`, `background`,
+  `margin`, `padding`, `border`, `float` a tři jiné, které zmíněny nejsou. 
+
+  - Vytvořte alespoň 10 CSS deklarací, z nichž alespoň tři využijí [**různě složených 
+  selektorů**](https://www.w3schools.com/css/css_combinators.asp).
+
+  - Oba soubory (HTML a CSS) soubor zazipujte a uložte k tomuto úkolu.
+
+  Do komentáře u tohoto úkolu můžete popsat, na jaké limity jste narazili, 
+  vysvětlit svůj postup apod.
+
+  **Tip:** Můžete pracovat s obrázky (např. jako pozadí prvků), jen dejte pozor na celkovou 
+  velikost archivu, která nesmí přesáhnout 500kB (obrázky se většinou archivováním příliš 
+  nezmenší). Můžete využít obrázky dostupné na internetu, jen si dejte pozor, aby tam vydržely
+  (některé zdroje mění adresy obrázků anebo se z nich po čase smažou).
+
+  > **Pozn.:** Při práci si dokument uložte na svůj počítač a pracujte s
+  textovým editorem Sublime Text či podobným. V prohlížeči sledujte výsledek (do
+  editoru si můžete stáhnout balíček, který umožní [automatickou aktualizaci
+  náhledu](https://packagecontrol.io/packages/LiveReload)).
+  >
+  > Pro rychlejší práci může využít též
+  vývojářské nástroje (jsou popsány v [jedné z lekcí v kurzu Khan
+  Academy](https://www.khanacademy.org/computing/computer-programming/html-css/web-development-tools/a/using-the-browser-developer-tools)),
+  které umožňují nahlédnout do živého HTML i do stylopisu.
+input: file
+comments: 5
+rubrics:
+  - checklist: |
+      Hodnocení úkolu. (Zkontrolujte, jak vypadá výsledný dokument při zobrazení
+      v prohlížeči, nejen samotný zdrojový kód.)
+    items:
+      - V kódu HTML nedošlo k žádným změnám.
+      - Z výsledku je znát cílení na konkrétní cílovou skupinu.
+      - Výsledek odpovídá cílům nastaveným v předchozí úloze.
+      - Jsou využity všechny v zadání požadované vlastnosti CSS (15 zmíněných + 3 další).
+      - |
+        Je vytvořeno alespoň 10 CSS deklarací, z nichž alespoň tři využívají [různých variant složených
+        selektorů](https://vaclavpekarek.gitbooks.io/html-a-css-krok-za-krokem/content/uvod/52_slozene_selektory.html).
+  - Slovně ohodnoťte zpracovan úkol: co jsou jeho silné a slabé stránky?

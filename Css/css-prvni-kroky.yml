@@ -1,0 +1,55 @@
+bloom: apply
+input: livecss
+questions: |
+  Zkuste kód v obou editorech upravovat a sledujte, jak se mění výstup. Dosáhněte
+  toho, aby byl vzhled obsahu v pravém sloupci výrazně odlišný od toho, který
+  jste zde našli beze změny HTML. (HTML pro odevzdání vraťte do původního stavu).
+  Vyzkoušejte si různé vlastnosti CSS, které jsou popsané v kódu.
+prefill: |
+  <h3>Úkol (ukázka HTML)</h3>
+
+  <p>Po průchodu některým z kurzů CSS ostylujte dokument, který vidíte ve
+  vstupním poli níže. Dokument a v něm obsažený text nejprve pečlivě
+  prozkoumeje. Využijte svých znalostí HTML, typografie, popkultury a nově
+  nabytých znalostí CSS k tomu, aby výsledný dokument byl přitažlivý a čitelný
+  pro cílovou skupinu dětí ve věku 6-200 let. Krom vizuálního stylu, dbejte na
+  vhodnout velikost písma a typografická pravidla.</p>
+
+  <p>Využijte při tom alespoň tyto CSS vlastnosti: <code>color</code>,
+  <code>text-align</code>, <code>justify</code>, <code>text-decoration</code>,
+  <code>text-transform</code>, <code>line-height</code>,
+  <code>font-family</code>, <code>font-size</code>, <code>font-style</code>,
+  <code>font-weight</code>, <code>background</code>, <code>margin</code>,
+  <code>padding</code>, <code>border</code>, <code>float</code>. Vytvořte
+  alespoň 10 CSS deklarací, z nichž alespoň dvě využijí <strong>složených
+  selektorů</strong>.</p>
+
+  <h4>Podrobnosti</h4>
+
+  <ul>
+    <li>Při práci pracujte pouze s kódem uvnitř elementu <code>style</code>.</li>  
+    <li>Výsledný kód umístěte do souboru, nahrajte na Dropbox.</li>
+  </ul>
+
+  <blockquote>
+    <strong>Tip:</strong> Při práci si dokument uložte na svůj počítač a pracujte s textovým editorem Sublime Text či podobným. V prohlížeči sledujte náhled (editor Sublime Text umožňuje pomocí rozšíření <a href="https://packagecontrol.io/packages/LiveReload" target="_blank">automatickou aktualizaci náhledu</a>, viz <a href="https://www.youtube.com/watch?v=nALNP73kxSQ" target="_blank">video návod</a>). Pro rychlejší práci s jiným editorem využijte vývojářských nástrojů (jsou popsány v <a href="https://www.khanacademy.org/computing/computer-programming/html-css/web-development-tools/a/using-the-browser-developer-tools" target="_blank">jedné z lekcí v kurzu Khan Academy</a>).
+  </blockquote>
+
+  ###css###
+
+  .css-preview-wrapper {
+    padding: 10px;
+    border: solid;
+    background: url('http://cdn.backgroundhost.com/backgrounds/subtlepatterns/gplaypattern.png');
+  }
+
+  p { 
+    color: #f60; 
+    font-weight: bold; 
+  }
+rubrics:
+  - checklist: ''
+    items:
+      - Uložený výsledek je vizuálně výrazně odlišný od původně zadaného kódu.
+      - Odevzdaný HTML kód neobsahuje úpravy, které mají vliv na zobrazený obsah v náhledu.
+      - V CSS je využita alespoň polovina zmíněných vlastností CSS.

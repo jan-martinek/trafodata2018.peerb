@@ -1,0 +1,15 @@
+title: Kaskádové styly
+summary: Úvod do jazyka CSS.
+goals: |
+  Cílem této lekce je naučit se základy CSS — jazyka, který umožňuje stylování prvků jazyka HTML.
+tags:
+  - css
+  - cascading style sheets
+rubrics:
+  - Slovně zhodnoťte případné nedostatky tohoto úkolu.
+outline:
+  - css-intro.md
+  - css-prvni-kroky.yml
+  - css-mooc.yml
+  - stylovani.yml
+  - stylovani2.yml

@@ -1,0 +1,47 @@
+bloom: understand
+questions: >
+  ### Kurz CSS
+
+
+  CSS má velmi jednoduchou syntaxi, ale je potřebné se naučit slovíčka — to
+  můžete snadno zvládnout pomocí internetového kurzu. Můžete si vybrat ze dvou
+  variant. 
+
+
+  Můžete absolvovat část kurzu na [Khan Academy](https://www.khanacademy.org/)
+  anebo si vyzkoušejte první z projektů na serveru [Dash](https://dash.generalassemb.ly).
+  Pokud to stihnete, klidně si projděte kurzy oba. 
+
+
+  > **Pozn.:** Lekce počítá s tím, že již znáte 
+  základy HTML z kurzu *Transformace dat pomocí počítače* &ndash; pokud tomu tak 
+  není, počítejte s tím, že vám bude průchod lekcí trvat o něco déle. Oba kurzy obsahují
+  i části, které se věnují HTML, takže si znalosti můžete občerstvit i tam.
+
+
+  - Na [Khan Academy](https://www.khanacademy.org/computing/computer-programming/html-css/)
+  se učíte pomocí interaktivních tutoriálů, kterými vás provází hlas
+  lektora či lektorky (měly by vám stačit lekce *Intro to CSS*, *CSS text
+  properties*, *CSS layout* a cvičení *Using multiple CSS classes*).
+
+  - V prvním projektu (Project 1) na [Dash](https://dash.generalassemb.ly/projects)
+  budete tvořit webovou stránku. Lekce je tvořena se slajdů, které jsou doplněny
+  interaktivním cvičením: přímo v prohlížeči si vyzkoušíte nakódovat kompletní
+  webovou stránku.
+
+
+  > **Pozn.:** Pokud budete potřebovat, neváhejte si dohledat další informace.
+  Nicméně stejně jako v podzimním kurzu nedoporučuji používat zdroj
+  [jakpsatweb.cz](http://jakpsatweb.cz), který bohužel místy obsahuje zastaralé
+  a matoucí informace z doby, kdy bylo CSS ještě poměrně nové.
+
+
+  Do vstupního pole popište, který kurz jste si vybrali a jak to šlo: co pro vás
+  bylo snadné, co bylo obtížné a zda je něco, s čím byste potřebovali poradit.
+  (To bude sloužit jako zpětná vazba pro vyučujícího.)
+rubrics:
+  - checklist: ''
+    items:
+      - Odpověď obsahuje informaci o vybraném kurzu.
+      - 'Autor/ka popisuje, co bylo snadné.'
+      - 'Autor/ka popisuje, co bylo obtížné.'
