@@ -1,0 +1,14 @@
+bloom: analyze
+vars:
+  syntax:
+    - Setext
+    - atx
+    - Textile
+    - reStructuredText
+    - Grutatext
+    - EtText
+questions: Popište v základech podobnosti a rozdíly syntaxe **%syntax%** vůči Markdownu.
+rubrics:
+  - checklist: ''
+    items:
+      - Jsou popsány podobnosti a rozdíly mezi syntaxemi.

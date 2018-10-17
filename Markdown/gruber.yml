@@ -1,0 +1,17 @@
+bloom: analyze
+questions:
+  - >-
+    Autorem syntaxe Markdown je John Gruber. Najděte, o koho jde, a popište jej
+    v 10 větách. Uveďte odkazy na 3 zdroje, z nichž jste čerpali. (Zde se
+    obejděte bez Wikipedie.)
+  - >-
+    Díky rozšíření syntaxe Markdown vzniklo poměrně velké množství dialektů.
+    Dohledejte alespoň čtyři dialekty Markdown („markdown dialects“), popište
+    jejich užití a uveďte odkazy na alespoň 4 zdroje, z nichž jste čerpali. (Zde
+    se obejděte bez Wikipedie.)
+rubrics:
+  - checklist: ''
+    items:
+      - Odpověď je správná.
+      - Rozsah odpovídá zadání.
+      - Jsou uvedeny zdroje (a ani jeden z nich není Wikipedia).

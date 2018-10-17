@@ -1,0 +1,50 @@
+bloom: create
+input: markdown
+comments: 8
+vars:
+  book:
+    - 'http://www.gutenberg.org/ebooks/133'
+    - 'http://www.gutenberg.org/ebooks/12'
+    - 'http://www.gutenberg.org/ebooks/528'
+    - 'http://www.gutenberg.org/ebooks/1343'
+    - 'http://www.gutenberg.org/ebooks/5200'
+    - 'http://www.gutenberg.org/ebooks/46'
+    - 'http://www.gutenberg.org/ebooks/175'
+    - 'http://www.gutenberg.org/ebooks/1'
+    - 'http://www.gutenberg.org/ebooks/2'
+    - 'http://www.gutenberg.org/ebooks/3'
+questions: >
+  Použijte celý text nebo alespoň 3000 slov z textu knihy dostupné na adrese [%book%](%book%)
+  (vyjděte z verze *Plain Text UTF-8*).
+
+
+  - Text sémanticky upravte pomocí syntaxe Markdown. 
+
+  - V odstavcích textu vhodným způsobem zvýrazněte důležité pasáže. Pasáže si
+  vyberte dle vlastního uvážení.
+
+  - Vybraný text není hypertextovým dokumentem. Přidejte do něj alespoň pět
+  odkazů na relevantní webové zdroje. Odkazy važte přímo na text knihy,
+  nedoplňujte vlastní text. (Příklad: Do Dickensova románu, který pojednává o
+  životu v chudobě, byste mohli přidat odkaz na relevantní data o životní úrovni
+  v daném období.)
+
+
+  Do komentáře vepište jakékoli postřehy a poznámky související s úkolem.
+rubrics:
+  - checklist: ''
+    items:
+      - Je použit správný text a rozsah odpovídá zadání.
+      - Text je upraven pomocí Markdownu.
+      - >-
+        Syntaxe Markdown je využívána v plnosti — vhodnými značkami je vyznačeno
+        vše, co Markdown umožňuje vyznačit.
+      - V textu jsou vhodně zvýrazněné důležité pasáže.
+      - Do textu jsou přidané hypertextové odkazy.
+      - >-
+        Hypertextové odkazy jsou umístěny vhodně a jejich obsah je přiměřeně
+        předvídatelný.
+  - >-
+    Zhodnoťte, zda jsou zvýrazněné pasáže a odkazy v textu knihy v posledním
+    úkolu vhodně vybrané a zvýrazněné správným způsobem. Pokud byste raději
+    zvýraznili jiné pasáže, které by to byly?

@@ -1,0 +1,26 @@
+bloom: remember
+count: 2
+questions:
+  - >-
+    Jakou roli hrají v syntaxi Markdown hranaté závorky? (Popište vlastními
+    slovy a uveďte příklady.)
+  - >-
+    Jak se v syntaxi Markdown používá hvězdička? (Popište vlastními slovy a
+    uveďte příklady.)
+  - >-
+    Jak v syntaxi Markdown zapíšete číslovaný seznam? (Popište vlastními slovy a
+    uveďte příklady.)
+  - >-
+    Jak v syntaxi Markdown zapíšete nečíslovaný seznam? (Popište vlastními slovy
+    a uveďte příklady.)
+  - >-
+    Jak v syntaxi Markdown zapíšete webový odkaz? Jaké jsou druhy odkazů?
+    (Popište vlastními slovy a uveďte příklady.)
+  - >-
+    Jak v syntaxi Markdown zapíšete nadpis? (Popište vlastními slovy a uveďte
+    příklady.)
+rubrics:
+  - checklist: ''
+    items:
+      - Otázka je správně zodpovězena.
+      - Jsou uvedeny správné příklady.

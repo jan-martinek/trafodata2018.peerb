@@ -1,0 +1,17 @@
+goals: >
+  Cílem této lekce je poznat kompletní syntax jazyka *Markdown* a vyzkoušet si
+  ji na několika příkladech.
+rubrics:
+  - >-
+    Pokud jste objevili nějakou chybu, upřesněte, kde se chyby nachází. Pokuste
+    se problematiku osvětlit tak, aby to autorovi/autorce pomohlo.
+title: 'Značkovací jazyky: Markdown'
+outline:
+  - reading.md
+  - syntax.yml
+  - duvod.yml
+  - swartz.yml
+  - gruber.yml
+  - odlisnosti.yml
+  - prepis.yml
+  - generovani.yml

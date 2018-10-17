@@ -1,0 +1,26 @@
+bloom: apply
+count: 2
+questions:
+  - >-
+    Proč byla vymyšlena syntaxe Markdown? (Vycházejte z webových zdrojů, které
+    uveďte.)
+  - >-
+    Popište vlastními slovy „filozofii“ syntaxe Markdown.  (Vycházejte z
+    webových zdrojů, které uveďte.)
+  - >-
+    Co je to v kontextu Markdownu „inline html“? (Vycházejte z webových zdrojů,
+    které uveďte.)
+  - >-
+    Co je to „escaping“ (česky nejčastěji *„escapování“*) znaků? (Vycházejte z
+    webových zdrojů, které uveďte.)
+  - >-
+    Proč Markdown umožňuje používání odkazů pomocí reference? (Vycházejte z
+    webových zdrojů, které uveďte.)
+  - >-
+    Pokud chcete napsat kus kódu, na který se nebudou aplikovat pravidla syntaxe
+    Markdown, jak to uděláte? (Vycházejte z webových zdrojů, které uveďte.)
+rubrics:
+  - checklist: ''
+    items:
+      - Otázka je správně zodpovězena.
+      - 'Je uveden jeden nebo více zdrojů, z nichž autor/ka úkolu čerpal/a.'

@@ -1,0 +1,14 @@
+bloom: create
+input: file
+questions: >
+  Vytvořený kód v syntaxi Markdown **vložte do [nějakého webového generátoru
+  HTML](https://www.google.cz/search?q=markdown+online+convertor)**. Výsledný
+  soubor ve formátu HTML nahrajte zde.
+rubrics:
+  - checklist: ''
+    items:
+      - Soubor je odevzdaný.
+      - Soubor obsahuje korektně vygenerované HTML (vč. záhlaví).
+      - >-
+        Při otevření v prohlížeči se zobrazí přehledný a čitelný text (v rámci
+        toho, co dokáže HTML bez dodatečných úprav).

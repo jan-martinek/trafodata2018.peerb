@@ -1,0 +1,16 @@
+bloom: analyze
+questions:
+  - >-
+    Na syntaxi Markdown spolupracoval Aaron Swartz. Najděte si o něm více
+    informací, a popište v deseti větách projekty, na nichž pracoval. Uveďte
+    odkazy na 3 zdroje, z nichž jste čerpali. (Zde se obejděte bez Wikipedie.)
+  - >-
+    Na syntaxi Markdown spolupracoval Aaron Swartz. Najděte si o něm více
+    informací, a popište jeho osobní život v deseti větách. Uveďte odkazy na 3
+    zdroje, z nichž jste čerpali. (Zde se obejděte bez Wikipedie.)
+rubrics:
+  - checklist: ''
+    items:
+      - Odpověď je správná.
+      - Rozsah odpovídá zadání.
+      - Jsou uvedeny tři zdroje.
