@@ -1,0 +1,31 @@
+bloom: apply
+input: javascript
+vars:
+  code:
+    - var number == 0
+    - var num ber = 0;
+    - number = 0;
+    - console.log(x * 10);
+    - window.alert("zprava);
+comments: 3
+questions: >
+  V prvních třech úkolech se budeme věnovat chybám. Vychytávání chyb je
+  důležitou součástí programování — díky tomu, že počítačový program můžete
+  spustit mnohokrát, nemusíte se bát dělat chyby. **Zkuste to a když to nevyjde,
+  zkusíte to znovu.** Při psaní i po spuštění můžete objevit chyby — některé
+  možná trochu očekáváte a jiné vás překvapí.
+
+
+  Předvyplněný kód ve vstupním poli prvního úkolu obsahuje syntaktickou chybu.
+  Vyhledejte si chybu pomocí Google a upravte kód tak, aby neházel chybu (jinak,
+  než prostým vymazáním :)). Do komentáře popište, jak jste postupovali a z
+  jakého zdroje jste získali potřebné informace.
+prefill: '%code%'
+rubrics:
+  - checklist: ''
+    items:
+      - Chyba je opravena.
+      - Chyba je popsána.
+      - >-
+        Jsou popsány zdroje (a příp. vyhledávací dotazy), díky kterým autor/ka k
+        řešení došel/došla.

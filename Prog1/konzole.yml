@@ -1,0 +1,32 @@
+bloom: apply
+input: javascript
+questions: >
+  Krom toho, že se vám v konzoli zobrazují chyby, můžete si do ní vypsat něco i
+  sami. Když v kódu použijete volání `console.log(color)`, do konzole se vypíše
+  obsah proměnné `color`. Vypisování obsahu proměnných často pomůže zjistit, že
+  je něco jinak, než jste si mysleli.
+
+
+  Vyzkoušejte si to spuštěním kódu v příkladu. Příkaz můžete použít vícekrát,
+  postupně vypíše všechny požadované hodnoty do konzole.
+
+
+  Doplňte kód tak, aby se do konzole vypsal text „A teď mám dost.“ a pořiďte
+  screenshot prohlížeče s konzolí, který nahrajte do přílohy v následujícím
+  úkolu.
+
+
+  > **Tip:** Vypsat do konzole si můžete nejen čísla a texty, ale i jiné datové
+  typy — jako jsou třeba objekty. Můžete to vyzkoušet i se želvou v
+  následujících příkladech.
+prefill: |
+  var pocetKnedliku = 3; // do proměnné uložím trojku
+  console.log('Nejdřív mám jen ' + pocetKnedliku + ' knedlíky.');
+
+  pocetKnedliku = pocetKnedliku + 11; // přidám si 11 knedlíků
+  console.log('A nakonec mám ' + pocetKnedliku + ' knedlíků.');
+rubrics:
+  - checklist: ''
+    items:
+      - Kód je správně doplněný.
+      - Do konzole se vypisuje požadovaný text.

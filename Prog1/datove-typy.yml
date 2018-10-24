@@ -1,0 +1,29 @@
+bloom: understand
+input: javascript
+questions: "Při programování pracujete s daty a příkazy. Jednoduché datové hodnoty jsou např. čísla, řetězce (řady písmen) nebo logické hodnoty (pravda/nepravda) — pro ukládání různých hodnot dat se užívají různé datové typy. \n\nZpůsob uložení hodnot je podstatný — například pokud byste chtěli seřadit státy dle počtu obyvatel, bude se vám hodit spíše řazení dle velikosti celého čísla (lineární — typické pro čísla, např. *1, 2, 11, 23, 45*) než řazení dle posloupnosti znaků (též lexikografické — typické pro řetězce, např. *1, 11, 2, 23, 45*). V různých jazycích se tyto věci drobně i zásadně liší, nicméně v tomto kurzu by mělo stačit odlišit čísla a řetězce.\n\nTyto **hodnoty** můžete pojmenovat a skrze tyto názvy k nim pak přistupovat —\_takto můžete vytvářet **proměnné**. Následující **příkaz** ukládá hodnotu `3` do proměnné nazvané `cislo`:\n\n`var cislo = 3; // každý příkaz je ukončený středníkem`\n\nKód v příkladu níže ukazuje více takových přiřazení a následně používá příkaz `console.log()` k tomu, aby proměnnou vypsal do konzole (té, v níž jste v předchozích příkladech hledali chyby). Kromě toho tam vidíte i dvě užití operátoru `+` (plus — v prvním případě jím sčítáme dvě čísla (rozumné) a ve druhém spojujeme dva řetězce) a jedno užití operátoru `==` (rovná se).\n\n> **Pozn.:** Dejte si pozor na rozdíl mezi `=` (operátor přiřazení, vkládá hodnotu do proměnné) a `==` (operátor porovnávání hodnot, vrací `true`/`false`).\n\nProjděte si [úvodní kapitolku z knihy Eloquent Javascript](https://eloquentjavascript.net/01_values.html), která podrobněji vysvětluje hodnoty, datové typy a operátory.\n\n### Zadání\n\nZkuste si kód spustit a pozorujte, co vypisuje v konzoli. Následně připište alespoň dalších 20 řádků kódu a vytvořte zde nové hodnoty a proměnné, použijte alespoň tři další operátory a výsledky vypište do konzole. Zkuste zachytit nějakou reálnou datovou strukturu (záměr popište do komentáře v kódu).\n"
+prefill: |
+  var a = 5;
+  var b = 3.14;
+  var c = a + b;
+  console.log('číslo', c);
+
+  var word1 = "ahoj";
+  var word2 = "světe";
+  var words = word1 + " " + word2;
+  console.log('řetězec', words);
+
+  var x = true;
+  var y = false;
+  var z = a == b;
+  console.log('logická hodnota', z);
+rubrics:
+  - checklist: ''
+    items:
+      - Je doplněno 20 (neprázdných) řádků kódu.
+      - >-
+        V doplněném kódu jsou použity alespoň tři různé operátory, které nebyly
+        v původním kódu.
+      - >-
+        V doplněném kódu je několik volání `console.log()`, které vypisují jiné
+        hodnoty než `undefined` nebo `null`.
+      - 'V komentáři je uvedeno, jaká data se autor/ka snaží zachytit.'

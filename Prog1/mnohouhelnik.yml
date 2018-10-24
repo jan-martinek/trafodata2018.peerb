@@ -1,0 +1,41 @@
+bloom: apply
+input: turtle
+vars:
+  shape:
+    - trojúhelník
+    - pětiúhelník
+    - šestiúhelník
+    - sedmiúhelník
+    - osmiúhelník
+    - devítiúhelník
+    - desetiúhelník
+questions: >
+  V předvyplněném kódu želva kreslí čtverec. Upravte kód tak, aby kreslila
+  %shape%.
+prefill: |
+  var turtle, run, size = toy.measure();
+
+  p.setup = function() {
+    p.createCanvas(size.w, size.h);
+    p.angleMode(p.DEGREES);
+
+    turtle = new Turtle(p);
+    run = turtle.getRun();
+    turtle.color = 'white';
+
+    turtle.forward(100); turtle.right(360/4);
+    turtle.forward(100); turtle.right(360/4);
+    turtle.forward(100); turtle.right(360/4);
+    turtle.forward(100); turtle.right(360/4);
+
+    turtle.right(720);
+  };
+
+  p.draw = function() {
+    p.background('purple');
+    run.animate(3);
+  };
+rubrics:
+  - checklist: ''
+    items:
+      - Želva kreslí požadovaný mnohoúhelník.

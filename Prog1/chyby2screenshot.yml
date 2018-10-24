@@ -1,0 +1,9 @@
+bloom: apply
+input: file
+questions: |
+  Zde nahrajte screenshot z předchozího úkolu.
+rubrics:
+  - checklist: ''
+    items:
+      - Screenshot je nahraný.
+      - Na screenshotu je viditelná javascriptová konzole s chybou.

@@ -1,0 +1,11 @@
+bloom: understand
+input: javascript
+questions: "Jednotlivé hodnoty už zvládáme, ale co se složitější strukturou? V HTML už umíme využívat elementy jako je seznam —\_uvnitř seznamu `ul` najdeme položky `li`. Při skriptování můžeme velmi podobně využívat pole a objekty. Pole jsou řady očíslovaných hodnot (`var coffeeDayCounts = [11, 5, 39]`) a objekty jsou hromádky pojmenovaných hodnot (`var prices = { coffee: 45, toast: 70 }`).\n\nK hodnotám přistupujeme pomocí názvu proměnné a hranatých závorek, tedy u pole `coffeeDayCounts[0]` nebo u objektu `prices['coffee']`. Pokud známe přesný název, můžeme u objektů použít i tzv. tečkovou notaci a napsat `prices.coffee`.\n\nProjděte si první polovinu (alespoň po titulek „Mutability“) [čtvrté kapitolky z knihy Eloquent Javascript](https://eloquentjavascript.net/04_data.html), která podrobněji vysvětluje práci s poli a objekty (kapitolka *Methods* se týká funkcí, ke kterým se dostaneme níže, ale nevadí, když na ni mrknete už teď). \n\n###\_Zadání\n\nObdobně jako minule si vyzkoušejte, jak pracuje předpřipravený skript (pozorujte jeho výsledky v konzoli). Následně doplňte alespoň 20 dalších řádků, ve kterých jsou vytvářena a používána pole a objekty a jejich hodnoty jsou vypisovány do konzole. Zkuste zachytit nějakou reálnou datovou strukturu (záměr popište do komentáře v kódu).\n"
+prefill: "var coffeeDayCounts = [11, 5, 39];\nvar prices = { coffee: 45, toast: 70 };\n\nconsole.log(coffeeDayCounts[0]); // pole je číslováno od nuly\nconsole.log(prices[\"coffee\"]);\nconsole.log(prices.coffee);\n\n// s hodnotami můžeme dělat další operace\nvar firstDayCoffee = coffeeDayCounts[0] * prices.coffee;\nconsole.log(\"cena kafe za 1. den\", firstDayCoffee);\n\nvar shoppingList = ['jablko', 'kafe', 'mléko'];\n\n// pole mají speciální funkce, pomocí \n// nichž se dají dělat zajímavé věci\n// - například spojit celé pole do řetězce\nconsole.log(shoppingList.join(' a '));\n\n// nebo u každé položky spustit kód\nshoppingList.forEach(function(item, index)\_{ \n  console.log(item, '(pozice č. ' + index + ')'); \n});\n"
+rubrics:
+  - checklist: ''
+    items:
+      - Je doplněno 20 neprázdných řádků kódu.
+      - V doplněném kódu se pracuje s novými poli.
+      - V doplněném kódu se pracuje s novými objekty.
+      - 'V komentáři je uvedeno, jaká data se autor/ka snaží zachytit.'

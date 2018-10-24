@@ -1,0 +1,25 @@
+goals: >
+  Cílem této lekce je zvládnout základ programování: vytváření sekvencí příkazů
+  — algoritmů.
+rubrics:
+  - >-
+    Pokud se v odpovědích objevují výše neokomentované chyby, upřesněte, kde je
+    autor/ka dělá. Pokuste se to vysvětlit problém tak, aby to pomohlo v
+    pochopení problematiky.
+title: Úvod do skriptování
+outline:
+  - reading.md
+  - chyby1.yml
+  - chyby2.yml
+  - chyby2screenshot.yml
+  - konzole.yml
+  - konzolescreenshot.yml
+  - datove-typy.yml
+  - pole.yml
+  - zelva1.yml
+  - zelva2.yml
+  - mnohouhelnik.yml
+  - hvezda.yml
+  - count: 2
+    filename: pojmy-prakticky.yml
+  

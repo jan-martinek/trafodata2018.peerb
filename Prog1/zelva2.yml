@@ -1,0 +1,90 @@
+bloom: apply
+input: turtle
+comments: 1
+questions: |
+  Druhý želví úkol má podobné zadání, ale dozvíme se něco víc o želvě.
+
+  ### Vlastnosti
+
+  Kromě mětod, kterými můžeme želvě předávat příkazy, můžeme želvě nastavovat
+  vlastnosti (tzn. její vlastní proměnné). Naše želva má mimo jiné tyto vlastnosti:
+
+
+  - `penDown` — pokud je `true`, zanechává za sebou želva čáru, pokud je
+  `false`, želva jen tak pobíhá
+
+  - `color` — obsahuje označení barvy (např. `'red'` nebo `#FF6600`), které
+  definuje barvu zanechávané čáry
+
+
+  Vlastnosti můžeme upravovat přiřazením na objektu, např. takto: `turtle.penDown =
+  true;` nebo `turtle.color = 'red'`.
+
+  ### Press play
+
+  Vyzkoušejte si, co se změní, když měníte hodnoty želvích vlastností, 
+  přidávejte příkazy, nastavujte barvu (zkuste si na webu najít, 
+  jak se tvoří RGB řetězce jako třeba `"#FF0080"`).
+
+  Tentkrát není dané přesné zadání — vytvořte vícebarevnou kresbu, při níž využijete
+  opakované změny barev a opakované vypínání a zapínání kreslení čáry. Do komentáře napište,
+  co jste se snažili nakreslit. (Nejprve si to vyzkoušejte, ale nemusíte to nyní dokončit — k úkolu
+  se můžete vrátit s dalšími znalostmi z následujících úkolů.)
+prefill: |
+  /*********************
+   *                   *
+   * plán želvího běhu *
+   *                   *
+   *********************/
+
+  var plan = function(turtle) {
+    turtle.color = 'red';
+    turtle.forward(150);
+    turtle.right(90);
+    
+    turtle.penDown = false;
+    turtle.forward(150); 
+    
+    turtle.penDown = true;
+    turtle.color = 'blue';
+    turtle.right(90);
+    turtle.forward(150); 
+    turtle.right(90);
+    turtle.forward(150);
+
+    // závěrečný taneček
+    turtle.right(720); 
+  };
+
+
+  /*************************
+   *                       *
+   * kód, který zajišťuje  *
+   * vykreslení běhu želvy *
+   *                       *
+   *************************/
+
+  var turtle, run; // deklarace proměnných
+  var size = toy.measure(); // měření prostoru
+
+  // úvodní nastavení
+  p.setup = function() {
+    p.createCanvas(size.w, size.h); // plátno
+    p.angleMode(p.DEGREES); // úhly jsou ve stupních
+    
+    turtle = new Turtle(p); // tady se vyrábí želva
+    plan(turtle);
+
+    run = turtle.getRun(); // export běhu
+  };
+
+  // logika kreslení
+  p.draw = function() {
+    p.background(200); // zkuste změnit číslo
+    run.animate(2); // zkuste změnit číslo
+  };
+rubrics:
+  - checklist: ''
+    items:
+      - V komentáři je uvedeno, co má skript kreslit.
+      - Skript kreslí a odpovídá zadání a autorem/autorkou uvedenému výsledku v komentáři.

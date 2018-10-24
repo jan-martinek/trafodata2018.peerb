@@ -1,0 +1,16 @@
+bloom: apply
+input: turtle
+questions: >
+  Zkopírujte si kód z předchozí úlohy a namísto mnohoúhelníku nakreslete
+  hvězdičku o **stejném nebo dvojnásobném** počtu cípů.
+
+
+  > **Tip:** Pokud se zaseknete, nakreslete si na papír (pomalu) pěticípou nebo
+  šesticípou hvězdu (způsob se trochu liší). Nejspíš jste to už někdy zkoušeli —
+  některé hvězdy je možné nakreslit pomocí jednoho úhlu, u jiných budete
+  potřebovat dva.
+rubrics:
+  - checklist: ''
+    items:
+      - Želva kreslí hvězdu.
+      - Výsledkem je hvězda o požadovaném počtu cípů.

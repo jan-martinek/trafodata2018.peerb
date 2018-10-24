@@ -1,0 +1,34 @@
+bloom: apply
+input: javascript
+comments: 5
+questions: >
+  Předvyplněný kód opět obsahuje chybu. Tato chyba není vidět přímo v editoru,
+  který umí upozornit jen na chyby v syntaxi používaného jazyka (Javascriptu).
+  Tato chyba ale spočívá v tom, že naše elektronická želva zatím nemá určitou
+  dovednost.
+
+
+  **Vyhledejte pomocí Googlu způsob, [jak ve svém prohlížeči spustíte konzoli s
+  chybami
+  Javascriptu](https://www.google.cz/search?q=how+to+open+javascript+error+console+in+my+browser)
+  a otevřete si ji.** Postup vlastními slovy krátce shrňte do komentáře.
+      
+  Spusťte kód a přepište poslední chybové hlášení do pole pro komentář (mělo by
+  se týkat funkce `turtle.dance()`). Následně udělejte screenshot vašeho
+  prohlížece s javascriptovou konzolí, který nahrajte do přílohy v následujícím
+  úkolu.
+
+
+  **Pokud se v dalších úkolech setkáte s nefunkčností vašeho kódu a program
+  zdánlivě nic nedělá, hledejte odpověď nejprve ve výpisu chyb a pracujte s
+  chybovým hlášením v případné další diskusi. Pokud kód „nic nědělá“, nejspíše
+  došlo k chybě anebo možná kód neobsahuje žádný příkaz, který by se navenek
+  projevil.**
+prefill: |
+  var turtle = {};
+  turtle.dance();
+rubrics:
+  - checklist: ''
+    items:
+      - Postup je popsaný.
+      - Postup platí pro konkrétní (jmenovaný) prohlížeč.

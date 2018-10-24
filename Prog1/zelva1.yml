@@ -1,0 +1,126 @@
+bloom: apply
+input: turtle
+questions: |
+  A teď už jdeme programovat něco, co se hýbe — krom dat se teď mrkneme blíže i
+  na samotné příkazy. Úvodní text je poměrně dlouhý, mrkněte průběžně i na
+  skript a spouštějte si ho. (Během čtení můžete zavřít konzoli, pokud vám
+  zavazí.)
+
+  ### Metody
+
+  Pro začátek budeme používat želvu (objekt), kterou si uložíme do proměnné
+  `turtle` (ale mohli bychom ji pojmenovat i jinak, třeba `zelva` nebo krátce `t`). 
+
+  Želva má několik metod (definovaných funkcí), které umožňují jednoduše
+  programovat její chování:
+    
+  - `turtle.forward(px)` — „jdi o `px` pixelů dopředu“
+
+  - `turtle.back(px)` — „jdi o `px` pixelů dozadu“
+
+  - `turtle.right(deg)` — „otoč se o `deg` doprava“
+
+  - `turtle.left(deg)` — „otoč se o `deg` doleva“
+
+  Metody voláme jménem a do závorky uvádíme parametry — zmíněné metody mají vždy
+  jen jeden parametr, příkladem může být otočka doprava o 90 stupňů:
+  `turtle.right(90);`.
+
+  ### Parametry
+
+  Asi tušíte, že `px` může být nějaké číslo. Obrazovka mívá na šířku něco mezi
+  jedním a dvěma tisíci pixelů. Okénko, v němž vidíte želvu, má na výšku 400
+  pixelů (šířka se může lišit dle vašeho monitoru). Pokud tedy řeknete želvě,
+  aby šla 1000 pixelů dopředu, uteče vám mimo obraz.
+
+  Při otočkách budete potřebovat zadávat úhly (`deg`). Důležité číslo je `360` —
+  tolik stupňů je v kruhu. Výhoda počítače je, že nemusíte počítat úhly. Z
+  paměti asi víte, že čtvrtina celého kruhu je `90` stupňů, ale v počítači stačí
+  napsat `360/4`.
+
+  > **Nečekaně dobrý tip:** Pokud čtyřikrát zabočíte o 360/4 stupňů, je to jako
+  byste se otočili o 360 stupňů.
+
+  ### Hurá do toho
+
+  To je prozatím všechno. Níže vidíte jednoduchý program, který si můžete
+  spustit kliknutím na tlačítko „Spustit kód“.
+
+  > **Pozn.:** Proč želva? Jde o pomůcku, která umožňuje představit si, jak
+  program postupně probíhá v počítači. Krok za krokem si můžete představit, jak
+  želva chodí — a nakreslit si to na papír anebo klidně i odkrokovat. Pokud
+  zvládnete hrubý nástřel a želva chodí přibližně tam, kam chcete, můžete
+  program dále spouštět bez animace (namísto `run.animate()` použijte funkci
+  `run.print()`) — a rychle ladit detaily.
+
+  ### Schola ludus
+
+  Vyzkoušejte si, jak se mění pohyby želvy, když měníte předepsaný skript.
+  Zkuste si něco nakreslit.
+
+  > **Tip:** Úvodní nastavení na řádcích ve funkci `p.setup` spíše neměňte, ale zbytek měňte
+  libovolně. Při psaní kódu dejte pozor na chybová hlášení přímo v editoru ale i
+  v konzoli (zejména pokud se děje něco divného). Původní skript si můžete
+  kdykoli vyvolat pomocí tlačítka, které najdete níže.
+
+  **Až se trochu vyřádíte,** upravte původní skript tak, aby kreslil čtverec s
+  oběma úhlopříčkami. Opakující se literály (hodnoty přímo vepsané v kódu) uvnitř funkce 
+  `plan()` nahraďte vhodně nazvanými proměnnými (můžete je definovat přímo uvnitř funkce).
+prefill: |
+  /*********************
+   *                   *
+   * plán želvího běhu *
+   *                   *
+   *********************/
+
+  var plan = function(turtle) {
+    turtle.forward(150); 
+    turtle.right(90);
+    turtle.forward(150); 
+    turtle.right(90);
+    turtle.forward(150); 
+    turtle.right(90);
+    turtle.forward(150); 
+    
+    // úhlopříčka: všimněte si, že nemusím nic 
+    // počítat — stačí vložit čísla do vzorce
+    var diagonal = Math.pow(150*150 + 150*150, 1/2);
+    turtle.right(90 + 90/2);
+    turtle.forward(diagonal); 
+
+    // závěrečný taneček
+    turtle.right(720); 
+  };
+
+
+  /*************************
+   *                       *
+   * kód, který zajišťuje  *
+   * vykreslení běhu želvy *
+   *                       *
+   *************************/
+
+  var turtle, run; // deklarace proměnných
+  var size = toy.measure(); // měření prostoru
+
+  // úvodní nastavení
+  p.setup = function() {
+    p.createCanvas(size.w, size.h); // plátno
+    p.angleMode(p.DEGREES); // úhly jsou ve stupních
+    
+    turtle = new Turtle(p); // tady se vyrábí želva
+    plan(turtle);
+
+    run = turtle.getRun(); // export běhu
+  };
+
+  // logika kreslení
+  p.draw = function() {
+    p.background(200); // zkuste změnit číslo
+    run.animate(2); // zkuste změnit číslo
+  };
+rubrics:
+  - checklist: ''
+    items:
+      - Skript kreslí čtverec s oběma úhlopříčkami.
+      - Opakující se literály uvnitř funkce `plan()` jsou nahrazeny proměnnými.
