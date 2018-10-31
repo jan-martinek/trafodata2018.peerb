@@ -1,0 +1,20 @@
+bloom: apply
+input: javascript
+questions: |
+  Zkuste si níže spojování řetězců a čísel.
+
+  Vytvořte proměnnou `text` tak, aby se po spuštění v konzoli objevil text 
+  „V tabulce je 72 polí.“ **bez použití nových literálů či proměnných**.
+prefill: |
+  var rows = 6;
+  var columns = 12;
+  var text1 = 'V tabulce je ';
+  var text2 = ' polí.';
+
+  var text = ? // doplňte
+
+  console.log(text);
+rubrics:
+  - checklist: ''
+    items:
+      - Řetězec je správně sestaven podle zadání.

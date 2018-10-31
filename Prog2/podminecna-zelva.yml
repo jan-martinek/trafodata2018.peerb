@@ -1,0 +1,122 @@
+bloom: create
+input: turtle
+questions: |
+  ## Opatrná želva
+
+  Ve vzorovém kódu vidíte želvu, která jde po kouscích dopředu a když se blíží k
+  okraji, odbočí doprava. (Jde o želvu s pudem sebezáchovy.) Skript si
+  prostudujte. (Nejdříve si projděte jeho strukturu: tzn. definované a volané
+  funkce. Následně si projděte, co dané funkce dělají.)
+
+  ### Pozice želvy
+
+  Naší želvy se můžeme podobně zeptat, kde se nachází: pomocí metod
+  `turtle.getX()` a `turtle.getY()` najdeme souřadnice, na nichž se nachází. (V
+  našich úkolech je okno vždy stejně velké jako plocha, po které želva běhá.
+  Proto je snadné zjistit, kde se želva nachází, porovnáním velikosti okna a
+  souřadnic želvy).
+
+  Souřadnice začínají vlevo nahoře — obě metody tedy u želvy, která stojí v
+  levém horním rohu vrátí hodnotu `0`. Čím více doprava želva jde, tím větší
+  číslo vrací `turtle.getX()`, stejně tak pokud se pohybuje směrem dolů,
+  zvětšuje se hodnota vracená metodou `turtle.getY()`. Je to podobné jako
+  souřadnice v grafu, ale osa *y* je obrácená (souvisí to s tím, že staré
+  počítač pracovaly jen se znaky  — a proto se počítala čísla řádků a písmen v
+  textu).
+
+  V každém skriptu se želvou je na začátku příkaz `size = toy.measure();`. Ten
+  do proměnné `size` uloží rozměry prostoru, v němž pak kreslíme na „plátno”.
+  Díky tomu víme, že *pravý dolní roh* je v proměnné `size`, která má dvě
+  vlastnosti: `w` obsahuje šířku a `h` obsahuje výšku plátna. To znamená, že je
+  potřeba ujít zleva `size.w` pixelů, abychom se dostali z levého na pravý okraj
+  plátna. (Tohle bude jasnější, až uvidíte následující příklad.)
+
+
+  ### Zadání
+
+  **Vytvořte jiný skript, který pracuje s podmínkami a využívá celé plochy, po
+  které želva může chodit.**
+
+
+  ### Inspirace
+
+  - Můžete kreslit obrazce, které vyplní celou plochu (můžete se snažit celoou
+  plochu „vydláždit“ nebo zabarvit).
+
+  - Můžete želvu nechat chodit a podle toho, kde se nachází, ji nechat dělat
+  nějakou věc (např. v levé částí kreslí kolečka, v pravé čtverečky — tohle
+  chování můžete uložit do funkce a opakovaně ho spouštět).
+
+  - Můžete kreslit různými barvami podle toho, kde se želva nachází — ze
+  souřadnic určete nějakou barevnou hodnotu a dosaďte ji například do barevné
+  definice [RGB](https://www.google.cz/search?q=css+rgb) či
+  [HSL](https://www.google.cz/search?q=css+hsl). Abyste nepřesáhli určitou
+  hodnotu, využijte operátoru *modulo* (`%`), tedy operátor vracející zbytek
+  dělení. (Příklady užití HSL i modula najdete v další úloze, klidně nahlédněte
+  dopředu.)
+prefill: |
+  var turtle, run, size = toy.measure();
+
+  var carefullyForward = function() {
+    // popojdi o 10
+    turtle.forward(10);
+
+    // levý okraj je blízko
+    if (turtle.getX() < 50) {
+      turnInShock();
+    }
+    // horní okraj je blízko
+    if (turtle.getY() < 50) {
+      turnInShock();
+    }
+    // pravý okraj je blízko
+    if (turtle.getX() > size.w - 50) {
+      turnInShock();
+    }
+    // dolní okraj je blízko
+    if (turtle.getY() > size.h - 50) {
+      turnInShock();
+    }  
+  };
+
+  var turnInShock = function() {
+    turtle.back(20); // v úleku odběhni dozadu
+    turtle.right(p.random(85,270)); // pořádně se otoč
+  };
+
+  /**************************************
+  *                                    *
+  * úpravy ve zbytku kódu nejsou nutné *
+  *                                    *
+  **************************************/
+
+  p.setup = function() {
+    p.createCanvas(size.w, size.h);
+    p.angleMode(p.DEGREES);
+
+    turtle = new Turtle(p);
+    run = turtle.getRun();
+
+    repeat(carefullyForward, 1000);
+  };
+
+  p.draw = function() {
+    p.background(200);
+    run.animate(5);
+  };
+
+  var repeat = function(fn, n) {
+    var a = Array.apply(null, Array(n)).map(
+      function(_, i) {return i;}
+    ).forEach(fn);
+  };
+rubrics:
+  - checklist: ''
+    items:
+      - Skript je výrazně upravený oproti původnímu příkladu.
+      - >-
+        Upravený skript je funkční a želva využívá nějakým způsobem celou plochu
+        náhledového okna.
+      - >-
+        Upravený skript obsahuje podmínku, která mění chování želvy v závislosti
+        na její poloze.

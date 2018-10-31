@@ -1,0 +1,14 @@
+bloom: apply
+questions:
+  - 'Jaký je rozdíl mezi operátory `=`, `==` a `===`?'
+  - Jak se v javascriptu zapisují operátory *relační* a operátor *přiřazení*?
+  - >-
+    Najděte problém v *podmínkovém výrazu (uvnitř kulatých závorek)*: `if
+    (jeHezky = true) { … }`.
+  - 'Popište, co je to v kontextu javascriptu *operátor přiřazení*.'
+  - 'Popište, co jsou v kontextu javascriptu *relační operátory*.'
+rubrics:
+  - checklist: ''
+    items:
+      - Popis je fakticky správný.
+      - 'Je uveden zdroj, z něhož autor/ka čerpal/a.'

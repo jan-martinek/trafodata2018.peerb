@@ -1,0 +1,71 @@
+bloom: apply
+input: turtle
+questions: >
+  ### Odsazování a složené závorky
+
+
+  Počítač přečte libovolně formátovaný kód, ale pro člověka je při psaní
+  programového kódu je důležité udržet si v něm pořádek. Příkazy je vhodné psát
+  na samostatné řádky, občas se hodí i rozdělení jednoho příkazu na více řádků
+  (např. u funkcí s mnoha parametry).
+
+
+  Ke zpřehlednění delších a složitěji strukturovaných kódů se používá odsazování
+  — například obsah funkce nebo podmínky si odsadíte zleva, aby bylo zřetelné,
+  kde začíná a končí. 
+
+
+  > **Pozn.:** Ke zpřehlednění kódu se používají též komentáře: nicméně dobrý
+  kód by měl být přehledný i bez komentářů.
+
+
+  Javascript se chová podobně jako HTML: mezery (a též tabulátory a nové řádky)
+  si můžete dát téměř kdekoli, aby pro vás byl kód přehledný. Kód bude fungovat
+  stejně dobře bez mezer i s nimi, ale důležité je, aby byl čitelný.
+
+
+  Odsazení vypadá takto jednoduše:
+
+      if (a < 10) {
+        doSomething();
+      }
+      
+  Ale pomáhá především tehdy, když je kód vnořený vícekrát.
+
+      me.doSomething = function() {
+        if (goodDay) {
+          me.tryToWork();
+        } else {
+          repeat(function() {
+            me.procrastinate(); 
+          }, 24 * 60 * 60);
+        }
+      }
+
+  Zde v editoru je nastavené automatické odsazení o dvě mezery. Upravte
+  následující kód tak, aby byl každý příkaz (ukončený středníkem) na samostatném
+  řádku a aby byl kód přehledný.
+
+
+  > Pozn.: Existuje mnoho způsobů, jak to dělat. Například otevírací složené
+  závorky se dle některých norem dávají na nový řádek. Pro účely tohoto úkolu
+  následujte libovolná pravidla, podstatné je aby byl výsledek **konzistentní a
+  přehledný**.
+prefill: >
+  var turtle, run, size = toy.measure(); var snowFlake = function(preview) {
+  repeat(function(i) { snowFlakePart(-1); if (i == 11 && preview) {
+  turtle.penColor = '#FF0000'; } snowFlakePart(1); turtle.right(360 / 12); },
+  12); }; var snowFlakePart = function(mirror) { turtle.forward(20);
+  repeat(function() { turtle.back(40); turtle.left(mirror * 30);
+  turtle.forward(40); }, 12); }; p.setup = function() { p.createCanvas(size.w,
+  size.h); p.angleMode(p.DEGREES); p.background('navy'); turtle = new Turtle(p,
+  size.w / 2 - 50, size.h / 2 - 50); run = turtle.getRun(); turtle.color =
+  'rgba(255, 255, 255, .2)'; turtle.right(360 / 3); snowFlake(false);
+  run.print(); }; var repeat = function(fn, n) { var a = Array.apply(null,
+  Array(n)).map( function(_, i) {return i;} ).forEach(fn); };
+rubrics:
+  - checklist: ''
+    items:
+      - Kód je naformátován pomocí odsazení.
+      - Odsazení je konzistentní napříč celým skriptem.
+      - Skript je možné stále spustit a chová se jako původní neformátovaný kód.

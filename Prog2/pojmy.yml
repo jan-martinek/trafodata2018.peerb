@@ -1,0 +1,35 @@
+bloom: remember
+allowRepeat: question
+vars:
+  term:
+    - pojem **programování**
+    - pojem **program**
+    - pojem **skriptování**
+    - pojem **skript**
+    - pojem **javascript**
+    - pojem **programovací jazyk**
+    - jak snadno vygooglit něco o javascriptu
+    - jak snadno vygooglit něco o programování
+    - jak snadno vygooglit něco o skriptování
+    - '**objektově orientované programování**'
+    - pojem **třída** v kontextu objektově orientovaného programování
+    - pojem **metoda** v kontextu objektově orientovaného programování
+    - pojem **objekt** v kontextu objektově orientovaného programování
+    - pojem **funkce** v kontextu javascriptu
+    - pojem **proměnná** v kontextu javascriptu
+    - pojem **parametr** v kontextu funkcí v javascriptu
+    - pojem **návratová hodnota** v kontextu funkcí v javascriptu
+    - pojem **literál** v kontextu javascriptu
+    - pojem **operátor** v kontextu javascriptu
+    - pojem **syntaxe** v kontextu javascriptu
+    - pojem **klíčové slovo** v kontextu javascriptu
+questions: >-
+  Popište *vlastními slovy* %term%. Ilustrujte popis alespoň třemi praktickými
+  příklady a odkažte se při vysvětlení na zdroj, z něhož jste čerpali.
+rubrics:
+  - checklist: Znalostní úlohy.
+    items:
+      - Úkol je správně zodpovězen a obsahuje 3 příklady.
+  - >-
+    Pokud má úloha nedostatky, uveďte zde zdroj, z něhož může autor/ka zjistit
+    správné řešení a krátce ho okomentujte.

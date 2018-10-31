@@ -1,0 +1,21 @@
+title: "Skriptování 2: Jak správně číst a psát"
+goals: |
+  Ve druhé lekci si potvrdíme již trochu zažité konvence jazyka
+  Javascript a zobecníme naučené věci.
+rubrics:
+  - Pokud jste objevili nějakou chybu, upřesněte, kde se nachází. Pokuste se problematiku osvětlit tak, aby to autorovi/autorce pomohlo.
+outline:
+  - reading.md
+  - odsazovani.yml
+  - otazky-syntax.yml
+  - jak-cist-kod.md
+  - jak-cist-kod.yml
+  - jak-psat-kod.md
+  - jak-psat-kod.yml
+  - pojmy.yml
+  - podminkove-vyrazy.md
+  - podminkove-vyrazy.yml
+  - vlocky.yml
+  - spojovani-retezcu-a-cisel.md
+  - spojovani-retezcu-a-cisel.yml
+  - podminecna-zelva.yml
