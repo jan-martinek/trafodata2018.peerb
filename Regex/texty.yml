@@ -1,0 +1,79 @@
+bloom: apply
+vars:
+  q:
+    - >-
+      Pomocí regulárního výrazu najděte *chyby v psaní interpunkčních čárek ve
+      větách* v souboru `kisk-books.txt`. V nalezených shodách identifikujte
+      několik typů výsledků (ne všechny budou chybně napsané čárky) a popište
+      je.
+    - >-
+      Pomocí regulárního výrazu vyhledejte všechny e-mailové adresy v souboru
+      `kisk-books.txt`. Následně sestavte regulární výraz, který vybere pouze
+      adresy autorů z akademických institucí (alespoň tří).
+    - >-
+      Najděte pomocí regulárního výrazu v souboru `kisk-books.txt` všechny
+      webové adresy. Následně použijte pro hledání výraz `\S{50}\S+` a popište,
+      zda nově nalezené řetězce nějak mění váš přístup k hledání v datovém
+      souboru.
+    - >-
+      Nalezněte pomocí regulárního výrazu v souboru `kisk-books.txt` všechna
+      jména lidí (ve tvaru *jméno příjmení*).
+    - >-
+      Nalezněte pomocí regulárního výrazu zmínky o zmiňovaných stoletích v
+      souboru `kisk-books.txt`. Jaká století jsou zmiňována nejčastěji? (Seřaďte
+      si v editoru výsledky hledání a pro rychlý přehled využijte čísla řádků.)
+    - >-
+      Vytvořte regulární výraz, který nalezne v souboru `kisk-books.txt` co
+      nejvíce ženských příjmení (v češtině). Z výsledků si vytáhněte unikátní
+      shody a zjistěte, jaké procento z nich jsou skutečná jména — upravte
+      regulární výraz tak, aby jeho úspěšnost byla aspoň 60 %.
+questions: >
+  V [datovém
+  souboru](https://is.muni.cz/auth/el/1421/podzim2018/VIKBA05/um/data.zip)
+  najdete tři soubory: 
+
+
+  - `crime-and-punishment.xhtml` obsahuje plný text knihy Zločin a trest v
+  anglickém jazyce ve formátu XHTML
+
+  - `kisk-books.txt` obsahuje texty všech PDF z
+  [eknihy.knihovna.cz](http://eknihy.knihovna.cz), které je možné převést do
+  čistého textu
+
+  - `prestupky-brno.csv` obsahuje záznamy o cca 170 tisících přestupků na území
+  Brna od 1. ledna 2016 do 14. května 2017
+
+
+  Při zpracování následujících tří úkolů vždy
+
+
+  1. sestavte funkční regulární výraz, 
+
+  2. podívejte se na výsledky,
+
+  3. a zamyslete se nad tím, jak regulární výraz upravit, aby byl přesnější.
+
+
+  Do vstupního pole popište první funkční variantu i upravený výraz, nalezené
+  výsledky a případné další poznámky, které vyžaduje zadání.
+
+
+  > **Tip:** Pokud zadání vyžaduje seřazené nebo unikátní výsledky, využijte
+  [funkcí editoru Sublime
+  Text](https://forum.sublimetext.com/t/is-there-a-way-to-sort-and-or-remove-duplicate-lines/3102).
+  Pokud budete pracovat s rozlišením verzálek a minusek, dejte si pozor, zda
+  máte zapnuté jejich rozlišování v použitém nástroji.
+
+
+  #### Úkol
+
+
+  %q%
+rubrics:
+  - checklist: ''
+    items:
+      - >-
+        Jsou uvedeny dva výrazy, pomocí nichž je možné dohledat správné
+        výsledky.
+      - Úkol je splněn kompletně a zcela bez chyb.
+  - 'Pokud se ve vyplněném úkolu objevují problémy, popište je.'

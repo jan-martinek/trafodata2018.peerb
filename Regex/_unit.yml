@@ -1,0 +1,20 @@
+goals: >
+  V této lekci prozkoumáme užitečnost funkce *Najít a nahradit* při psaní v
+  běžném jazyce a při užití značkovacích jazyků a jiných formálních syntaxí.
+  Zásadní součástí lekce jsou základy práce s *regulárními výrazy*, které
+  umožňují pracovat s hledáním a nahrazováním efektivněji a spolehlivěji.
+rubrics:
+  - >-
+    Pokud jste objevili nějakou chybu mimo poslední tři úkoly, upřesněte, kde se
+    chyby nachází. Pokuste se problematiku osvětlit tak, aby to autorovi/autorce
+    pomohlo.
+title: 'Najít, nahradit a regulární výrazy'
+outline:
+  - reading.md
+  - zaciname.yml
+  - googlujeme.yml
+  - vyhovujici-retezce.yml
+  - nahradit.yml
+  - texty.yml
+  - prestupky.yml
+  - crime-and-punishment.yml

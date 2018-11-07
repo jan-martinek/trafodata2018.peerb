@@ -1,0 +1,28 @@
+bloom: apply
+questions:
+  - >-
+    Vytáhněte pomocí regulárního výrazu z datového souboru `prestupky-brno.csv`
+    všechny citované zákony.
+  - >-
+    Vytáhněte pomocí regulárního výrazu z datového souboru `prestupky-brno.csv`
+    všechny citované vyhlášky.
+  - >-
+    Vytáhněte pomocí regulárního výrazu z datového souboru `prestupky-brno.csv`
+    všechny citované paragrafy zákonů.
+  - >-
+    Vytáhněte pomocí regulárního výrazu z datového souboru `prestupky-brno.csv`
+    informace o tom, kam jsou předávány přestupky.
+  - >-
+    Vytáhněte pomocí regulárního výrazu z datového souboru `prestupky-brno.csv`
+    léta narození pachatelů přestupků. Pomocí libovolného nástroje vykreslete
+    graf množství přestupků dle roku narození pachatelů (histogram). Graf
+    odevzdejte ve formě odkazu na soubor (můžete jej nahrát např. do ISu pomocí
+    [funkce Můj web](https://is.muni.cz/auth/muj_web/)).
+rubrics:
+  - checklist: ''
+    items:
+      - >-
+        Jsou uvedeny dva výrazy, pomocí nichž je možné dohledat správné
+        výsledky.
+      - Úkol je splněn kompletně a zcela bez chyb.
+  - 'Pokud se ve vyplněném úkolu objevují problémy, popište je.'

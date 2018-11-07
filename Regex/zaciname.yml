@@ -1,0 +1,13 @@
+bloom: understand
+comments: 10
+input: file
+questions: |
+  Zde nahrajte screenshot z RegexOne s nápisem „You've finished the tutorial!“.
+
+  Do pole pro komentáře popište, která z lekcí pro vás byla nejobtížnější a kterou považujete za nejpřínosnější (uveďte příklad uplatnění ve vaší běžné praxi v práci či při studiu).
+rubrics:
+  - checklist: ''
+    items:
+      - 'Je uvedeno, která lekce byla nejobtížnější a proč.'
+      - Je uvedeno a ilustrováno praktickým příkladem, která lekce byla nejpřínosnější.
+      - Screenshot je odevzdán dle zadání.

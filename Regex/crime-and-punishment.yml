@@ -1,0 +1,27 @@
+bloom: apply
+questions:
+  - >-
+    Zjistěte pomocí regulárních výrazů, kolikrát se v textu
+    `crime-and-punishment.xhtml` objevují slova blízká slovům `punishment` a
+    `crime`. Sestavte výrazy tak, aby nepasovaly na **žádná** slova, která k
+    daným slovům nemají blízko (např. *crimson*).
+  - >-
+    Vytvořte regulární výraz, který nalezne v textu knihy
+    `crime-and-punishment.xhtml` všechny citace z jiných textů (na úrovni HTML,
+    je potřebné vybrat *celý prvek*, který citaci obsahuje).
+  - >-
+    Najděte pomocí regulárního výrazu v textu `crime-and-punishment.xhtml`
+    všechny přímé řeči. Vysvětlete nepoměr při hledání pouze úvodních či
+    závěrečných uvozovek (pomocí dalšího hledání pomocí regulárního výrazu).
+  - >-
+    Najděte pomocí regulárního výrazu v textu `crime-and-punishment.xhtml`
+    všechna jména osob. Pokuste se vyvarovat falešným shodám (např. slovům na
+    začátcích vět). Unikátních výsledků by mělo být méně než 500.
+rubrics:
+  - checklist: ''
+    items:
+      - >-
+        Jsou uvedeny dva výrazy, pomocí nichž je možné dohledat správné
+        výsledky.
+      - Úkol je splněn kompletně a zcela bez chyb.
+  - 'Pokud se ve vyplněném úkolu objevují problémy, popište je.'

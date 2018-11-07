@@ -1,0 +1,6 @@
+bloom: remember
+questions: Co označuje v rámci řetězce v poli *Nahradit* výraz `$1`?
+rubrics:
+  - checklist: ''
+    items:
+      - Otázka je správně zodpovězená.
