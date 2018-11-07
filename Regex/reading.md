@@ -20,11 +20,11 @@ Začneme průchodem lekcemi [výukového kurzu a hry v jednom RegexOne](http://r
 
 Krom praktického cvičení se může hodit další materiál. Vzhledem k tomu, že jde o poměrně praktickou a dobře živě předveditelnou látku, doporučuji zejména názorná [videa Daniela Shiffmana](https://www.youtube.com/playlist?list=PLRqwX-V7Uu6YEypLuls7iidwHMdCM6o2w). Dají se objevit i videa v češtině, [například od vtipného řečníka Davida Grudla](http://www.youtube.com/watch?v=uzHIXuGzaaY) — ten během prvních pár minut shrnuje všechny základní věci, ale nejsou tak dobře ilustrované.
 
-<iframe width=\"560\" height=\"315\" style=\"margin-bottom: 1rem;\" src=\"https://www.youtube.com/embed/7DG3kCDx53c\" frameborder=\"0\" allowfullscreen></iframe>
+<iframe width="560" height="315" style="margin-bottom: 1rem;" src="https://www.youtube.com/embed/7DG3kCDx53c" frameborder="0" allowfullscreen></iframe>
 
 Pokud se učíte vizuálně, může vám pomoci nástroj [Regulex](https://jex.im/regulex/), který shluky písmen překládá do přehlednější schematické podoby. Výsledek může vypadat třeba takto ([nebo třeba takto](https://jex.im/regulex/#!flags=&re=%3C%5Ba-z0-9%5D%2B%3E%5B%5E%3C%5D%2B%3C%2F%5Ba-z0-9%5D%2B%3E)):
 
-<iframe frameborder=\"0\" width=\"600\" height=\"169\" style=\"margin-bottom: 1rem;\" src=\"https://jex.im/regulex/#!embed=true&flags=&re=ve(lr%7Crl)%5Byi%5Dba\"></iframe>
+<iframe frameborder="0" width="600" height="169" style="margin-bottom: 1rem;" src="https://jex.im/regulex/#!embed=true&flags=&re=ve(lr%7Crl)%5Byi%5Dba"></iframe>
 
 Pokud už trochu tušíte, o co jde, přečtěte si nějaký úvodní obecný text pro začátečníky — v angličtině je jich poměrně dost a nejsou těžké, např. [An Introduction to Regular Expressions](http://www.codeproject.com/Articles/939/An-Introduction-to-Regular-Expressions) (další výsledky z Googlu pro [intro regular expressions](http://www.google.com/search?q=regular+expressions+intro)). V češtině něco [najdete také](http://www.google.com/search?q=regulární+výrazy), ale bývají to o něco složitější texty.
 
@@ -33,7 +33,7 @@ Pokud už trochu tušíte, o co jde, přečtěte si nějaký úvodní obecný te
 
 Pracovat s reguláry můžete v editoru Sublime Text, kde stačí [zapnout hledání pomocí regulárních výrazů](http://docs.sublimetext.info/en/latest/search_and_replace/search_and_replace_overview.html). Pro přehlednější tvorbu výrazu můžete využít různé webové nástroje, které zvýrazňují jak části výrazu, tak nalezené shody: asi nejlepší z nich je [Regex101](https://regex101.com).
 
-<iframe frameborder=\"0\" width=\"600\" height=\"600\" style=\"margin-bottom: 1rem;\" src=\"https://regex101.com/r/X128py/3\"></iframe>
+<iframe frameborder="0" width="600" height="600" style="margin-bottom: 1rem;" src="https://regex101.com/r/X128py/3"></iframe>
 
 > Regex101 se na první pohled tváří složitě, ale vystačíte si se dvěma vstupními poli uprostřed stránky. Ostatní pole vám mohou pomoci, ale nejdůležitější je vizuální zpětná vazba, kterou tento nástroj poskytuje. 
 >
