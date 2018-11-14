@@ -132,10 +132,6 @@ rubrics:
       - Funkce `letterUpperA` je správně přejmenovaná.
       - Písmeno je jasně rozpoznatelné.
       - Písmeno je uvnitř rámečku (krom dotahů).
-      - >-
-        Želva je v závěru vždy na správné pozici (žlutá linka se kryje s pravou
-        hranou rámečku).
+      - Želva je v závěru vždy na správné pozici (žlutá linka je rovnoběžná s pravou hranou rámečku a želva je na účaří).
       - Při kreslení písmen jsou používány proměnné.
-      - >-
-        Kód obsahuje komentáře, které vysvětlují, jaká část kreslení se právě
-        odehrává.
+      - Kód obsahuje komentáře, které vysvětlují, jaká část kreslení se právě odehrává.
