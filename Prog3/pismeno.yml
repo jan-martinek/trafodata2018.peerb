@@ -1,0 +1,141 @@
+bloom: apply
+input: turtle
+allowRepeat: question
+vars:
+  letter:
+    - A (verzálka A)
+    - B (verzálka B)
+    - C (verzálka C)
+    - D (verzálka D)
+    - E (verzálka E)
+    - F (verzálka F)
+    - G (verzálka G)
+    - H (verzálka H)
+    - I (verzálka I)
+    - J (verzálka J)
+    - K (verzálka K)
+    - L (verzálka L)
+    - M (verzálka M)
+    - N (verzálka N)
+    - O (verzálka O)
+    - P (verzálka P)
+    - Q (verzálka Q)
+    - R (verzálka R)
+    - S (verzálka S)
+    - T (verzálka T)
+    - U (verzálka U)
+    - V (verzálka V)
+    - X (verzálka X)
+    - Y (verzálka Y)
+    - Z (verzálka Z)
+    - a (minuska A)
+    - b (minuska B)
+    - c (minuska C)
+    - d (minuska D)
+    - e (minuska E)
+    - f (minuska F)
+    - g (minuska G)
+    - h (minuska H)
+    - i (minuska I)
+    - j (minuska J)
+    - k (minuska K)
+    - l (minuska L)
+    - m (minuska M)
+    - n (minuska N)
+    - o (minuska O)
+    - p (minuska P)
+    - q (minuska Q)
+    - r (minuska R)
+    - s (minuska S)
+    - t (minuska T)
+    - u (minuska U)
+    - v (minuska V)
+    - x (minuska X)
+    - y (minuska Y)
+    - z (minuska Z)
+questions: Pomocí želvy nakreslete písmeno **%letter%** dle výše uvedeného zadání.
+prefill: |
+  var turtle, run, h = 200, w = 150, pad = 50;
+
+  var letterUpperA = function(t) {
+    // čísla jsem postupně nahodil
+    // metodou pokus/omyl
+    var alfa = 20.9;
+    var side = 210;
+    var middle = 90;
+
+    // levý dřík
+    t.right(alfa);
+    t.forward(side);
+
+    // první část pravého dříku
+    t.right(180-alfa*2);
+    t.forward(side*3/5);
+
+    // příčka
+    t.right(90+alfa);
+    t.forward(middle);
+    t.back(middle);
+    t.left(90+alfa);
+
+    // druhá část pravého dříku
+    t.forward(side*2/5);
+    t.left(180-alfa);
+  };
+
+
+  /**************************************
+   *                                    *
+   * úpravy ve zbytku kódu nejsou nutné *
+   * upravujte funkci letterUpperA      *
+   *                                    *
+   **************************************/
+
+  var frame = function(t) {
+    repeat(2).forEach(function() {
+      turtle.forward(h); turtle.right(90);
+      turtle.forward(w); turtle.right(90);
+    });
+  };
+
+  var repeat = function(n) {
+    return Array.apply(null, Array(n)).map(
+      function (_, i) {return i;}
+    );
+  };
+
+  p.setup = function() {
+    p.createCanvas(w + pad*2, h + pad*2);
+    p.angleMode(p.DEGREES);
+
+    turtle = new Turtle(p, pad, h + pad);
+    run = turtle.getRun();
+
+    turtle.color = 'white';
+    frame(turtle);    
+
+    turtle.color = 'black';
+    letterUpperA(turtle);
+
+    turtle.color = 'yellow';
+    turtle.forward(h);
+    turtle.right(720);
+  };
+
+  p.draw = function() {
+    p.background('#ccddff');
+    run.animate(5);
+  };
+rubrics:
+  - checklist: ''
+    items:
+      - Funkce `letterUpperA` je správně přejmenovaná.
+      - Písmeno je jasně rozpoznatelné.
+      - Písmeno je uvnitř rámečku (krom dotahů).
+      - >-
+        Želva je v závěru vždy na správné pozici (žlutá linka se kryje s pravou
+        hranou rámečku).
+      - Při kreslení písmen jsou používány proměnné.
+      - >-
+        Kód obsahuje komentáře, které vysvětlují, jaká část kreslení se právě
+        odehrává.

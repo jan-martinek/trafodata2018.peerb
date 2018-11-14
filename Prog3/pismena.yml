@@ -1,0 +1,65 @@
+bloom: apply
+input: turtle
+questions: |
+  V poslední úloze sestavíme vše dohromady. Vytvořte za pomocí funkcí, které jste zpracovali v předchozích úlohách, tento program:
+
+  1. Program se uživatele zeptá na nějaké slovo.
+  2. Pokud má k dispozici funkci, která umí vykreslit nějaké písmeno z daného slova, tak ono písmeno vykreslí.
+  3. Pokud nemá takovou funkci k dispozici pro žádné písmeno v předloženém slovu, dá to uživateli vědět a požádá ho o další slovo.
+
+  To je vše — potřebné funkce pro kreslení písmen si zkopírujte z předchozích úloh.
+
+  ### Tipy
+
+  - Celý běh programu si můžete rozdělit do několika funkcí a nepsat jej celý do funkce `askAndDraw()`. Bude tak pro vás snadnější odhalit chyby.
+  - Pro komunikaci s uživatelem můžete použít funkce `window.alert()` a `window.prompt()`.
+  - Krom samotného dotazu může být program klidně „ukecanější“ (může naznačit vhodná slova apod.).
+  - Pro hledání shody můžete použít metodu řetězce `match()`, která testuje shodu mezi řetězcem a jiným řetězcem nebo regulárním výrazem (viz [dokumentaci](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match)).
+  - Využijte podmínkovou konstrukci [if/else if/else](https://www.w3schools.com/js/js_if_else.asp).
+  - Pokud si nebudete něčím jistí, obracejte se na diskusní fórum a hledejte řešení — už samotný popis problému vám může pomoci s hledáním řešení.
+prefill: |
+  var turtle, run, h = 200, w = 150, pad = 50;
+
+  var askAndDraw = function(t) {
+
+  };
+
+  /* zde si můžete zkopírovat vytvořené funkce z předchozích úloh */
+
+  /**************************************
+   *                                    *
+   * úpravy ve zbytku kódu nejsou nutné *
+   * upravujte funkci letterUpperA      *
+   *                                    *
+   **************************************/
+
+  var repeat = function(n) {
+      return Array.apply(null, Array(n)).map(
+      function (_, i) {return i;}
+    );
+  };
+
+  p.setup = function() {
+    p.createCanvas(w + pad*2, h + pad*2);
+    p.angleMode(p.DEGREES);
+
+    turtle = new Turtle(p, pad, h + pad);
+    run = turtle.getRun();  
+
+    turtle.color = 'black';
+    askAndDraw(turtle);
+
+    turtle.right(720);
+  };
+
+  p.draw = function() {
+    p.background('#ccddff');
+    run.animate(5);
+  };
+rubrics:
+  - checklist: ''
+    items:
+      - Program je funkční.
+      - Program vyžaduje a správně využívá uživatelský vstup.
+      - Program správně rozpoznává, zda je písmeno dostupné.
+      - Program správně vykreslí dostupné písmeno.

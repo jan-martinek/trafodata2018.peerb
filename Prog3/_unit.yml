@@ -1,0 +1,12 @@
+goals: >
+  Ve třetí lekci skriptování si vyzkoušíme nakreslit něco komplexnějšího a poskládáme si funkční program.
+rubrics:
+  - Pokud jste objevili nějakou chybu, upřesněte, kde se chyby nachází. Pokuste se problematiku osvětlit tak, aby to autorovi/autorce pomohlo.
+title: 'Skriptování 3: Hrajeme si s písmenky'
+outline:
+  - pismena-uvod.md
+  - count: 5
+    filename: pismeno.yml
+  - pismena.yml
+
+  
