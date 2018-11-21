@@ -48,14 +48,9 @@ questions: >
   využita v příkladu. Výsledek popište do komentáře (přímo v kódu).
 
 
-  > **Tip:** Při takto dlouhé iteraci určitě využijete možnost vykreslit celý
-  výsledek okamžitě namísto animace – nahraďte volání `run.animate()` za volání
-  `run.print()` a výsledek se vytiskne okamžitě. 
-
-  >
-
-  > Společně s voláním `p.background()` můžete takové vykreslování přesunout
-  přímo do funkce `p.setup()` — statický obrázek vykreslíte jednou a stačí to.
+  > **Tip:** Při takto dlouhé iteraci určitě využijte možnost vykreslit celý
+  výsledek okamžitě namísto animace — výsledek se vytiskne okamžitě pomocí `run.print()`. 
+  Ale můžete využít i klasickou animaci želvy ve funkci `p.draw()` jako v jiných úkolech.
 prefill: |
   var turtle, run, size = toy.measure();
 
