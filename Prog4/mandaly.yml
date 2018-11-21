@@ -1,0 +1,73 @@
+bloom: create
+input: p5
+questions: >
+  ### Generátor mandal
+
+
+  Kód je opět velmi podobný tomu, s nímž jsme se potkali výše při kreslení
+  (úlohy 6 a 7). Tentokrát je však pozice myši před samotným kreslením převedená
+  na vektor, který je vztažený ke středu kreslícího plátna.
+
+
+  **Vícenásobnou rotací tohoto vektoru** napodobte fungování aplikace
+  [Amaziograph](http://www.amaziograph.com), která umožňuje vícenásobně
+  symetrické kreslení — pro příklad se [podívejte na
+  videa](https://www.youtube.com/results?search_query=amaziograph). Výsledkem
+  jsou tvary, které mohou připomínat
+  [mandaly](https://en.wikipedia.org/wiki/Mandala).
+
+
+  Krom rotace upravte některé vlastnosti skriptu, aby byl výsledek vizuálně
+  pestřejší. Pro inspiraci několik příkladů možného odlišení:
+
+
+  - Namísto kreslení kolečka můžete kreslit jiné útvary.
+
+  - Použijte ke kreslení různé barvy (mohou se měnit podle rotace nebo v
+  závislosti na velikosti vektoru).
+
+  - Použijte část skriptu, který jste vytvořili výše a umožňete přepínání barev
+  pomocí pravého tlačítka myši.
+
+  - Uložte si bokem staré souřadnice a pak je použijte pro nakreslení spojnice s
+  aktuálním vektorem. (Pozor: proměnné si vydefinujte na začátku skriptu, jinak
+  nebudou uložené hodnoty dostupné při dalším volání funkce `draw()` — pro více
+  informací o googlujte „[javascript
+  scope](https://www.google.cz/search?q=javascript+scope)“ nebo „[javascript
+  viditelnost
+  proměnných](https://www.google.cz/search?q=javascript+viditelnost+prom%C4%9Bnn%C3%BDch)“.)
+
+
+  > **Tip:** Vytvořené mandaly neukládejte a přijměte pomíjivost světa. Kód
+  generátoru nicméně uložte, abyste nepřišli o body.
+rubrics:
+  - checklist: ''
+    items:
+      - Generátor funguje dle zadání.
+      - >-
+        V samotné kresbě jsou alespoň dvě úpravy (barvy, tvar, jiné možnosti
+        interakce atp.).
+prefill: |
+  var size = toy.measure();
+  var center;
+
+  p.setup = function() {
+    p.createCanvas(size.w, size.h);
+    p.angleMode(p.DEGREES);
+    center = p.createVector(size.w/2, size.h/2);
+  };
+
+  p.draw = function() {
+    if (p.mouseIsPressed) {
+      var fromCenter = p.createVector(
+        center.x - p.mouseX, 
+        center.y - p.mouseY
+      );
+
+      p.ellipse(
+        center.x - fromCenter.x, 
+        center.y - fromCenter.y, 
+        10
+      );  
+    }
+  };

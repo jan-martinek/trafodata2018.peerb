@@ -1,0 +1,142 @@
+bloom: apply
+comments: 5
+input: turtle
+vars:
+  chart:
+    - koláčový graf
+    - sloupcový graf
+  array:
+    - '[34, 21, 45]'
+    - '[12, 56, 32]'
+    - '[80, 9, 11]'
+    - '[51, 22, 22, 5]'
+    - '[22, 25, 34, 19]'
+questions: >
+  Nakreslete pomocí želvy **%chart%**, který znázorňuje hodnoty udané v poli
+  `%array%`. Cílem není nakreslit podrobný graf — nemusíte kreslit osy,
+  popisovat hodnoty nebo vybarvovat plochy — stačí, aby 
+
+
+  - připomínal daný typ grafu, 
+
+  - vyplňoval užitečně prostor daný bílým obdélníkem, který želva kreslí na
+  začátku, 
+
+  - a **správně vyjadřoval zadané číselné hodnoty**.
+
+
+  Algoritmus pro kreslení grafu nejprve popište do pole pro komentář. Pokud si
+  nejste jisti algoritmem, zeptejte se klidně v diskusním fóru, zda je vaše
+  řešení správné. Vykreslování grafu popište alespoň dvěma funkcemi.
+
+
+  V předvyplněném kódu vidíte příklad vykreslení bodového grafu pro dlouhou
+  číselnou řadu. (Zadaný %chart% můžete vykreslit i jednodušším kódem.)
+
+
+  > **Tipy:** Želvu si na začátku výhodně umístěte pomocí volání nastavení
+  proměnné `turtlePos`. Kreslení bílého obdélníku můžete vypnout nastavením
+  proměnné `showBoundaries`. Stejně tak můžete zapnout okamžité vykreslení
+  výsledku pomocí proměnné `printAtOnce`. (Podívejte se pro zajímavost, jak jsou
+  použity zmíněné proměnné níže v kódu.)
+rubrics:
+  - checklist: ''
+    items:
+      - Algoritmus je správně popsaný v pole pro komentáře.
+      - Graf je správně vykreslený a pracuje se správnými daty.
+prefill: |
+  var turtle, run, 
+    size = toy.measure(),
+    printAtOnce = false,
+    showBoundaries = true,
+    turtlePos = { x: 20, y: 340 };
+
+  // datová sada
+  var values = [0, 2, 5, 6, 7, 7, 8, 9, 10, 12, 14, 15, 16, 16, 17, 17, 18, 19, 20, 21, 22, 23, 24, 23, 22, 21, 20, 22, 23, 22, 24, 26, 26, 27, 29, 29, 30, 30, 32, 33, 34, 35, 35, 36, 37, 38, 39, 39, 39, 40, 41, 43, 43, 44, 45, 46, 48, 49, 5, 5, 7, 9, 10, 50, 50, 50, 51, 52, 53, 53, 57, 60, 61, 62, 62, 64, 65, 66, 67, 67, 67, 68, 69, 70, 70, 70];
+
+  // základní algoritmus
+  var drawChart = function(data) {
+    var gap = 430/data.length, unit = 3;
+
+    var drawSegment = function(i) {
+      drawDataPoint(data[i], unit, gap);
+      moveOn(gap);
+    };
+
+    repeat(drawSegment, data.length);
+  };
+
+  // kreslení datové hodnoty
+  var drawDataPoint = function(n, unit, gap) {
+    turtle.forward(unit * n);
+    drawTinyCircle();
+    turtle.back(unit * n); 
+  };
+
+  // kreslení grafického symbolu
+  var drawTinyCircle = function() {
+    turtle.penDown = true;
+    repeat(function() {
+      turtle.forward(2);
+      turtle.right(40);
+    }, 360/40);
+    turtle.penDown = false;
+  };
+
+  // posun k dalšímu bodu
+  var moveOn = function(gap) {
+    turtle.right(90);
+    turtle.forward(gap);
+    turtle.left(90);
+  };
+
+
+  /**************************************
+   *                                    *
+   * úpravy ve zbytku kódu nejsou nutné *
+   *                                    *
+   **************************************/
+   p.setup = function() {
+    p.createCanvas(size.w, size.h);
+    p.angleMode(p.DEGREES);
+    turtle = new Turtle(p, turtlePos.x, turtlePos.y);
+
+    if (showBoundaries) {
+      drawBoundaries();
+    }
+
+    drawChart(values);
+
+    run = turtle.getRun();
+
+    if (printAtOnce) {
+      run.print(10);
+    }
+  };
+
+  p.draw = function() {
+    if (printAtOnce == false) {
+      p.background(200);
+      run.animate(10);
+    }
+  };
+
+  var drawBoundaries = function() {
+    turtle.penDown = true;
+    turtle.color = 'white';
+
+    var boundaries = [320, 430, 320, 430];
+    for (var i = 0; i < boundaries.length; i++) {
+      turtle.forward(boundaries[i]);
+      turtle.right(90);
+    }
+
+    turtle.penDown = false; 
+    turtle.color = 'black';
+  };
+
+  var repeat = function(fn, n) {
+    var a = Array.apply(null, Array(n)).map(
+      function (_, i) {return i;}
+    ).forEach(fn);
+  };

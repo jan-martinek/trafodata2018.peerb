@@ -1,0 +1,34 @@
+bloom: create
+input: p5
+comments: 10
+questions: >
+  ### Zrcadlení
+
+
+  Kód je velmi podobný jako v příkladu výše — jen kreslí na dvou místech
+  zároveň.
+
+
+  Popište, jak kód funguje. Následně změňte *osu souměrnosti* a popište, jak
+  jste to udělali.
+rubrics:
+  - checklist: ''
+    items:
+      - Logika kreslení je popsaná v poli pro komentáře.
+      - 'Je popsáno, jak změnit osu souměrnosti.'
+      - Osa souměrnosti je ve skriptu upravena.
+prefill: |
+  var size = toy.measure();
+
+  p.setup = function() {
+    p.createCanvas(size.w, size.h);
+    p.fill('black');
+    p.noStroke();
+  };
+
+  p.draw = function() {
+    if (p.mouseIsPressed) {
+      p.ellipse(p.mouseX, p.mouseY, 20);  
+      p.ellipse(size.w - p.mouseX, p.mouseY, 20);
+    }
+  };

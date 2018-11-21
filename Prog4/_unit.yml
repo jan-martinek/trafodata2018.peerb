@@ -1,0 +1,18 @@
+goals: >
+  V závěrečné lekci si potvrdíme získané znalosti a vyzkoušíme si pár interaktivních skriptů.
+rubrics:
+  - >-
+    Pokud jste objevili nějakou chybu, upřesněte, kde se chyby nachází. Pokuste
+    se problematiku osvětlit tak, aby to autorovi/autorce pomohlo.
+title: 'Skriptování 4: Interaktivní programy'
+outline:
+  - intro.md
+  - zelvi-graf.yml
+  - kralik.yml
+  - kralik-screenshot.yml
+  - tabulka.yml
+  - kresleni-mysi.yml
+  - zrcadleni.yml
+  - vektory.yml
+  - mandaly.yml
+  - rekurze.yml

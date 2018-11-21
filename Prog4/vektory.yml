@@ -1,0 +1,120 @@
+bloom: apply
+input: p5
+questions: >
+  ### Vektory
+
+
+  Následující kód představuje koncept vektoru — jde o matematický koncept, který
+  dvěma a více čísly (souřadnicemi *x*, *y*, *z*…) označuje velikost a směr.
+  Běžné číslo (*skalár*) má pouze velikost.
+
+
+  > **Pozn.:** Při práci se želvou je práce s vektorem schována do dvou různých
+  operací: funkce `left()` a `rigt()` mění směr (interně uchovaný ve vektoru
+  nenulové délky), funkce `forward()` a `back()` jednorázově nastaví velikost
+  vektoru a želvu posunou.
+
+
+  My budeme používat pouze dvourozměrné vektory, ale práce s vícerozměným
+  prostorem již není o mnoho složitější. Tu nepříjemnou část (*počítání*) za vás
+  obstará *počítač* a tak může být práce s vektory poměrně zábavná.
+
+
+  Vektory jsou v podstatě souřadnice, s nimiž ale můžeme příjemně pracovat:
+  můžeme je sčítat a odčítat, násobit (skalárem i jiným vektorem) a dělit.
+  Výsledky se „spočítají samy“, tak je jednoduché vyzkoušet, jaké výsledky
+  jednotlivé operace přinášejí.
+
+
+  ### Vektorové operace
+
+
+  Sčítání vektorů je jednoduché — stačí souřadnice sečíst:
+
+      var v1 = p.createVector(10, 10);
+      var v2 = p.createVector(5, -5);
+      var sumVector = p.createVector(v1.x + v2.x, v1.y + v2.y);
+      
+  Nicméně díky dostupným funkcím je možné poslední řádek zapsat jednodušeji
+  (`v1` je neprve zkopírován — jinak by se sčítání promítlo přímo do něj):
+
+      var sumVector = v1.copy().add(v1, v2);
+
+  Když chceme vektor změnit, můžeme používat další metody — např. pro jeho
+  natočení nebo změnu jeho velikosti:
+    
+      var vector = p.createVector(10, 10);
+      vector.mult(2); // násobení skalárem — výsledek je dvakrát delší vektor
+      vector.rotate(90); // otočení o 90 stupňů po směru hodinových ručiček
+
+  ### Předvyplněný příklad
+
+
+  Předvyplněný kód používá dva vektory — ve funkci `setup()` jsou do vektoru
+  `center` vloženy souřadnice středu kreslícího pole a druhý, nazvaný `vector`,
+  je nastaven na hodnotu, kterou jsem si vymyslel. (Dalo by se též říct, že je
+  nastaven na arbitrární hodnotu vhodnou pro předváděcí účely.)
+
+
+  Během opakovaně volané funkce `draw()` je kresleno kolečko na souřadnice dané
+  součtem obou vektorů. Kód na řádcích 13—14 by tedy bylo možné přepsat také
+  takto:
+
+      p.ellipse(center.x + vector.x, center.y + vector.y, 5);
+      
+  Vektor se po nakreslení kolečka o něco otočí a zvětší (vynásobí číslem, které
+  je větší než 1), viz řádky 16–17. Díky tomu, že se funkce `draw()` opakuje
+  mnohokrát, je i zvětšení o tisícinu aktuální velikosti rychle a snadno patrné.
+
+
+  ### Zadání
+
+
+  Prozkoumejte daný kód a vytvořte odlišnou animaci na stejném principu:
+
+
+  - Použijte nějaké [jiné vektorové
+  funkce](https://p5js.org/reference/#/p5.Vector) (oddíl *Methods*), které
+  nejsou v předvyplněném kódu užité (klidně přidejte nějaký další vektor). 
+
+  - Použijte jinou kreslící funkci — namísto kruhu můžete kreslit například
+  obdélníky, trojúhelníky nebo čáry (viz
+  [reference](https://p5js.org/reference/), oddíl `Shape`). 
+
+  - Použijte barvy, které jsou odvozeny z nějaké dostupné proměnné (např. z
+  některé souřadnice či jejich součtů).
+
+
+  > **Pozn.:** [čára](https://p5js.org/reference/#/p5/line) je spojnice dvou
+  bodů, tzn. dvou sad souřadnic, tzn. dvou vektorů.
+
+
+  > **Tip:** Výplň nastavíte funkcí `fill()`, barvu čáry nebo obrysu pomocí
+  `stroke()`. Pokud chcete tvar bez výplně nebo obrysové čáry, použijte funkci
+  `noFill()`, resp. `noStroke()`.
+rubrics:
+  - checklist: ''
+    items:
+      - Animace je odlišná od původního příkladu.
+      - Jsou využity jiné vektorové funkce.
+      - Jsou využity jiné funkce pro kreslení tvarů.
+      - Výsledek je vykreslen několika různými odstíny barev.
+prefill: |
+  var size = toy.measure();
+  var center;
+  var vector;
+
+  p.setup = function() {
+    p.createCanvas(size.w, size.h);
+    p.angleMode(p.DEGREES);
+    center = p.createVector(size.w/2, size.h/2);
+    vector = p.createVector(30, 30);
+  };
+
+  p.draw = function() {
+    var position = center.copy().add(vector);
+    p.ellipse(position.x, position.y, 5);
+    
+    vector.rotate(8.1); // otáčení vektoru
+    vector.mult(1.001); // násobení vektoru
+  };

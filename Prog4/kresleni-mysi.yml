@@ -1,0 +1,56 @@
+bloom: create
+input: p5
+questions: >
+  ### Kreslení myší
+
+
+  Předvyplněný kód obsahuje velmi jednoduchý nástroj na kreslení. Doplňte kód
+  tak, aby bylo možné pomocí kliku pravým tlačítkem myši (či touchpadu)
+  opakovaně měnit barvu „štětce“ (všimněte si, jak se barva nastavuje v úvodu
+  skriptu).
+
+
+  Pro zachycení pravého kliknutí se nehodí funkce `draw()`, protože stihne i
+  během krátkého kliknutí proběhnout několikrát (volá se 30x za sekundu).
+  Využijte tedy možnost definovat funkci `mouseClicked()`, která se volá pouze
+  tehdy, když dojde k jednotlivému kliknutí a pomocí podmínky odchyťte kliknutí
+  pravým tlačítkem. Detaily hledejte v dokumentaci
+  [p5.js](https://p5js.org/reference/) (hledejte vlastnosti a metody obsahující
+  `mouse`).
+
+
+  > **Tip:** Některé barvy můžete nastavovat pomocí klíčových slov (např. `red`,
+  `blue`, `magenta`), ale můžete využít i další zápisy, na které jsme narazili:
+  hexadecimální zápis RGB (`#FF0000`), decimální zápis RGB (`rgb(255, 0, 0)`)
+  nebo decimální zápis HSL (`hsl(0, 100%, 50%)`). (Všechny příklady v závorkách
+  popisují stejnou červenou barvu.)
+
+  >
+
+  > Zajímavé může být přidání průhlednosti pomocí zápisů RGBA nebo HSLA
+  (`rgba(255, 0, 0, 0.5)`, resp. `hsla(0, 100%, 50%, 0.5)`, které umožní míchání
+  barev na plátně. Poměrně jednoduché je pak i vytvoření „kapátka“, kterým
+  můžete barvu nastavit pomocí kliknutí do plátna — stačí využít metodu `get()`.
+rubrics:
+  - checklist: ''
+    items:
+      - Klikem pravým tlačítkem myši (či touchpadu) je možné měnit barvu štětce.
+prefill: |
+  var size = toy.measure(), brushColor = 'black';
+
+  p.setup = function() {
+    p.createCanvas(size.w, size.h);
+    
+    p.fill(brushColor);
+    p.noStroke();
+  };
+
+  p.draw = function() {
+    if (p.mouseIsPressed) {
+      p.ellipse(p.mouseX, p.mouseY, 20);  
+    }
+  };
+
+  p.mouseClicked = function() {
+    
+  };

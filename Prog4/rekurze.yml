@@ -1,0 +1,101 @@
+bloom: create
+input: turtle
+questions: >
+  ### Rekurze
+
+
+  Poslední úkol se týká *rekurze*, což je situace, kdy funkce volá sebe
+  samotnou. Možná znáte *fraktály*, tedy obrazce, které jsou podobné sobě
+  samotným. Fraktály je možné popsat pomocí rekurzivních funkcí.
+
+
+  V příkladu níže vidíte funkci `forwardRightAndAgain()`, která želvě říká *"jeď
+  dopředu o nějakou vzdálenost, pak zaboč a udělej to znovu s trochu větší
+  vzdáleností"*. Výsledek je poměrně epický — zvláště, když v průběhu měníme
+  barvu propisky v závislosti na délce chůze.
+
+
+  Všimněte si, že v kódu není nijak použita funkce `repeat()` či nějaký
+  cyklus — vystačíme si s opakovaným voláním jediné funkce.
+
+
+  ### Dobrá a špatná zpráva
+
+
+  - Rekurzivní funkce mají úžasnou vlastnost: velmi jednoduchá funkce, která
+  sebe samu mnohokrát zavolá, může vytvořit velmi komplexní výsledky.
+
+  - Rekurzivní funkce mají také jednu zásadní negativní vlastnost: i jednoduché
+  funkce, které volají sebe samotné, mohou snadno zahltit sebevýkonnější
+  počítač. Proto je důležité dobře stanovit podmínku, kdy volání skončí.
+
+
+  > **Pozn.:** Popsaný kód obsahuje podmínku, že když by želva měla jet o více
+  než 500 pixelů dopředu, vykašle se na to. Kdyby tam tato podmínka nebyla,
+  želva by se snažila jet o 501, 502, 503… 1324… 1204971… pixelů atd. — což by
+  jednak nebylo vidět a krom toho by to zahltilo počítač, který by celé počínání
+  zatrhl předtím, než se dostane k jeho vykreslování. 
+
+  > 
+
+  > (Můj prohlížeč vykreslí třicet tisíc rekurzivních volání níže uvedené funkce
+  poměrně snadno, ale někde u 40000 už odmítne zpracování, protože skript
+  přesáhne povolené množství rekurzivních volání.)
+
+
+  Vytvořte svou vlastní rekurzivní funkci a dobře ji nazvěte, aby bylo zřejmé,
+  co dělá. Snažte se udělat funkci, která je výrazně odlišná od té, která je
+  využita v příkladu. Výsledek popište do komentáře (přímo v kódu).
+
+
+  > **Tip:** Při takto dlouhé iteraci určitě využijete možnost vykreslit celý
+  výsledek okamžitě namísto animace – nahraďte volání `run.animate()` za volání
+  `run.print()` a výsledek se vytiskne okamžitě. 
+
+  >
+
+  > Společně s voláním `p.background()` můžete takové vykreslování přesunout
+  přímo do funkce `p.setup()` — statický obrázek vykreslíte jednou a stačí to.
+prefill: |
+  var turtle, run, size = toy.measure();
+
+  var forwardRightAndAgain = function(length) {
+    var angle = 67;
+    
+    // nastavení barvy
+    var hue = Math.round(length%360);
+    turtle.color = 'hsl('+hue+', 100%, 50%)';
+
+    // pohyb
+    turtle.forward(length);
+    turtle.right(angle);
+
+    // rekurzivní volání pouze pokud 
+    // je délka menší než 500 pixelů
+    if (length < 500) {
+      forwardRightAndAgain(length + 1);
+    }
+  };  
+
+  p.setup = function() {
+    p.createCanvas(size.w, size.h);
+    p.angleMode(p.DEGREES);
+    
+    turtle = new Turtle(p);
+    run = turtle.getRun();
+    
+    forwardRightAndAgain(1);
+
+    p.background(200);
+    run.print();
+  };
+rubrics:
+  - checklist: ''
+    items:
+      - >-
+        Upravený skript je funkční a obsahuje funkci, která rekurzivně volá sebe
+        samotnou.
+      - Vykreslený výsledek je výrazně odlišný od původního příkladu v zadání.
+      - >-
+        Upravený skript je podrobně okomentovaný a je jasné, co která část
+        provádí.

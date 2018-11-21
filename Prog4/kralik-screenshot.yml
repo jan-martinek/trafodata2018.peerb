@@ -1,0 +1,12 @@
+bloom: create
+input: file
+comments: 3
+questions: >
+  Zde vložte otisk obrazovky z předchozí úlohy. Do komentáře popište, jak jste
+  dosáhli požadovaného bodového zisku.
+rubrics:
+  - checklist: ''
+    items:
+      - Zobrazené skóre je větší než 2000 bodů.
+      - Screenshot barevně odpovídá upraveným barvám v předchozím úkolu.
+      - 'V komentáři je popsáno, jak autor/ka dosáhl/a požadovaného skóre.'

@@ -1,0 +1,52 @@
+bloom: apply
+input: p5
+comments: 10
+questions: "### Proč se učit skriptovat?\n\nKreslení tvarů se želvou a geometrické a slovní hříčky jsou jen začátek: Javascript umožňuje tvorbu libovolné aplikace. Principiálně jde stále o podobné úlohy — **příjem vstupů, transformace dat funkcemi a zobrazování výsledků**. Výhodou Javascriptu je to, že nevyžaduje složité vývojové prostředí, protože si výsledné skripty můžeme spustit přímo v internetovém prohlížeči.\n\nJavascript umožňuje vyřešit úlohy, které jsme řešili v jiných lekcích — využijete regulární výrazy a můžete pracovat s tabulkovými daty i složitěji strukturovanými daty (např. vytaženými z databáze).\n\n**Někdy je jednodušší použít připravený nástroj, který je efektivní v řešení určité sady problémů** (jako např. tabulkový procesor), **jindy se může hodit flexibilita vlastního řešení**. Občas může být užitečné naprogramovat si vlastní kalkulačku nebo tabulkový procesor — anebo (častěji) najít na webu otevřenou implementaci a nějak si ji pro vlastní potřebu upravit.\n\nV Javascriptu jsou napsány i velké aplikace, které nejspíše často používáte — např. e-mailové klienty (Gmail, Seznam apod.), kancelářské aplikace (např. Google Documents, Google Spreadsheets). \n\nKrom Javascriptu potřebujete pro tvorbu aplikací ještě znalost HTML a stylopisů CSS (ty jsou zařazeny ve výuce jarního kurzu VIKBA07). Pro některé úlohy se obejdete i bez těchto dvou jazyků — např. při tvorbě vizualizací nebo her můžete využít knihovnu [p5.js](https://p5js.org), kterou jsme využívali v tomto kurzu.\n\n\n#### Algoritmizace\n\nKonkrétní jazyky však nejsou tou nejdůležitější dovedností. **Tou je schopnost sestavit zadání pro počítač — tedy tvorba algoritmů.** Čtyři lekce tohoto kurzu jsou v této oblasti jen náznakem: nicméně byste si nyní měli být schopni představit, co taková činnost zahrnuje (od definice algoritmu, po jeho vývoj a vyzkoušení) a jaké výhody přináší užití počítačů (např. možnost opakovaně zkoušet, jestli „to funguje“ a průběžně odchytávat chyby).\n\nPokud vás to zaujalo, můžete pokračovat čtením [článků na Wikipedii](https://en.wikipedia.org/wiki/Algorithm_design) a následně i odkazovaných zdrojů. Většina postupů v tomto kurzu (učení želvy, definice funkcí apod.) odpovídá metodikám „[rozděl a panuj](https://en.wikipedia.org/wiki/Divide_and_conquer_algorithms)“. \n\nNenechte se odradit občasným matematickým jazykem — většinou stačí přeskočit úvodní kondenzovanou větu či odstavec. Mnoho zdrojů je napsáno přístupně (např. *[The Algorithm Design Manual](http://www.algorist.com)* od Stevena Skieny).\n\n\n#### Vnořené pole: vícerozměrná data\n\nTeď se vrátíme k poli — datové struktuře, která obsahuje seřazené hodnoty (všimněte si podobnosti s řetězcem: místo písmen seřazených za sebou jde jen o rozmanitější hodnoty). Seřazené hodnoty se dají využít v algoritmu, který je nějak přelouská — najde v nich buď data nebo příkazy. \n\nVelmi jednoduché želví skripty bychom mohli zapsat pomocí pole a následně pomocí skriptu takový zápis načíst a provést. Konvence mohou být různé — můžeme střídat příkaz a hodnotu anebo je poskládat do menších polí po dvojicích:\n\n    var run = ['forward', 30, 'right', 90, 'color', 'red',  'back', 10];\n    var run2 = [['forward', 30], ['right', 90], ['color', 'red'], ['back', 10]];\n\nPole se dá využít mnoha různými způsoby, jedním z nich je ukládání tabulkových dat. Příklad najdete v připraveném kódu.\_\n\nPřečtěte si kód (nejlépe s pomocí tipů z úkolů výše) a popište *podrobně* vlastními slovy do pole pro komentář, jak pracuje předvyplněný skript. Vykreslování používá knihovnu [p5.js](https://p5js.org), jejíž dokumentaci najdete [zde](https://p5js.org/reference/) — zde budete potřebovat znát především roli funkce `setup()` a předpis funkce `text()` (s oběma jsme se potkali již dříve).\n\n**Následně pozměňte kód tak, aby byl zvýrazněný první a poslední sloupec a také první a poslední řádek.** Využijte k tomu podmínky. Pro zvýraznění použijte nastavení výplňové barvy (metoda [`p.fill()`](https://p5js.org/reference/#/p5/fill)).\n\n> **Pozn.:** Tabulka záměrně nemá vykreslené okraje buněk pro zjednodušení skriptu.\n\n> **Pozn.:** Pro zjištění, zda proměnná existuje a obsahuje nenulovou hodnotu, můžeme použít krátkou konstrukci `if (názevProměnné) { … }`. Toto má ovšem nevýhodu: pokud bude proměnná obsahovat nulu nebo prázdný řetězec, vyhodnotí se podmínkový výraz jako `false` — a to občas nemusíme chtít. Stejně tak je problém, pokud bychom chtěli ověřit existenci prvku ve vícerozměrném poli, např. `arr[1][2]`: když nebude definována ani hodnota `arr[1]`, skončí běh skriptu chybou, protože nemá kde hledat vnořenou hodnotu.\n"
+rubrics:
+  - checklist: ''
+    items:
+      - Skript je podrobně popsaný.
+      - Požadované sloupce a řádky zvýrazněné.
+prefill: |
+  var size = toy.measure();
+
+  var head = [' ', 1, 2, 3, 4];
+  var row1 = ['Pavel', 3, 4, 7, 6, 20];
+  var row2 = ['Martina', 4, 5, 1, 4, 14];
+
+  var table = [
+    head, 
+    row1, 
+    row2,
+    ['Petr', 4, 2, 1, 2, 9],
+    ['Celkem', 11, 11, 9, 12, 43]
+  ];
+
+
+  p.setup = function() {
+    p.createCanvas(size.w, size.h);
+    drawTable();
+  };
+
+  var drawTable = function() {
+    p.fill('black');
+
+    var margin = 50;
+    var colWidth = 70;
+    var rowHeight = 30;
+    
+    repeat(function(row) {
+      repeat(function(column) {
+        var x = margin + column * colWidth;
+        var y = margin + row * rowHeight;
+
+        p.text(table[row][column], x, y);
+      }, table[row].length);
+    }, table.length);
+  };
+
+  var repeat = function(fn, n) {
+    var a = Array.apply(null, Array(n)).map(
+      function (_, i) {return i;}
+    ).forEach(fn);
+  };
