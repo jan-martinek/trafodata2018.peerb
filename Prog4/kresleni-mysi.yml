@@ -12,11 +12,23 @@ questions: >
 
   Pro zachycení pravého kliknutí se nehodí funkce `draw()`, protože stihne i
   během krátkého kliknutí proběhnout několikrát (volá se 30x za sekundu).
-  Využijte tedy možnost definovat funkci `mouseClicked()`, která se volá pouze
+  
+
+  <p><del>Využijte tedy možnost definovat funkci `mouseClicked()`, která se volá pouze
   tehdy, když dojde k jednotlivému kliknutí a pomocí podmínky odchyťte kliknutí
-  pravým tlačítkem. Detaily hledejte v dokumentaci
-  [p5.js](https://p5js.org/reference/) (hledejte vlastnosti a metody obsahující
-  `mouse`).
+  pravým tlačítkem.</del></p>
+
+
+  **Podstatná změna:** Díky kolegyni [za nahlášení problému v zadání](https://is.muni.cz/auth/cd/1421/podzim2018/VIKBA05/86213808?fakulta=1421;obdobi=7244;predmet=1132816;jp=v;jn=v), 
+  které pracuje s dnes již nefunkčním pravým klikem (změna v doporučení proběhla vloni a prohlížeče 
+  ji mezitím zapracovaly, viz [hlášení na Githubu](https://github.com/processing/p5.js/issues/1960)).
+  Použijte tedy namísto klikání myší zachycení stisknuté klávesy pomocí metody `keyTyped()`
+  a můžete klidně využít více různých kláves (pozor na záměnu s metodou `keyReleased()`, která
+  se chová odlišně).
+
+
+  Detaily hledejte v dokumentaci [p5.js](https://p5js.org/reference/) (hledejte vlastnosti 
+  a metody obsahující `key`).
 
 
   > **Tip:** Některé barvy můžete nastavovat pomocí klíčových slov (např. `red`,

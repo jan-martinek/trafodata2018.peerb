@@ -44,6 +44,8 @@ menu:
         link: https://is.muni.cz/auth/cd/1421/podzim2018/VIKBA05/
     -   val: Anon. feedback
         link: http://goo.gl/forms/14y1pi3ZzN
+    -   val: txoy (JS pískoviště)
+        link: https://jan-martinek.github.io/txoy/
 calendar:
     20180921T1600: Přednáška (D22)
     20180928T1600: Seminář (B2.33)
@@ -58,5 +60,6 @@ calendar:
     20181116T1600: Seminář (B2.33)
     20181123T1600: Přednáška (D22)
     20181130T1600: Seminář (B2.33)
+    20181204T1700: Videovýuka ([Youtube](https://www.youtube.com/watch?v=KNVJ8ZNHFEk))
     20181207T1600: Seminář (B2.33)
     20181214T1600: Přednáška (D22)
