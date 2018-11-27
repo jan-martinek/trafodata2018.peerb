@@ -14,17 +14,21 @@ questions: >
   během krátkého kliknutí proběhnout několikrát (volá se 30x za sekundu).
   
 
+  > **Podstatná změna:** Zadání původně pracovalo s pravým klikem.
+  Díky kolegyni [za nahlášení problému](https://is.muni.cz/auth/cd/1421/podzim2018/VIKBA05/86213808?fakulta=1421;obdobi=7244;predmet=1132816;jp=v;jn=v), 
+  který souvisí s tím, že pravým klik není podporován tak, jako dříve (změna v doporučení W3C 
+  proběhla vloni a prohlížeče ji mezitím zapracovaly, 
+  viz [hlášení na Githubu](https://github.com/processing/p5.js/issues/1960)).
+  
+
   <p><del>Využijte tedy možnost definovat funkci `mouseClicked()`, která se volá pouze
   tehdy, když dojde k jednotlivému kliknutí a pomocí podmínky odchyťte kliknutí
   pravým tlačítkem.</del></p>
+  
 
-
-  **Podstatná změna:** Díky kolegyni [za nahlášení problému v zadání](https://is.muni.cz/auth/cd/1421/podzim2018/VIKBA05/86213808?fakulta=1421;obdobi=7244;predmet=1132816;jp=v;jn=v), 
-  které pracuje s dnes již nefunkčním pravým klikem (změna v doporučení proběhla vloni a prohlížeče 
-  ji mezitím zapracovaly, viz [hlášení na Githubu](https://github.com/processing/p5.js/issues/1960)).
-  Použijte tedy namísto klikání myší zachycení stisknuté klávesy pomocí metody `keyTyped()`
-  a můžete klidně využít více různých kláves (pozor na záměnu s metodou `keyReleased()`, která
-  se chová odlišně).
+  Využijte tedy možnosti zachycení stisknuté klávesy pomocí metody `keyTyped()`.
+  Můžete klidně využít více různých kláves a přepínat mezi několika barvami
+  (pozor na záměnu s metodou `keyReleased()`, která se chová odlišně).
 
 
   Detaily hledejte v dokumentaci [p5.js](https://p5js.org/reference/) (hledejte vlastnosti 
@@ -46,7 +50,7 @@ questions: >
 rubrics:
   - checklist: ''
     items:
-      - Klikem pravým tlačítkem myši (či touchpadu) je možné měnit barvu štětce.
+      - Nějakým způsobem je možné měnit barvu štětce.
 prefill: |
   var size = toy.measure(), brushColor = 'black';
 
@@ -63,6 +67,6 @@ prefill: |
     }
   };
 
-  p.mouseClicked = function() {
+  p.keyTyped = function() {
     
   };
