@@ -1,0 +1,26 @@
+bloom: create
+input: file
+comments: 5
+questions: >
+  Ze [sdíleného souboru](https://goo.gl/n2blnx) využijte list „Akcie“. Do
+  sloupce „Hodnota (Kč)“ vypočítejte hodnotu akcií podle kurzu v tabulce vlevo.
+  Do políčka „Celkem“ pak hodnotu celého portfolia. Všechny hodnoty upravte na 2
+  desetinná místa (pomocí formátování). Výsledek odevzdejte ve formátu XLSX
+  (využijte export z Google Tabulek).
+
+
+  Použijte vzorce tak, aby se automaticky přepočítala hodnota portfolia a jeho
+  položek, když se změní počet akcií, stav kurzu nebo název společnosti v
+  portfoliu.
+
+
+  Použijte funkci `VLOOKUP` (možná znáte českou variantu `SVYHLEDAT`). Postup
+  stručně popište a vypište funkce, které jste použili.
+      
+  > **Pozn.:** Jedná se o skutečný kurzovní lístek. Portfolio je smyšlené.
+rubrics:
+  - checklist: ''
+    items:
+      - Hodnoty portfolia jsou správně spočítány.
+      - Sumy jsou naformátovány dle zadání.
+      - Postup je popsaný v komentáři.

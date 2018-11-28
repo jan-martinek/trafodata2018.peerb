@@ -1,0 +1,14 @@
+bloom: apply
+input: code
+questions:
+  - >-
+    Vytvořte seznam textových řetězců, které **začínají na** malá i VELKÁ
+    písmena, číslice i ostatní znaky (např. `#@$%` atp.). Seřaďte je pomocí
+    Google Tabulek od nejmenšího po největší. Popište, jak je procesor seřadil
+    (zda jsou čísla před písmeny a podobně).
+rubrics:
+  - checklist: ''
+    items:
+      - Je vytvořen seznam řetězců dle zadání.
+      - Pro řazení je využito filtru.
+      - 'Je popsáno, jak jsou řetězce seřazeny.'

@@ -1,0 +1,10 @@
+bloom: remember
+questions:
+  - >-
+    Co znamená symbol dolar (`$`) před zápisem buňky ve vzorci? Např. `=A1 +
+    $D$1`. Jak byste tuto možnost využili?
+rubrics:
+  - checklist: ''
+    items:
+      - Užití `$` je správně popsané vlastními slovy.
+      - Je uveden praktický příklad užití tohoto symbolu při zápisu vzorce.

@@ -1,0 +1,24 @@
+bloom: create
+input: file
+comments: 10
+questions: >
+  Vytvořte tabulku, která bude mít alespoň 5 řádků (+ hlavička) a 10 sloupců.
+  Tabulka bude popisovat alespoň 5 objektů, které mají podobné vlastnosti. V
+  každém sloupci bude jeden atribut. Až budete mít tabulku vytvořenou, zamyslete
+  se, jaký typ hodnot mají jednotlivé atributy. Data v tabulce mohou být reálná
+  nebo smyšlená. Soustřeďte se na konzistenci dat.
+
+
+  > Příklad: Tabulka automobilů, ve sloupcích např. výrobce (text), model
+  (text), SPZ (šestimístný kód), barva (text, popř. kód barvy), počet míst k
+  sezení (celé číslo), objem válců (celé číslo), rok výroby (čtyřmístné číslo).
+
+
+  Výsledek odevzdejte ve formátu XLSX (využijte export z Google Tabulek) a popis
+  tabulky (včetně datových typů) vepište do pole pro komentáře.
+rubrics:
+  - checklist: ''
+    items:
+      - Tabulka je správně vytvořena.
+      - Data v tabulce jsou konzistentní.
+      - Data v tabulce jsou správně popsána.

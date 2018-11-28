@@ -1,0 +1,40 @@
+bloom: analyze
+input: file
+comments: 8
+questions: |
+  ### Importování dat a formát CSV
+
+  V úplně prvních lekcích tohoto kurzu jsme se zaobírali tím, jak psát dokumenty 
+  v prostém textu (plain text). Podobná možnost existuje i pro tabulky, např. 
+  pomocí souboru typu CSV. CSV se používá především pro přenos dat mezi různými 
+  aplikacemi, je snadno editovatelný a čitelný i bez speciálního editoru
+  (můžete se na něj podívat např. přímo v editoru Sublime Text).
+
+  Přečtěte si např. [heslo CSV na Wikipedii](https://cs.wikipedia.org/wiki/CSV). 
+  
+  ### Praktický import CSV
+
+  Na serveru [datahub.io](http://datahub.io) najděte dataset (tabulkový soubor s
+  daty), který je ve formátu CSV a přijde vám zajímavý. CSV soubor otevřete,
+  popř. z něj importujte data do tabulkového procesoru tak, aby hodnoty byly v
+  samostatných buňkách. Výsledek odevzdejte ve formátu XLSX (využijte export z
+  Google Tabulek).
+
+  Pokud bude příliš velký, zkraťte ho na prvních 1000 řádků.
+
+  Do komentáře vložte odkaz na původní CSV soubor. Stručně popište postup, proč
+  jste si vybrali tento soubor a jak by se s ním dalo dále pracovat, k čemu by
+  se data dala použít apod. Samotné zamyšlení nad významem a použití dat je v
+  této úloze důležitější, než odevzdání souboru (doporučená délka popisu dat a
+  jejich využití je 0,5—1 normostrany).
+rubrics:
+  - checklist: ''
+    items:
+      - V komentáři je odkaz na původní datový soubor.
+      - >-
+        Je odevzdán soubor ve formátu XLSX, který obsahuje data z datového
+        souboru.
+      - Je popsán důvod výběru daného datasetu.
+      - Jsou popsány další možnosti práce s takovým datasetem.
+      - Zamyšlení má požadovaný rozsah.
+  - 'Bylo by skutečně možné využít datový soubor tak, jak tvrdí autor/ka úkolu?'

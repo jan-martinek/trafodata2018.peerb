@@ -1,0 +1,40 @@
+bloom: create
+input: file
+comments: 10
+vars:
+  name1:
+    - křestní jméno
+    - příjmení
+  name2:
+    - křestní jméno
+    - příjmení
+questions: >
+  ### Filtry
+
+
+  V tabulkovém procesoru si vyzkoušejte používání filtrů a podmíněného
+  formátování. O filtrování jste si už přečetli v článku od Miroslava Lorence a
+  znalosti si můžete doplnit např na [stránkách Pavla
+  Lasáka](http://office.lasakovi.com/excel/data/seradit-a-filtrovat-excel/). Na
+  stejném místě najdete i informace o podmíněném formátování.
+
+
+  Vytvořte si kopii [sdíleného souboru Atlas ptactva](https://goo.gl/9D2Rk1).
+  Odstraňte z něj duplicity, vyfiltrujte záznamy, které začínají na stejné
+  písmeno jako vaše %name1% a ostatní vymažte. Ve druhém sloupci zvýrazněte vaší
+  oblíbenou barvou záznamy, které začínají na písmeno jako vaše %name2%. (Do
+  komentáře vepište vaše iniciály. Pokud seznam neobsahuje záznamy, které
+  vyhovují zadání, vyberte si jiné písmeno a též to poznačte do komentáře.) Ve
+  třetím sloupci zvýrazněte kladné záznamy zelenou výplní a záporné červenou
+  výplní.
+
+
+  Výsledek odevzdejte ve formátu XLSX (využijte export z Google Tabulek).
+rubrics:
+  - checklist: ''
+    items:
+      - Data jsou odevzdána ve správné podobě.
+      - Z dat jsou odstraněny duplicity.
+      - 'Jsou vymazány záznamy, které nevyhovují podmínkám v zadání.'
+      - Barevné zvýraznění ve druhém sloupci je provedeno dle zadání.
+      - Kladné a záporné záznamy jsou zvýrazněny pomocí podmíněného formátování.

@@ -1,0 +1,27 @@
+goals: >
+  Po práci s textem a skripty nyní přejdeme k **datům v tabulkách** — jinými
+  slovy k *seznamům záznamů*. Budeme je navrhovat, hledat v nich, řadit je a
+  filtrovat. Osvojíme si práci s tabulkovými procesory. 
+
+
+  Během studia a následně v praxi budete pracovat např. s otevřenými daty,
+  korporátními daty, odpověďmi na dotazníky nebo výzkumnými daty — a tato data
+  budou často reprezentována právě tabulkami.
+rubrics:
+  - >-
+    Pokud jste objevili nějakou chybu, upřesněte, kde se chyby nachází. Pokuste
+    se problematiku osvětlit tak, aby to autorovi/autorce pomohlo.
+title: Práce s tabulkovými daty
+outline:
+  - reading.md
+  - razeni-znaku.yml
+  - konzistence-dat.md
+  - konzistence-dat.yml
+  - typy-hodnot.yml
+  - filtry.yml
+  - vzorce.md
+  - funkce.yml
+  - dolar.yml
+  - svyhledat.yml
+  - seznam-zamestnancu.yml
+  - csv-import-praxe.yml

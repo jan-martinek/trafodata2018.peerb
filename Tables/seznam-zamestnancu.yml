@@ -1,0 +1,35 @@
+bloom: create
+input: file
+comments: 5
+questions: >
+  Ze [sdíleného souboru](https://goo.gl/n2blnx) využijte list „Seznam
+  zaměstnanců“.
+
+
+  Pomocí vzorců vypočítejte hodnoty:
+    
+  - Počet neproškolených BZOP,
+
+  - Celková prémie pro knihovníky,
+
+  - Průměrná prémie pro knihovníky,
+
+  - Příjmení zaměstnance s nejvyšší prémií.
+      
+  Použijte vzorce tak, aby když se změní pozice, informace o proškolení nebo
+  výše prémie, tak se hodnoty automaticky přepočítají. Hodnoty o prémiích
+  naformátujte na 2 desetinná místa + symbol „Kč“. Soubor uložte ve formátu XLSX
+  a odevzdejte.
+      
+  Postup stručně popište a vypište funkce, které jste použili.
+      
+  > **Pozn.:** Instituce a jména jsou smyšlená.
+rubrics:
+  - checklist: ''
+    items:
+      - Číselné hodnoty jsou správně spočítány.
+      - Číselné hodnoty jsou naformátovány dle zadání.
+      - >-
+        Příjmení zaměstnance s nejvyšší prémií je správně vybráno (pomocí
+        vzorce).
+      - Postup je popsaný v komentáři.

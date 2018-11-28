@@ -1,0 +1,57 @@
+bloom: apply
+count: 2
+allowRepeat: question
+vars:
+  entita:
+    - kniha
+    - počítač
+    - student
+    - vyučovací předmět
+    - počítačový program
+    - databáze knih
+    - sociální síť
+    - knihovna
+    - zoologická zahrada
+    - muzeum
+    - univerzita
+questions: >
+  Vymyslete k entitě „%entita%“ **po třech atributech různých datových typů**:
+  celé číslo, reálné číslo, text, datum/čas a logickou pravdu či nepravdu (tedy
+  celkem 15 atributů). Do závorky uveďte vždy jednotku a příklad hodnoty takového atributu.
+  
+
+  **Příklad:** U entity **květina** by mohl být atribut **frekvence zalévání** vyjádřený ve **dnech** 
+  a příkladem hodnoty by mohlo být celé číslo **3**.
+prefill: |
+  celá čísla:
+  - 
+  - 
+  - 
+
+  reálná čísla:
+  - 
+  - 
+  - 
+
+  textové řetězce:
+  - 
+  - 
+  - 
+
+  data/časy:
+  - 
+  - 
+  - 
+
+  logické pravdy:
+  - 
+  - 
+  - 
+rubrics:
+  - checklist: ''
+    items:
+      - Celočíselné atributy jsou vhodně zvolené.
+      - Atributy vyjádřené pomocí reálných čísel jsou vhodně zvolené.
+      - Řetězcové atributy jsou vhodně zvolené.
+      - Časové atributy jsou vhodně zvolené.
+      - Booleovské atributy jsou vhodně zvolené.

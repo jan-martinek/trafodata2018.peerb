@@ -1,0 +1,44 @@
+bloom: create
+input: file
+comments: 10
+vars:
+  country:
+    - českých
+    - amerických (USA)
+    - britských (Velká Británie)
+    - francouzských
+    - německých
+    - japonských
+  genre:
+    - komedií
+    - akčních filmů
+    - animovaných filmů
+  yearfrom:
+    - 1993
+    - 1994
+    - 1995
+    - 1996
+    - 1997
+    - 1998
+  yearto:
+    - 2011
+    - 2012
+    - 2013
+    - 2014
+    - 2015
+    - 2016
+questions: >
+  Na zájmovém webu [ČSFD.cz](http://www.csfd.cz/zebricky/specificky-vyber/)
+  vyhledejte žebříček %country% %genre% od roku %yearfrom% do %yearto%. Tabulku
+  prvních 20 filmů si zkopírujte do Google Tabulek (bez formátování). Následně
+  filmy seřaďte podle počtu hodnocení sestupně.
+
+
+  Pokud je v žebříčku méně než 20 filmů, vložte do tabulkového procesoru všechny
+  nalezené a napište do listu poznámku pro opravujícího.
+rubrics:
+  - checklist: ''
+    items:
+      - Data jsou vložena v tabulce.
+      - Data jsou správně vložena do tabulky (bez formátování).
+      - Data jsou správně seřazena dle počtu hodnocení.

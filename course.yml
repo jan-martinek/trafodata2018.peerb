@@ -39,6 +39,7 @@ units:
     - Regex
     - Prog3
     - Prog4
+    - Tables
 menu:
     -   val: Diskusní fórum
         link: https://is.muni.cz/auth/cd/1421/podzim2018/VIKBA05/

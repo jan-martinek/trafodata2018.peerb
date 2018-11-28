@@ -1,0 +1,23 @@
+bloom: analyze
+count: 2
+allowRepeat: question
+vars:
+  fn:
+    - SUMIF
+    - COUNTIF
+    - SUMPRODUCT
+    - VLOOKUP
+    - FIND
+    - TRIM
+    - INDEX
+    - FLOOR
+    - CEILING
+    - MATCH
+questions: |
+  Popište funkci `%fn%`. Jaké má parametry a k čemu byste ji použili? (Využijte 
+  dokumentace, ale formulujte vlastní odpověď.)
+rubrics:
+  - checklist: ''
+    items:
+      - Funkce je správně popsaná vlastními slovy.
+      - Je uveden praktický příklad užití dané funkce.
