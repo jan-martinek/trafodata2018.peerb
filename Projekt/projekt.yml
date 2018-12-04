@@ -1,0 +1,55 @@
+bloom: apply
+input: file
+comments: 10
+questions: |
+  Cílem závěrečného projektu je vytvoření „digitálního artefaktu“, který využívá a spojuje dovednosti nabyté v kurzu.
+
+  Využijte [připravených souborů](https://is.muni.cz/auth/el/1421/podzim2018/VIKBA05/um/zaverecny-projekt.zip), které obsahují ukázky zdrojového kódu. Ukázkami se můžete jednak inspirovat, můžete prozkoumat jejich funkčnost a zároveň můžete kusy kódu využít, vzájemně kombinovat, spojovat s kusy kódu ze zpracovaných úloh a podobně.
+
+  Práce na artefaktu by vám měla zabrat alespoň 3 hodiny. Kdybyste při plánování nebo realizaci narazili na nějaký problém, určitě to proberme v diskusním fóru.
+
+  Artefakt není hodnocený vzájemně mezi studenty, hodnotí jej vyučující.
+
+  Termín pro odevzdání artefaktu je 20. ledna 2019, ale můžete jej odevzdat dříve (budu hodnotit průběžně). Opravný termín je možný do 3. února 2019.
+
+
+  ### Požadavky
+
+  Artefakt musí splňovat několik podmínek:
+
+  - Artefakt zpracovává nějaké konkrétní téma, které vás zajímá (v kurzu, ve studiu, ale i jinde) a má stanovený cíl — co chce ukázat, představit, zprostředkovat apod.
+  - Je odevzdán ve **formě jednoho jednoduchého HTML souboru** tak, aby správně fungoval, když je umístěný ve složce s připravenými soubory. Může tedy využívat pouze souborů `knihovny/p5.js` a `knihovny/turtle.js`. Ostatní obsah (obrázky apod.) je nutné případně odkazovat z internetu (viz tip níže).
+  - Využívá smysluplně a užitečně následujících prvků:
+    - **HTML**
+    - **CSS**
+    - **práce s regulárními výrazy** nebo **skriptování** nebo **kreslení pomocí P5.js nebo želvy**
+  - Soubor má název ve tvaru `UCO-Jmeno-Prijmeni.html`.
+
+  Do pole pro komentář popište:
+
+  - záměr projektu (co + proč + jak)
+  - jak váš artefakt využívá výše uvedené povinné prvky
+
+  > **Tip:** Pokud chcete pracovat s obrázky, umístěte je někam na internet a do souboru je přiložte odkazem (viz např. soubor `obrazek-v-p5.html`, do něhož je vložen obrázek z Wikimedia).
+  >
+  > Dobrým místem pro zveřejnění obrázku může být funkce [Můj web v ISu](https://is.muni.cz/auth/help/komunikace/web?lang=cs#k_web_obsah) (nemusíte zprovoznit celý web, stačí nahrát obrázek, nastavit veřejná přístupová práva a použít odkaz na něj).
+
+
+  ### Forma
+
+  Artefakt může mít různé formy, např.:
+
+  - text ilustrovaný animacemi či obrázky vytvořenými v P5.js (popř. vykreslenými želvou),
+  - hra využívající if/else logiku, opakování a uživatelský vstup,
+  - animace, která se interaktivně mění na základě uživatelského vstupu,
+  - vizualizace nějaké datové sady pomocí kreslení v P5.js nebo pomocí želvy atp.
+
+  Pár příkladů toho, co se dá dělat s webovým obsahem:
+
+  - datový článek [kalkulačka exekucí](https://www.irozhlas.cz/ekonomika/kalkulacka-socialni-davky-exekuce_1811280900_jab) na iRozhlasu
+  - [domácí stránka P5.js](https://p5js.org), která na pozadí vždy zobrazuje nějaký výtvor
+  - galerie CSS, která jako základ používá stále stejný HTML soubor [CSS Zen Garden](http://www.csszengarden.com)
+  - hezky zpracovaný článek [Millenials Are Screwed](https://highline.huffingtonpost.com/articles/en/poor-millennials/)
+  - textová hra [The Writer Will Do Something](https://mrwasteland.itch.io/twwds)
+
+  Příklady nejsou laťkou, ale spíše ukázkou toho, co je možné — můžete si zkusit napodobit nějaký prvek nebo něco přímo převzít. Můžete převzít nějaký prvek, který máte sami rádi. Kód webových stránek je otevřený — u takto komplexních příkladů je často poměrně obtížně čitelný, ale pomocí Webového inspektoru v prohlížeči si můžete snadno prohlédnout každý konkrétní prvek stránky.
