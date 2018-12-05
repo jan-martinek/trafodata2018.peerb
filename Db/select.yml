@@ -1,0 +1,34 @@
+bloom: apply
+input: sql
+count: 2
+allowRepeat: question
+comments: 2
+vars:
+  goal:
+    - pouze názvy všech států
+    - název státu a velikost území na jednoho obyvatele
+    - 'všechno, co tabulka s informacemi o státech obsahuje'
+    - všechy státy seřazené podle rychosti populačního růstu
+    - >-
+      všechy státy seřazené podle velikosti území (seřazené od nejvyšší hodnoty
+      sestupně)
+    - >-
+      velikost území Japonska. Následně sestavte druhý dotaz, který vypíše názvy
+      všech států, které mají větší velikost území než Japonsko
+    - 'počet států, jejichž zkratka končí na "a"'
+    - 'počet států, jejichž zkratka začíná na "a"'
+questions: >
+  Ve [zkušební
+  aplikaci](https://tmp.jan-martinek.com/db2/?sqlite=&username=&db=factbook.db&sql=)
+  vytvořte dotaz SELECT, který vypíše %goal%. Dotaz zkopírujte do vstupního pole
+  a okomentujte.
+rubrics:
+  - checklist: ''
+    items:
+      - Dotaz je vytvořen správně.
+      - >-
+        Komentář popisuje strukturu dotazu nebo postup, jak autor/ka dotaz
+        sestavil/a.
+  - >-
+    Pokud jsou v řešení chyby, vysvětlete problémy a odkažte se při tom na
+    dokumentaci SQLite.

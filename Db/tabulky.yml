@@ -1,0 +1,48 @@
+bloom: create
+input: markdown
+questions: >
+  Na základě předchozí úlohy vytvořte dvě jednoduché tabulky s alespoň pěti
+  záznamů, které popisují různé entity. Tabulku zapište pomocí [syntaxe užívané
+  v markdownovém dialektu
+  GFM](https://help.github.com/articles/organizing-information-with-tables/) a
+  pod ni jako seznam sepište [datové typy sloupců užívaných v
+  SQLite3](https://www.sqlite.org/datatype3.html), tedy například:
+    
+      # school
+      
+      |id | name          | address                    | grade |
+      |---|---------------|----------------------------|-------|
+      |1  | Veselá školka | Steva Buscemiho 1, Blansko | MŠ    |
+      |2  | ZŠ Smutná     | DiCapriova 453/3, Kuřim    | ZŠ    |
+      |3  | Neutrální VOŠ | Lundgrenova 1, Adamov      | VOŠ   |
+      (…)
+      
+      - id (integer)
+      - name (text)
+      - address (text)
+      - grade (text)
+    
+  > **Tipy:** Kontinuální ohraničení sloupců můžete dodržovat, ale nemusíte
+  (syntax GFM to dovoluje). Pro účely této úlohy udržujte hodnoty krátké. Obsah
+  tabulky může popisovat skutečnost, ale můžete si i vymýšlet.
+prefill: |
+  |id | name          | address                    | grade |
+  |---|---------------|----------------------------|-------|
+  |1  | Veselá školka | Steva Buscemiho 1, Blansko | MŠ    |
+  |2  | ZŠ Smutná     | DiCapriova 453/3, Kuřim    | ZŠ    |
+  |3  | Neutrální VOŠ | Lundgrenova 1, Adamov      | VOŠ   |
+  |…  |||||
+
+  - id (integer)
+  - name (text)
+  - address (text)
+  - grade (text)
+rubrics:
+  - checklist: ''
+    items:
+      - Tabulky jsou definovány správně.
+      - Datové typy jsou vhodně zvolené.
+      - Hodnoty odpovídají sloupcům a datovým typům.
+  - >-
+    Pokud jsou v odpovědi chyby, popište je a vysvětlete, v čem spočívá správné
+    řešení.

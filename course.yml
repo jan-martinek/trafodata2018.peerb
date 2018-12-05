@@ -40,6 +40,7 @@ units:
     - Prog3
     - Prog4
     - Tables
+    - Db
     - Projekt
 menu:
     -   val: Diskusní fórum

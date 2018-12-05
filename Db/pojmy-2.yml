@@ -1,0 +1,39 @@
+bloom: remember
+comments: 3
+vars:
+  term:
+    - relační model
+    - objekt
+    - tabulka
+    - atribut
+    - vztah mezi tabulkami
+    - záznam
+    - tabulka
+    - hodnota
+    - funkce
+    - dotaz
+    - index
+    - identifikátor
+    - cizí klíč
+    - relace
+    - data
+    - řádek
+    - sloupec
+    - operátor
+    - datový typ
+    - podmínka
+    - návrh databáze
+questions: >
+  Dohledejte si informace ze tří různých zdrojů (z toho alespoň 2 v angličtině)
+  ke konceptu *%term%* v kontextu relačních databází. Na základě zdrojů sepište
+  vlastní definici a ilustrujte ji alespoň třemi příklady, pokud je to možné.
+
+
+  Do komentáře uveďte, jak se mezi sebou užité zdroje liší a jaké informace jste
+  vynechali.
+rubrics:
+  - checklist: ''
+    items:
+      - Definice termínu je správná.
+      - 'Pokud je to možné, popis obsahuje tři příklady.'
+      - 'Jsou uvedeny komentované zdroje, z nichž autor/ka čerpal/a.'

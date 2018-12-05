@@ -1,0 +1,25 @@
+bloom: apply
+questions:
+  - >-
+    Uveďte 5 příkladů software (konkrétní produkt), který využívá relační
+    databáze, ale uživatelé v nich sami nezadávají dotazy.
+  - >-
+    V kurzu se budeme soustředit pouze na *relační* databáze. Popište vlastními
+    slovy, co v tomto kontextu znamená slovo „relace“ a pojem „relační
+    databáze“. (Pokud jste na podobnou otázku odpovídali výše, stačí se odkázat
+    na dané řešení.)
+  - >-
+    V kurzu se soustředíme pouze na relační databáze. Vyjmenujte a krátce
+    vlastními slovy popište, jaké jiné typy databází existují a k čemu se
+    používají.
+  - >-
+    Rozdělte software, v nichž uživatelé používají dotazy SQL, na několik skupin
+    podle nějaké významné vlastnosti a vlastními slovy popište rozdíly mezi
+    těmito skupinami.
+  - >-
+    Jaké dialekty jazyka SQL existují? Existují mezi nimi rozdíly podstatné pro
+    člověka, který s SQL teprve začíná? Proč ano/ne?
+rubrics:
+  - checklist: ''
+    items:
+      - Odpověď je správná.

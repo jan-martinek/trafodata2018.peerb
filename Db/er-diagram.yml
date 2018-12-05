@@ -1,0 +1,254 @@
+bloom: create
+input: file
+comments: 3
+rubrics:
+  - checklist: ''
+    items:
+      - Soubor je odevzdán a obsahuje zpracovaný úkol. w0.5
+      - Entity (tabulky) jsou definovány správně.
+      - Atributy (sloupce) jsou vhodně zvolené.
+      - 'Je popsán problém, který toto schéma modeluje (tzn. je popsán účel, který schéma plní). w2'
+  - >-
+    Pokud jsou v odpovědi chyby, popište je a vysvětlete, v čem spočívá správné
+    řešení.
+vars:
+  object:
+    - rum
+    - kufr
+    - popelnici
+    - balíček
+    - dráhu
+    - tuleně
+    - obočí
+    - školu
+    - pírko
+    - lízátko
+    - klokana
+    - hrobníka
+    - víno
+    - církev
+    - úrodu
+    - seriál
+    - přehrávač
+    - konopí
+    - váhu
+    - králíka
+    - brk
+    - diář
+    - chemii
+    - benzín
+    - podlahu
+    - lokomotivu
+    - strach
+    - střep
+    - tlak
+    - škodu
+    - obchod
+    - pouto
+    - reproduktor
+    - rostlinu
+    - bombu
+    - vlas
+    - evakuaci
+    - lakomce
+    - šrám
+    - podchod
+    - uhel
+    - rovinu
+    - ukazovátko
+    - hyperbolu
+    - zdravotnictví
+    - veličinu
+    - kryt
+    - minutu
+    - supernovu
+    - nadávku
+    - motor
+    - zídku
+    - křídu
+    - kartel
+    - hlavu
+    - polibek
+    - jazyk
+    - borůvku
+    - šachy
+    - film
+    - zajíce
+    - kru
+    - operetu
+    - utěrku
+    - domov
+    - akt
+    - moment
+    - notifikaci
+    - bankéře
+    - náramek
+    - puchýř
+    - otevřenost
+    - nemčinu
+    - mikinu
+    - eufórii
+    - srandu
+    - beton
+    - bezmoc
+    - avatara
+    - ostrov
+    - pouť
+    - kuličku
+    - opasek
+    - lov
+    - hřib
+    - propisku
+    - telepatii
+    - zub
+    - fotoaparát
+    - samopal
+    - parabolu
+    - rotoped
+    - plenu
+    - štědrost
+    - silnici
+    - Vánoce
+    - královnu
+    - vzpomínku
+    - papír
+    - přítele
+    - skok
+    - mámu
+    - platinu
+    - sníh
+    - Velikonoce
+    - kondom
+    - léčebnu
+    - postel
+    - bezdomovce
+    - frakturu
+    - doutník
+    - bábovku
+    - manažera
+    - revoluci
+    - jelena
+    - šlapadlo
+    - porodnici
+    - věštce
+    - kužel
+    - mouku
+    - rýmu
+    - stůl
+    - zlato
+    - týden
+    - bakaláře
+    - motýla
+    - sysla
+    - dostih
+    - vypalovačku
+    - posla
+    - okurku
+    - bublaninu
+    - stavbu
+    - lesbu
+    - poštu
+    - zápach
+    - zedníka
+    - rovnoběžku
+    - len
+    - košili
+    - kaktus
+    - manželku
+    - revizora
+    - lucernu
+    - koalu
+    - lopuch
+    - internet
+    - pekáč
+    - osu
+    - člověka
+    - prs
+    - alkohol
+    - kulturistu
+    - metodiku
+    - lupu
+    - jed
+    - četbu
+    - vlčici
+    - poupě
+    - krb
+    - sušenku
+    - šišku
+    - klienta
+    - matiku
+    - ocas
+    - řezníka
+    - kolébku
+    - kastrol
+    - drát
+    - radiátor
+    - žurnalistiku
+    - šátek
+    - klan
+    - hypermarket
+    - klání
+    - výhru
+    - prášek
+    - letadlo
+    - virus
+    - motorku
+    - rým
+    - říši
+    - kapra
+    - palici
+    - svátek
+questions: >
+  > **Tip.:** Toto zadání chcete nejprve dočíst do konce :)
+
+
+  V tomto úkolu budete vytváře zjednodušené ER (Entity-Relationship) diagramy.
+  Inspirujte se příklady — v [prvním je vidět vztah mezi tabulkou a entitami
+  diagramu](http://jan-martinek.com/tmp/db/akcie.png), v dalším [je na ilustraci 
+  „tamagoči prasete“](https://www.gliffy.com/go/publish/9413765) předvedeno větší
+  množství entit. Můžete se podívat na poslední videovýuku, kde ukazuji modelování
+  na dvou příkladech (absurdním chovu lenochodů a poměrně představitelném
+  evidování knižních výpůjček). 
+
+
+  Pro nás je podstatné zakreslování *entit*, tedy tabulek (pomocí rámečků). Při
+  znázorňování *vztahů* mezi nimi (propojovací čáry) si vystačíme s jednoduchým
+  propojením bez dalších upřesnění (v diagramu tedy můžete použít libovolné
+  znázornění).
+
+
+  > Pokud budete chtít, můžete se podívat na nějaký úvodní článek, který vám
+  pomůže do problematiky lépe proniknout. Googlujte třeba [er diagram databáze
+  úvod](http://www.google.cz/search?q=er+diagramy+%C3%BAvod) (pěkné shrnutí v
+  češtině je [první stránka těchto skript z
+  FI](http://www.fi.muni.cz/~xnovak8/teaching/PB154/pb154-cesky-02.pdf)) nebo v
+  angličtině [intro to er diagrams
+  database](http://www.google.cz/search?q=intro+to+er+diagrams+database).
+
+
+  Pomocí papíru a tužky nebo webového nástroje [draw.io](https://www.draw.io)
+  **vytvořte schéma**, které popisuje **%object%** pomocí alespoň pěti různých entit
+  (tabulek). Využijte k tomu šablonky z kategorií *General* a *Entity Relation*.
+
+
+  > **Pozn.:** Výše uvedené příklady používají dvě tabulky (příklad s akciemi),
+  resp. tři tabulky (příklad s prasetem).
+
+
+  ## Modelujeme problém, nikoli celou skutečnost
+
+
+  Uvědomujte si, že jde stejně jako při práci s tabulkovým procesorem o *popis*,
+  který je selektivní — **nikdy nepopíšete vše**, realita je příliš *velká*. 
+  Takže to, jak sestavíte tabulky, závisí na účelu, který váš *ER model* plní. 
+  Účel popisu, tedy popisovaný problém, si předem vymyslete a popište do vstupního pole. 
+
+
+  > **Pozn.:** Účelem výše uvedeného příkladu s prasetem by mohl být *popis
+  zvířete, které žije v Tamagotchi nebo jiné počítačové hře*. Kdybychom chtěli
+  popsat prase jako zvíře chované k porážce anebo chtěli popsat Peppu, Porkyho a
+  jiná animovaná prasátka, chtěli bychom tabulkách nejspíše ukládat úplně jiná data.
+      
+      
+  Výsledek nahrajte do přílohy — diagram na na papíru vyfoťte, schéma vytvořené pomocí
+  draw.io vložte jako oříznutý otisk obrazovky.

@@ -1,0 +1,21 @@
+goals: >
+  **Databáze jsou víceméně sady tabulek, které umí odpovídat na otázky.**
+  Narozdíl od tabulkového procesoru už nepracujeme s jednotlivými políčky, ale
+  zajímají nás předem strukturované záznamy: jedna tabulka obsahuje informace o
+  lidech, druhá o domech a třetí o obcích — pokud jsou tabulky propojené, můžete
+  si snadno poskládat mnoho zajímavých informací o regionu.
+rubrics:
+  - >-
+    Pokud jste objevili nějakou chybu, pokuste se problematiku osvětlit tak, aby
+    to autorovi/autorce pomohlo.
+title: 'Databáze: struktura a dotazy'
+outline:
+  - reading.md
+  - teorie.yml
+  - pokusy.yml
+  - er-diagram.yml
+  - tabulky.yml
+  - pojmy.yml
+  - pojmy-2.yml
+  - select.yml
+  - uziti-db.yml

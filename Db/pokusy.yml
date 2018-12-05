@@ -1,0 +1,33 @@
+bloom: apply
+vars:
+  select:
+    - SELECT * FROM country WHERE area <= 400000 AND population > 100000000
+    - SELECT * FROM country WHERE population_growth >= 3
+    - SELECT * FROM country WHERE area <= 400000 AND population < 10000
+    - SELECT * FROM country WHERE area >= 400000 AND code LIKE "a%"
+    - SELECT * FROM country WHERE area >= 400000 AND code LIKE "%a"
+    - SELECT * FROM country WHERE area < 400000 AND code LIKE "%a"
+    - SELECT * FROM country WHERE name LIKE "%uk%" AND code LIKE "%a"
+    - SELECT * FROM country WHERE name LIKE "%uni%" AND code LIKE "u%"
+    - SELECT * FROM country WHERE name LIKE "United%" AND code LIKE "u%"
+    - SELECT * FROM country WHERE name LIKE "United%" AND area < 500000
+    - SELECT * FROM country WHERE name LIKE "C%" AND code LIKE "C%"
+questions: >
+  Bez toho, že byste si příliš pročítali materiály, si otevřete [zkušební
+  aplikaci](http://jan-martinek.com/tmp/db/?sqlite=&username=&db=factbook.db&sql=)
+  a vložte do pole pro SQL dotaz tento dotaz: `%select%`. Popište, co obsahuje
+  výsledná tabulka (pokud se objeví chyba, nejspíše jste dotaz zkopírovali
+  špatně — nevíte-li si rady, optejte se na fóru).
+
+
+  Zkuste dotaz měnit (vypisované hodnoty, parametry jako čísla, kódy států atp.)
+  a sledujte, jak se tabulka mění poté, co pozměněný dotaz spustíte (pomocí
+  tlačítka *Execute*). Zkuste vytvořit několik funkčních dotazů. Zkušenosti
+  popište.
+rubrics:
+  - checklist: ''
+    items:
+      - Odpověď obsahuje popis zobrazené tabulky.
+      - >-
+        Odpověď obsahuje několik příkladů, jak se tabulka mění, když jsou měněny
+        hodnoty parametrů v SQL dotazu. w2

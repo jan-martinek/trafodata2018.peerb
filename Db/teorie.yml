@@ -1,0 +1,16 @@
+bloom: remember
+count: 1
+questions:
+  - Jaký problém řeší relační databáze?
+  - Co znamená zkratka *SQL* a k čemu se SQL používá?
+  - V jakém software je možné používat SQL (tzn. přímo zadávat příkazy)?
+  - Kdo a kdy navrhl jazyk SQL?
+  - Stručně (alespoň 10 vět) popište historii jazyka SQL.
+  - >-
+    Zkratka *SQL* má dvě různé formy výslovnosti (*ɛs kjuː ˈɛl* a *siːkwəl*).
+    Zjistěte proč.
+rubrics:
+  - checklist: ''
+    items:
+      - Odpověď je správná.
+      - 'U odpovědi je uveden webový zdroj, z něhož autor/ka čerpal/a.'

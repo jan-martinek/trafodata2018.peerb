@@ -1,0 +1,26 @@
+bloom: apply
+count: 2
+allowRepeat: question
+vars:
+  keyword:
+    - '`FROM`'
+    - '`WHERE`'
+    - '`ORDER BY`'
+    - '`LIMIT`'
+    - '`AND`'
+    - '`OR`'
+    - '`IN`'
+    - '`ASC`'
+    - '`DESC`'
+questions: >
+  Popište vlastními slovy význam klíčového slova %keyword% v kontextu dotazů na
+  databázi (v příkazech `SELECT`). Uveďte vlastní vymyšlený příklad SQL dotazu,
+  který toto klíčové slovo používá a popište, na co se daný příklad ptá.
+
+
+  Příklad by měl mít základní strukturu a může obsahovat drobné chyby.
+rubrics:
+  - checklist: ''
+    items:
+      - Otázka je správně zodpovězená.
+      - Je uveden a popsán příklad SQL dotazu.
