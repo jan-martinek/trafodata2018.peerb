@@ -14,7 +14,7 @@ vars:
     - SELECT * FROM country WHERE name LIKE "C%" AND code LIKE "C%"
 questions: >
   Bez toho, že byste si příliš pročítali materiály, si otevřete [zkušební
-  aplikaci](http://jan-martinek.com/tmp/db/?sqlite=&username=&db=factbook.db&sql=)
+  aplikaci](http://tmp.jan-martinek.com/db2/?sqlite=&username=&db=factbook.db&sql=)
   a vložte do pole pro SQL dotaz tento dotaz: `%select%`. Popište, co obsahuje
   výsledná tabulka (pokud se objeví chyba, nejspíše jste dotaz zkopírovali
   špatně — nevíte-li si rady, optejte se na fóru).
